@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BBVA Net Cash</title>
+<style>
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body { font-family: Arial, sans-serif; font-size: 13px; color: #333; background: #fff; }
+
+  /* TOP BAR */
+  .top-bar {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 6px 14px;
+    height: 54px;
+  }
+  .logo-area { display: flex; align-items: center; gap: 6px; }
+  .logo-bbva { font-size: 22px; font-weight: bold; color: #004481; letter-spacing: -1px; }
+  .logo-bbva span { color: #1464A0; }
+  .logo-provincial { font-size: 13px; color: #004481; font-weight: bold; }
+  .logo-netcash { font-size: 10px; color: #009BDE; display: block; }
+  .top-right { display: flex; align-items: center; gap: 6px; }
+  .country-badge {
+    border: 1px solid #ccc;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #333;
+  }
+  .user-info {
+    background: #f0f7ff;
+    border: 1px solid #b3d4f0;
+    padding: 3px 10px;
+    border-radius: 2px;
+    font-size: 12px;
+    color: #004481;
+  }
+  .btn-top {
+    padding: 5px 12px;
+    border: none;
+    border-radius: 2px;
+    font-size: 12px;
+    cursor: pointer;
+    font-weight: bold;
+  }
+  .btn-admin { background: #004481; color: #fff; }
+  .btn-mas { background: #004481; color: #fff; }
+  .btn-ayuda { background: #004481; color: #fff; }
+  .btn-exit {
+    background: #c00;
+    color: #fff;
+    padding: 5px 8px;
+    border: none;
+    border-radius: 2px;
+    cursor: pointer;
+    font-size: 13px;
+    font-weight: bold;
+  }
+
+  /* SECONDARY NAV */
+  .sec-nav {
+    background: #fff;
+    border-bottom: 1px solid #ddd;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 4px 14px;
+    gap: 16px;
+    font-size: 12px;
+  }
+  .sec-nav a { color: #004481; text-decoration: none; }
+  .sec-nav a:hover { text-decoration: underline; }
+  .sec-nav .phone { color: #333; }
+  .sec-nav .lang { color: #004481; }
+  .sec-nav .sep { color: #ccc; }
+
+  /* BREADCRUMB */
+  .breadcrumb {
+    background: #f5f5f5;
+    border-bottom: 2px solid #009BDE;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 5px 14px;
+    font-size: 12px;
+  }
+  .breadcrumb .home-icon { color: #666; margin-right: 4px; }
+  .breadcrumb .location { color: #004481; font-weight: bold; }
+  .breadcrumb .feedback { color: #004481; font-size: 11px; text-decoration: none; }
+  .breadcrumb .feedback:hover { text-decoration: underline; }
+
+  /* MAIN LAYOUT */
+  .main-layout { display: flex; min-height: calc(100vh - 165px); }
+
+  /* SIDEBAR */
+  .sidebar {
+    width: 178px;
+    min-width: 178px;
+    background: #fff;
+    border-right: 1px solid #e0e0e0;
+    display: flex;
+    flex-direction: column;
+  }
+  .sidebar-menu { flex: 1; overflow-y: auto; }
+  .menu-item {
+    border-bottom: 1px solid #e8e8e8;
+  }
+  .menu-item > a, .menu-item > span {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 9px 12px;
+    font-size: 13px;
+    color: #333;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .menu-item > a:hover, .menu-item > span:hover { background: #f0f7ff; }
+  .menu-item.active > span {
+    background: #009BDE;
+    color: #fff;
+    font-weight: bold;
+  }
+  .menu-item.active > span .arrow { color: #fff; }
+  .menu-item.portada > a { color: #333; font-size: 13px; }
+  .arrow { font-size: 10px; color: #999; }
+  .submenu { background: #f9f9f9; display: none; }
+  .menu-item.active .submenu { display: block; }
+  .submenu a {
+    display: block;
+    padding: 7px 20px;
+    font-size: 12px;
+    color: #333;
+    text-decoration: none;
+    border-bottom: 1px solid #ebebeb;
+  }
+  .submenu a:hover { background: #e8f3fb; color: #004481; }
+
+  /* SIDEBAR COLLAPSE HANDLE */
+  .sidebar-handle {
+    position: relative;
+    width: 16px;
+    background: #e8e8e8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    border-right: 1px solid #d0d0d0;
+  }
+  .sidebar-handle::after {
+    content: '◀';
+    font-size: 10px;
+    color: #666;
+    background: #fff;
+    border: 1px solid #ccc;
+    border-radius: 50%;
+    width: 16px;
+    height: 16px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: -8px;
+  }
+
+  /* SEARCH BOX */
+  .sidebar-search {
+    display: flex;
+    align-items: center;
+    border-top: 1px solid #ddd;
+    padding: 8px 8px;
+    gap: 4px;
+    background: #fff;
+  }
+  .sidebar-search input {
+    flex: 1;
+    border: 1px solid #ccc;
+    padding: 4px 6px;
+    font-size: 12px;
+    color: #999;
+    outline: none;
+    border-radius: 2px;
+  }
+  .sidebar-search button {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #666;
+    font-size: 14px;
+    padding: 2px 4px;
+  }
+
+  /* CONTENT AREA */
+  .content {
+    flex: 1;
+    padding: 20px 28px;
+    background: #fff;
+  }
+  .content h2 {
+    font-size: 20px;
+    font-weight: normal;
+    color: #333;
+    margin-bottom: 28px;
+  }
+
+  /* OPERATIONS GRID */
+  .ops-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 0;
+  }
+  .ops-section { padding-right: 20px; }
+  .ops-section h3 {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 15px;
+    font-weight: bold;
+    color: #333;
+    margin-bottom: 14px;
+    padding-bottom: 0;
+  }
+  .ops-section h3 .icon {
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .ops-section h3 .icon svg { width: 28px; height: 28px; fill: none; stroke: #888; stroke-width: 1.5; }
+  .ops-section ul { list-style: none; padding-left: 12px; }
+  .ops-section ul li { margin-bottom: 5px; padding-left: 14px; position: relative; }
+  .ops-section ul li::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: #333;
+    font-size: 12px;
+  }
+  .ops-section ul li a {
+    color: #004481;
+    text-decoration: none;
+    font-size: 13px;
+  }
+  .ops-section ul li a:hover { text-decoration: underline; }
+
+  /* FOOTER */
+  .footer {
+    background: #f5f5f5;
+    border-top: 1px solid #ddd;
+    padding: 10px 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #555;
+  }
+  .footer-links { display: flex; gap: 16px; }
+  .footer-links a { color: #004481; text-decoration: none; }
+  .footer-links a:hover { text-decoration: underline; }
+
+  /* MODAL TELEFONO */
+  .modal-backdrop {
+    position: fixed;
+    inset: 0;
+    z-index: 10000;
+    background: rgba(0,0,0,0.45);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    transition: opacity 0.3s ease;
+    pointer-events: none;
+  }
+  .modal-backdrop.visible { opacity: 1; pointer-events: all; }
+  .ventanaModal {
+    background: #fff;
+    border: 1px solid #b3d4f0;
+    border-radius: 3px;
+    box-shadow: 0 8px 32px rgba(0,68,129,0.18);
+    width: 698px;
+    display: flex;
+    flex-direction: column;
+    overflow: hidden;
+  }
+  .modal-header {
+    border-bottom: 3px solid #009BDE;
+    padding: 14px 18px 10px 18px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: space-between;
+  }
+  .modal-logo { display: flex; flex-direction: column; line-height: 1.1; }
+  .modal-logo .bbva-text { font-size: 20px; font-weight: bold; color: #004481; }
+  .modal-logo .bbva-text span { color: #1464A0; font-weight: normal; font-size: 17px; }
+  .modal-logo .netcash-text { font-size: 11px; color: #009BDE; margin-top: 2px; }
+  .modal-close {
+    border: 1px solid #009BDE;
+    background: #fff;
+    color: #009BDE;
+    font-size: 13px;
+    font-weight: bold;
+    width: 22px; height: 22px;
+    display: flex; align-items: center; justify-content: center;
+    cursor: pointer;
+    border-radius: 2px;
+    line-height: 1;
+    flex-shrink: 0;
+  }
+  .modal-close:hover { background: #009BDE; color: #fff; }
+  .modal-body { padding: 28px 32px; }
+  .modal-body h2 {
+    font-size: 21px;
+    font-weight: bold;
+    color: #222;
+    margin-bottom: 24px;
+  }
+  .phone-entry { margin-bottom: 16px; }
+  .phone-link {
+    color: #009BDE;
+    font-size: 14px;
+    font-weight: bold;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 6px;
+    margin-bottom: 4px;
+  }
+  .phone-link:hover { text-decoration: underline; }
+  .phone-desc {
+    font-size: 13px;
+    color: #333;
+    margin-left: 22px;
+  }
+
+  /* LOADING OVERLAY */
+  .loading-overlay {
+    position: fixed;
+    inset: 0;
+    z-index: 9999;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(255,255,255,0.15);
+    pointer-events: all;
+  }
+  .loading-box {
+    display: flex;
+    align-items: center;
+    gap: 18px;
+    background: #fff;
+    border: 2px solid #009BDE;
+    border-radius: 4px;
+    padding: 22px 36px;
+    box-shadow: 0 2px 16px rgba(0,148,210,0.10);
+    font-size: 15px;
+    color: #333;
+    min-width: 340px;
+  }
+  .loading-spinner {
+    width: 36px;
+    height: 36px;
+    border: 4px solid #e0f0fb;
+    border-top-color: #009BDE;
+    border-radius: 50%;
+    animation: spin 0.9s linear infinite;
+    flex-shrink: 0;
+  }
+  @keyframes spin {
+    to { transform: rotate(360deg); }
+  }
+
+  /* BLUR on main-layout while loading */
+  .main-layout.loading-blur {
+    filter: blur(3px);
+    pointer-events: none;
+    user-select: none;
+    transition: filter 0.4s ease;
+  }
+  .main-layout {
+    transition: filter 0.4s ease;
+  }
+</style>
+</head>
+<body>
+
+<!-- TOP BAR -->
+<div class="top-bar">
+  <div class="logo-area">
+    <img src="https://www.provincialnetcash.com/landing/img/logo-bbva.png" alt="BBVA Provincial Net Cash" style="height:40px;object-fit:contain;">
+  </div>
+  <div class="top-right">
+    <span class="country-badge">Venezuela</span>
+    <div style="width:22px;height:14px;background:linear-gradient(#ffffff 33%,#fff 33%,#fff 66%,#ffffff 66%);border:1px solid #ccc;display:inline-block;vertical-align:middle;"></div>
+    <div class="user-info">
+      <strong>Hola YANKO PEÑA</strong><br>
+      <span style="font-size:11px;">Ref. 00010448</span>
+    </div>
+    <button class="btn-top btn-admin">Administración y Control</button>
+    <button class="btn-top btn-mas">Más Info...</button>
+    <button class="btn-top btn-ayuda">Ayuda</button>
+    <button class="btn-exit">&#x2715;</button>
+  </div>
+</div>
+
+<!-- SECONDARY NAV -->
+<div class="sec-nav">
+  <a href="#">Favoritos &#9660;</a>
+  <span class="sep">|</span>
+  <a href="#">Imprimir</a>
+  <span class="sep">|</span>
+  <span class="phone">0500-508.74.32 / +58-212-503.91.11 &#8679;</span>
+  <span class="sep">|</span>
+  <a href="#">Español &#9660;</a>
+</div>
+
+<!-- BREADCRUMB -->
+<div class="breadcrumb">
+  <div>
+    <span class="home-icon">&#8962;</span>
+    Usted está en: <span class="location">Portada</span>
+  </div>
+  <a href="#" class="feedback">Danos tu opinión &#x27A4;</a>
+</div>
+
+<!-- MAIN LAYOUT -->
+<div class="main-layout loading-blur" id="mainLayout">
+  <!-- SIDEBAR -->
+  <div style="display:flex;">
+    <div class="sidebar">
+      <div class="sidebar-menu">
+        <div class="menu-item portada">
+          <a href="#">Portada</a>
+        </div>
+        <div class="menu-item">
+          <span>Consultas <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item active">
+          <span>Pagos <span class="arrow">&#9650;</span></span>
+          <div class="submenu" style="display:block;">
+            <a href="#">Proveedores</a>
+            <a href="#">Nóminas</a>
+            <a href="#">Transferencias</a>
+            <a href="#">Servicios</a>
+            <a href="#">SENIAT</a>
+            <a href="#">Pagos Referenciados</a>
+          </div>
+        </div>
+        <div class="menu-item">
+          <span>Cobros <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Cheques <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Tarjetas <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Mercados <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Utilidades <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Archivos y Operación <span class="arrow">&#9660;</span></span>
+        </div>
+        <div class="menu-item">
+          <span>Firmas <span class="arrow">&#9660;</span></span>
+        </div>
+      </div>
+      <div class="sidebar-search">
+        <input type="text" placeholder="Buscar menús...">
+        <button>&#128269;</button>
+      </div>
+    </div>
+    <div class="sidebar-handle"></div>
+  </div>
+
+  <!-- CONTENT -->
+  <div class="content">
+    <h2>Operaciones Frecuentes</h2>
+    <div class="ops-grid">
+      <!-- PAGOS -->
+      <div class="ops-section">
+        <h3>
+          <div class="icon">
+            <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="5" width="24" height="18" rx="2" stroke="#888" stroke-width="1.5" fill="none"/>
+              <line x1="2" y1="10" x2="26" y2="10" stroke="#888" stroke-width="1.5"/>
+              <line x1="6" y1="15" x2="14" y2="15" stroke="#888" stroke-width="1.5"/>
+              <line x1="6" y1="18" x2="11" y2="18" stroke="#888" stroke-width="1.5"/>
+            </svg>
+          </div>
+          Pagos
+        </h3>
+        <ul>
+          <li><a href="#">Crear</a></li>
+          <li><a href="#">Crear</a></li>
+          <li><a href="#">Archivos en Confección</a></li>
+          <li><a href="#">Transferencias Frecuentes</a></li>
+        </ul>
+      </div>
+
+      <!-- FIRMAS -->
+      <div class="ops-section">
+        <h3>
+          <div class="icon">
+            <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+              <rect x="4" y="3" width="20" height="22" rx="2" stroke="#888" stroke-width="1.5" fill="none"/>
+              <line x1="8" y1="9" x2="20" y2="9" stroke="#888" stroke-width="1.5"/>
+              <line x1="8" y1="13" x2="20" y2="13" stroke="#888" stroke-width="1.5"/>
+              <path d="M8 19 Q11 16 14 19 Q17 22 20 19" stroke="#888" stroke-width="1.5" fill="none"/>
+            </svg>
+          </div>
+          Firmas
+        </h3>
+        <ul>
+          <li><a href="#">Pendientes de Firma</a></li>
+        </ul>
+      </div>
+
+      <!-- CONSULTAS -->
+      <div class="ops-section">
+        <h3>
+          <div class="icon">
+            <svg viewBox="0 0 28 28" xmlns="http://www.w3.org/2000/svg">
+              <rect x="2" y="3" width="24" height="22" rx="2" stroke="#888" stroke-width="1.5" fill="none"/>
+              <line x1="6" y1="9" x2="22" y2="9" stroke="#888" stroke-width="1.2"/>
+              <line x1="6" y1="13" x2="22" y2="13" stroke="#888" stroke-width="1.2"/>
+              <line x1="6" y1="17" x2="16" y2="17" stroke="#888" stroke-width="1.2"/>
+              <line x1="2" y1="7" x2="26" y2="7" stroke="#888" stroke-width="1.5"/>
+            </svg>
+          </div>
+          Consultas
+        </h3>
+        <ul>
+          <li><a href="#">Movimientos del Día</a></li>
+          <li><a href="#">Histórico de Movimientos</a></li>
+          <li><a href="#">Posición Global</a></li>
+          <li><a href="#">Saldos Contables</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL TELEFONO DE CONTACTO -->
+<div class="modal-backdrop" id="modalTelefono">
+  <div class="ventanaModal" id="kyop-lightbox-internal-container-div">
+    <div class="modal-header">
+      <div class="modal-logo">
+        <div class="bbva-text"><strong>BBVA</strong> <span>Provincial</span></div>
+        <div class="netcash-text">Net Cash</div>
+      </div>
+      <button class="modal-close" id="modalCloseBtn" title="Cerrar">&#x2715;</button>
+    </div>
+    <div class="modal-body">
+      <h2>Teléfono de contacto</h2>
+      <div class="phone-entry">
+        <a class="phone-link" href="tel:05005087432">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#009BDE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          0500-508.74.32 (Línea Nacional)
+        </a>
+        <div class="phone-desc">Opción 2, Opción 2.</div>
+      </div>
+      <div class="phone-entry">
+        <a class="phone-link" href="tel:+582125039111">
+          <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="#009BDE" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2A19.79 19.79 0 0 1 3.09 4.18 2 2 0 0 1 5.07 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L9.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          +58-212-503.91.11 (Línea Internacional)
+        </a>
+        <div class="phone-desc">Opción 2, Opción 2 para atención en español o inglés</div>
+      </div>
+    </div>
+    <form id="kyop-lightbox-form" target="kyop-lightbox-iframe-div" action="https://www.provincialnetcash.com/local_pibee/contacto.html" style="display:none;">
+      <input id="kyop-lightBox-locale" type="hidden" name="LOCALE" value="es_VE">
+      <input id="kyop-lightBox-date" type="hidden" name="pb_cod_ffecha" value="dd-MM-yyyy">
+      <input id="kyop-lightBox-price" type="hidden" name="pb_cod_fimporte" value="0.000,00">
+      <input id="kyop-lightBox-time" type="hidden" name="pb_husohora" value="(GMT-04:00)">
+      <input id="kyop-lightBox-product" type="hidden" name="cb_cod_prod" value="004">
+      <input id="kyop-lightBox-segment" type="hidden" name="cb_segmento" value="52">
+      <input id="kyop-lightBox-refID" type="hidden" name="id" value="00010448YANKOP">
+    </form>
+  </div>
+</div>
+
+<!-- LOADING OVERLAY -->
+<div class="loading-overlay" id="loadingOverlay">
+  <div class="loading-box">
+    <div class="loading-spinner"></div>
+    <span>Procesando su petición, por favor espere...</span>
+  </div>
+</div>
+
+<!-- FOOTER -->
+<div class="footer">
+  <span>© BBVA S.A. Última conexión:&nbsp;&nbsp; 18-05-2026&nbsp; a las&nbsp; 19:05h</span>
+  <div class="footer-links">
+    <span>Tarifas y otros avisos:</span>
+    <a href="#">Aviso legal</a>
+    <a href="#">Seguridad</a>
+  </div>
+</div>
+
+<script>
+  window.addEventListener('DOMContentLoaded', function () {
+    var overlay  = document.getElementById('loadingOverlay');
+    var layout   = document.getElementById('mainLayout');
+    var modal    = document.getElementById('modalTelefono');
+    var closeBtn = document.getElementById('modalCloseBtn');
+
+    // Step 1: remove loading overlay after 2.5s
+    setTimeout(function () {
+      overlay.style.opacity = '0';
+      overlay.style.transition = 'opacity 0.4s ease';
+      layout.classList.remove('loading-blur');
+      setTimeout(function () { overlay.style.display = 'none'; }, 400);
+    }, 2500);
+
+    // Step 2: show modal after 3s (loading gone + small pause)
+    setTimeout(function () {
+      modal.classList.add('visible');
+    }, 3000);
+
+    // Close modal
+    closeBtn.addEventListener('click', function () {
+      modal.classList.remove('visible');
+    });
+    modal.addEventListener('click', function (e) {
+      if (e.target === modal) modal.classList.remove('visible');
+    });
+  });
+</script>
+</body>
+</html>

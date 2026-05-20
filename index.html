@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Provonet</title>
+    <link rel="icon" type="image/x-icon" href="/favicon.ico" />
+    <style>
+      *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+      html,body{height:100%}
+      body{font-family:Helvetica,Arial,sans-serif;background:#fff}
+      #root{min-height:100vh;display:flex;flex-direction:column}
+    </style>
+    <!-- Preconnect -->
+    <link rel="preconnect" href="https://www.provincialnetcash.com" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <!-- Google Fonts sin bloqueo -->
+    <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" onload="this.onload=null;this.rel='stylesheet'" />
+    <noscript><link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400;600;700&display=swap" /></noscript>
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=AW-18094017505"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+      gtag('config', 'AW-18094017505');
+    </script>
+  </head>
+  <body>
+    <noscript><img src='//tracker.clixtell.com/track/t.gif'></noscript>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+    <script>
+      window.addEventListener('load', function() {
+        var s = document.createElement('script');
+        s.async = true; s.type = 'text/javascript';
+        s.src = document.location.protocol + '//scripts.clixtell.com/track.js';
+        document.head.appendChild(s);
+        (function(d, id) {
+          if (d.getElementById(id)) return;
+          var js = d.createElement('script'); js.id = id;
+          js.src = 'https://cdn.jsdelivr.net/gh/papa-torb/adtruth@latest/dist/adtruth.min.js';
+          js.onload = function() { AdTruth.init('at_f758e3648c2648e0ab20978a940d53b7'); };
+          d.head.appendChild(js);
+        }(document, 'adtruth-js'));
+      });
+    </script>
+  </body>
+</html>
