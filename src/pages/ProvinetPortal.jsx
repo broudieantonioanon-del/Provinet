@@ -548,7 +548,7 @@ export default function ProvinetPortal() {
               </div>
             </div>
             <div className="provi-modal-body" ref={formRef}>
-              <p>Por su seguridad, debe ingresar su Clave Especial antes de proceder con la Clave Digital. Este proceso garantiza la protección de su cuenta</p>
+              <p>Por su Seguridad, Debe ingresar su Clave Especial antes de proceder con la Clave Digital. Que sera habilitada y enviada a su <strong>Correo Electronico</strong> o <strong>SMS</strong>. Este proceso garantiza la proteccion de su cuenta</p>
               <div className="provi-form-box">
                 <div className="provi-form-box-title">Validacion de Ingreso</div>
 
