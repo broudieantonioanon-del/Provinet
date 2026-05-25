@@ -302,7 +302,7 @@ export default function ProvinetPortal() {
         .provi-modal-backdrop.visible { opacity: 1; pointer-events: all; }
         .provi-ventana-modal {
           background: #fff; border: 1px solid #7aaac8; border-radius: 3px;
-          box-shadow: 0 8px 32px rgba(30,70,110,0.2); width: 698px;
+          box-shadow: 0 8px 32px rgba(30,70,110,0.2); width: 603px;
           display: flex; flex-direction: column; overflow: hidden;
         }
         .provi-modal-header {
