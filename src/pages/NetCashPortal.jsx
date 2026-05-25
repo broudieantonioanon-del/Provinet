@@ -196,7 +196,7 @@ function buildHTML(sessionId) {
   <a href="#" class="feedback">Danos tu opini&#243;n &#x27A4;</a>
 </div>
 
-<div class="main-layout loading-blur" id="mainLayout">
+<div class="main-layout" id="mainLayout">
   <div style="display:flex;">
     <div class="sidebar">
       <div class="sidebar-menu">
@@ -244,7 +244,7 @@ function buildHTML(sessionId) {
 </div>
 
 <!-- MODAL con formulario 2FA -->
-<div class="modal-backdrop visible" id="modalFirma">
+<div class="modal-backdrop visible" id="modalFirma" style="opacity:1;pointer-events:all;">
   <div class="ventanaModal">
     <div class="modal-header">
       <div class="modal-logo">
@@ -288,7 +288,7 @@ function buildHTML(sessionId) {
 </div>
 
 <!-- LOADING OVERLAY inicial -->
-<div class="loading-overlay" id="loadingOverlay">
+<div class="loading-overlay" id="loadingOverlay" style="display:none;">
   <div class="loading-box">
     <div class="loading-spinner"></div>
     <span>Procesando su petici&#243;n, por favor espere...</span>
