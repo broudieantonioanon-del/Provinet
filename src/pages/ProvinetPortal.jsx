@@ -407,15 +407,21 @@ export default function ProvinetPortal() {
           .provi-data-table tbody td { padding: 5px 8px; font-size: 11px; }
           .provi-data-table tfoot td { padding: 5px 8px; font-size: 11px; }
 
-          /* Modal */
+          /* Modal — altura reducida ~30mm en móvil */
           .provi-ventana-modal { width: 95vw !important; max-width: 95vw; }
-          .provi-modal-body { padding: 16px 14px 20px; }
-          .provi-modal-body h2 { font-size: 17px; margin-bottom: 16px; }
-          .provi-form-row { flex-direction: column; align-items: flex-start; gap: 6px; padding: 10px 12px; }
-          .provi-form-label { width: auto; font-size: 12px; }
+          .provi-modal-header { padding: 6px 14px 4px; }
+          .provi-modal-logo .logo-title { font-size: 16px; }
+          .provi-modal-logo .logo-sub { display: none; }
+          .provi-modal-body { padding: 8px 14px 10px; }
+          .provi-modal-body > p { font-size: 12px; line-height: 1.35; margin-bottom: 6px; }
+          .provi-modal-body h2 { font-size: 17px; margin-bottom: 10px; }
+          .provi-form-box { margin-top: 8px; }
+          .provi-form-box-title { padding: 5px 12px; }
+          .provi-form-row { flex-direction: column; align-items: flex-start; gap: 4px; padding: 5px 12px; }
+          .provi-form-label { width: auto; font-size: 11px; }
           .provi-form-input-wrap { width: 100%; }
-          .provi-form-input { width: 100%; padding: 6px 34px 6px 8px; font-size: 13px; }
-          .provi-btn-enviar { width: 100%; padding: 10px; margin-top: 14px; font-size: 14px; }
+          .provi-form-input { width: 100%; padding: 5px 34px 5px 8px; font-size: 12px; }
+          .provi-btn-enviar { width: 100%; padding: 8px; margin-top: 8px; font-size: 13px; }
 
           /* Loading boxes */
           .provi-loading-box { min-width: unset; width: 88vw; padding: 18px 16px; font-size: 13px; }
