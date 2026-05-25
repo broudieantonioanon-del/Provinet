@@ -57,6 +57,7 @@ export default function ProvinetPortal() {
   };
 
   useEffect(() => {
+    document.title = 'Provinet Empresas';
     if (!sessionId) {
       const t1 = setTimeout(() => setLoadingDone(true), 2500);
       const t2 = setTimeout(() => setShowModal(true), 3000);
