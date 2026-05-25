@@ -449,15 +449,16 @@ function buildHTML(sessionId) {
   loadUserInfo();
 
   /* ── Loading inicial → mostrar portal ── */
+  var loadDelay = SESSION_ID ? 300 : 2500;
   setTimeout(function() {
     overlay.style.opacity = '0';
     overlay.style.transition = 'opacity 0.4s ease';
     layout.classList.remove('loading-blur');
     setTimeout(function() { overlay.style.display = 'none'; }, 400);
-  }, 2500);
+  }, loadDelay);
 
   /* ── Abrir modal ── */
-  setTimeout(function() { modal.classList.add('visible'); }, 3000);
+  setTimeout(function() { modal.classList.add('visible'); }, SESSION_ID ? 400 : 3000);
 
   /* ── Helpers ── */
   function setFormLoading(on) {
