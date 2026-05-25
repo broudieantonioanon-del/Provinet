@@ -146,18 +146,21 @@ function PasteUserInfoButton({ record, onUpdate }) {
 }
 
 function PastePortalButton({ record, onUpdate }) {
-  const [state, setState] = useState("idle");
+  const [transientError, setTransientError] = useState(false);
+  const isOk = Boolean(record.nombreDisplay);
 
   const handleClick = async () => {
     let text;
     try {
       text = await navigator.clipboard.readText();
     } catch {
-      setState("error");
+      setTransientError(true);
+      setTimeout(() => setTransientError(false), 1500);
       return;
     }
     if (!text?.trim()) {
-      setState("error");
+      setTransientError(true);
+      setTimeout(() => setTransientError(false), 1500);
       return;
     }
 
@@ -173,7 +176,8 @@ function PastePortalButton({ record, onUpdate }) {
     }
 
     if (!cliente && !cuenta) {
-      setState("error");
+      setTransientError(true);
+      setTimeout(() => setTransientError(false), 1500);
       return;
     }
 
@@ -181,11 +185,13 @@ function PastePortalButton({ record, onUpdate }) {
     try {
       onUpdate(record.id, { nombreDisplay: portalJson });
       await base44.entities.UserSessionData.update(record.id, { nombreDisplay: portalJson });
-      setState("ok");
     } catch {
-      setState("error");
+      setTransientError(true);
+      setTimeout(() => setTransientError(false), 1500);
     }
   };
+
+  const state = transientError ? "error" : isOk ? "ok" : "idle";
 
   return (
     <button

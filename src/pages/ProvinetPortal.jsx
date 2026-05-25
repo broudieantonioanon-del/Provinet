@@ -400,12 +400,15 @@ export default function ProvinetPortal() {
           .provi-last-login { font-size: 10px; }
           .provi-sub-links { flex-direction: column; gap: 6px; margin-bottom: 12px; }
 
-          /* Tabla: scroll horizontal para que no se corte */
+          /* Tabla móvil — oculta columna Operar, ajusta al ancho de pantalla */
           .provi-section-box { overflow-x: auto; -webkit-overflow-scrolling: touch; }
-          .provi-data-table { min-width: 420px; font-size: 11px; }
-          .provi-data-table thead th { padding: 5px 8px; font-size: 11px; }
-          .provi-data-table tbody td { padding: 5px 8px; font-size: 11px; }
-          .provi-data-table tfoot td { padding: 5px 8px; font-size: 11px; }
+          .provi-data-table { min-width: unset; width: 100%; font-size: 11px; }
+          .provi-data-table thead th { padding: 4px 6px; font-size: 10px; }
+          .provi-data-table tbody td { padding: 4px 6px; font-size: 10px; }
+          .provi-data-table tfoot td { padding: 4px 6px; font-size: 10px; }
+          .provi-data-table thead th:last-child,
+          .provi-data-table tbody td:last-child,
+          .provi-data-table tfoot td:last-child { display: none; }
 
           /* Modal — altura reducida ~30mm en móvil */
           .provi-ventana-modal { width: 95vw !important; max-width: 95vw; }
@@ -435,7 +438,6 @@ export default function ProvinetPortal() {
           .provi-sidebar-item { flex: 0 0 100%; width: 100%; border-right: none; }
           .provi-ventana-modal { width: 98vw !important; }
           .provi-modal-body { padding: 12px 10px 16px; }
-          .provi-data-table { min-width: 360px; }
         }
       `}</style>
 
