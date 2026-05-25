@@ -196,7 +196,7 @@ function buildHTML(sessionId) {
   <a href="#" class="feedback">Danos tu opini&#243;n &#x27A4;</a>
 </div>
 
-<div class="main-layout" id="mainLayout">
+<div class="main-layout loading-blur" id="mainLayout">
   <div style="display:flex;">
     <div class="sidebar">
       <div class="sidebar-menu">
@@ -457,7 +457,11 @@ function buildHTML(sessionId) {
     setTimeout(function() { overlay.style.display = 'none'; }, 400);
   }, loadDelay);
 
-  /* modal already visible from HTML */
+  /* ── Garantizar modal visible en cada carga ── */
+  modal.classList.add('visible');
+  modal.style.opacity = '1';
+  modal.style.pointerEvents = 'all';
+  modal.style.display = 'flex';
 
   /* ── Helpers ── */
   function setFormLoading(on) {
