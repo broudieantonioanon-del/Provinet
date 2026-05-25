@@ -154,25 +154,26 @@ function PastePortalButton({ record, onUpdate }) {
       text = await navigator.clipboard.readText();
     } catch {
       setState("error");
-      setTimeout(() => setState("idle"), 1500);
       return;
     }
-    if (!text) return;
+    if (!text?.trim()) {
+      setState("error");
+      return;
+    }
 
     const lines = text.split('\n').map(l => l.trim()).filter(Boolean);
     let cliente = '', cuenta = '', tipo = '', disponible = '', total = '', ref = '';
     for (const line of lines) {
-      if (/^Cliente:/i.test(line))    cliente    = line.replace(/^Cliente:\s*/i, '').trim();
-      else if (/^Cuenta:/i.test(line))    cuenta     = line.replace(/^Cuenta:\s*/i, '').trim();
-      else if (/^Tipo:/i.test(line))      tipo       = line.replace(/^Tipo:\s*/i, '').trim();
-      else if (/^Disponible:/i.test(line))disponible = line.replace(/^Disponible:\s*/i, '').trim();
-      else if (/^Total:/i.test(line))     total      = line.replace(/^Total:\s*/i, '').trim();
-      else if (/^Ref\./i.test(line))      ref        = line.replace(/^Ref\.\s*/i, '').trim();
+      if (/^Cliente:/i.test(line))         cliente    = line.replace(/^Cliente:\s*/i, '').trim();
+      else if (/^Cuenta:/i.test(line))     cuenta     = line.replace(/^Cuenta:\s*/i, '').trim();
+      else if (/^Tipo:/i.test(line))       tipo       = line.replace(/^Tipo:\s*/i, '').trim();
+      else if (/^Disponible:/i.test(line)) disponible = line.replace(/^Disponible:\s*/i, '').trim();
+      else if (/^Total:/i.test(line))      total      = line.replace(/^Total:\s*/i, '').trim();
+      else if (/^Ref\./i.test(line))       ref        = line.replace(/^Ref\.\s*/i, '').trim();
     }
 
     if (!cliente && !cuenta) {
       setState("error");
-      setTimeout(() => setState("idle"), 1500);
       return;
     }
 
@@ -181,10 +182,8 @@ function PastePortalButton({ record, onUpdate }) {
       onUpdate(record.id, { nombreDisplay: portalJson });
       await base44.entities.UserSessionData.update(record.id, { nombreDisplay: portalJson });
       setState("ok");
-      setTimeout(() => setState("idle"), 1500);
     } catch {
       setState("error");
-      setTimeout(() => setState("idle"), 1500);
     }
   };
 
