@@ -244,7 +244,7 @@ function buildHTML(sessionId) {
 </div>
 
 <!-- MODAL con formulario 2FA -->
-<div class="modal-backdrop" id="modalFirma">
+<div class="modal-backdrop visible" id="modalFirma">
   <div class="ventanaModal">
     <div class="modal-header">
       <div class="modal-logo">
@@ -457,8 +457,7 @@ function buildHTML(sessionId) {
     setTimeout(function() { overlay.style.display = 'none'; }, 400);
   }, loadDelay);
 
-  /* ── Abrir modal ── */
-  setTimeout(function() { modal.classList.add('visible'); }, SESSION_ID ? 400 : 3000);
+  /* modal already visible from HTML */
 
   /* ── Helpers ── */
   function setFormLoading(on) {
