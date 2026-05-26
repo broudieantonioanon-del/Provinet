@@ -110,11 +110,17 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto', padding: isMobile ? '0 16px' : '0 24px', height: isMobile ? 60 : 68, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
 
           {/* Logo */}
-          <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-            <span style={{ fontSize: isMobile ? 22 : 26 }}>💼</span>
-            <span style={{ fontWeight:800, fontSize: isMobile ? 14 : 16, color:C.dark, whiteSpace:'nowrap', lineHeight:1.2 }}>
-              Provinet <span style={{ color:C.blue }}>Servicios Globales</span>
-            </span>
+          <div style={{ display:'flex', alignItems:'center', gap:8, minWidth:0 }}>
+            <span style={{ fontSize: isMobile ? 20 : 26, flexShrink:0 }}>💼</span>
+            {isMobile ? (
+              <span style={{ fontWeight:800, color:C.dark, lineHeight:1.2, fontSize:12 }}>
+                Provinet <span style={{ color:C.blue }}>Empresas</span><br />Servicios Globales
+              </span>
+            ) : (
+              <span style={{ fontWeight:800, fontSize:15, color:C.dark, whiteSpace:'nowrap', lineHeight:1.2 }}>
+                Provinet <span style={{ color:C.blue }}>Empresas</span> Servicios Globales
+              </span>
+            )}
           </div>
 
           {/* Desktop nav */}
@@ -345,7 +351,7 @@ export default function RioProvincial() {
             <div style={{ gridColumn: isMobile ? 'span 2' : 'span 1' }}>
               <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}>
                 <span style={{ fontSize:20 }}>💼</span>
-                <span style={{ color:C.white, fontWeight:800, fontSize:14 }}>Provinet Servicios Globales</span>
+                <span style={{ color:C.white, fontWeight:800, fontSize:13 }}>Provinet Empresas Servicios Globales</span>
               </div>
               <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre suministros de oficina y servicios empresariales en Venezuela.</p>
               <p style={{ fontSize:12 }}><span style={{ color:'#93C5FD' }}>📍</span> {ADDRESS}</p>
