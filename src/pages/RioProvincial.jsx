@@ -2,18 +2,18 @@
 import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
-const SITE_URL      = 'https://www.provonetjardineria.com.ve';
-const SITE_NAME     = 'Provinet Empresas Jardinería';
-const CONTACT_EMAIL = 'contacto@provonetjardineria.com.ve';
+const SITE_URL      = 'https://www.provinetservicios.com.ve';
+const SITE_NAME     = 'Provinet Empresas Servicios Globales';
+const CONTACT_EMAIL = 'contacto@provinetservicios.com.ve';
 const CONTACT_PHONE = '+58 212-000-0000';
 const ADDRESS       = 'Caracas, Venezuela';
-const LAST_UPDATED  = '23 de mayo de 2025';
+const LAST_UPDATED  = '26 de mayo de 2025';
 
 const SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Provinet Empresas Jardinería — Blog Educativo",
-  "description": "Blog educativo sobre jardinería, plantas tropicales, horticultura y diseño de jardines en Venezuela",
+  "name": "Provinet Empresas Servicios Globales — Blog Educativo",
+  "description": "Blog educativo sobre suministros de oficina, papelería empresarial, mobiliario, tecnología y organización para empresas en Venezuela",
   "url": SITE_URL,
   "publisher": {
     "@type": "Organization",
@@ -24,55 +24,55 @@ const SCHEMA = JSON.stringify({
 });
 
 const C = {
-  cream:  '#FDFAF5',
-  sand:   '#EDE8DE',
-  dark:   '#162318',
-  forest: '#2A5C3A',
-  sage:   '#6BAF82',
-  terra:  '#D96941',
-  text:   '#2C3328',
-  muted:  '#6B7280',
-  border: '#C8DDD0',
+  bg:     '#F1F5F9',
+  panel:  '#EEF2FF',
+  dark:   '#0F1E4A',
+  navy:   '#1E3A8A',
+  blue:   '#2563EB',
+  text:   '#1E293B',
+  muted:  '#64748B',
+  border: '#CBD5E1',
   white:  '#FFFFFF',
+  silver: '#E2E8F0',
 };
 
 const ARTICLES = [
-  { id:1, icon:'🌴', category:'Plantas Tropicales', catBg:'#D1FAE5', catColor:'#065F46',
-    title:'Guía de plantas tropicales para jardines venezolanos',
-    excerpt:'Heliconias, bromelias, palmeras y ficus — aprende qué especies prosperan en cada región del país y cómo cuidarlas desde el primer día.',
-    readTime:'6 min', date:'18 may 2025' },
-  { id:2, icon:'🌱', category:'Suelos y Nutrición', catBg:'#FEF9C3', catColor:'#854D0E',
-    title:'Preparar el suelo perfecto: compost, pH y nutrientes',
-    excerpt:'La base de un jardín sano está en la tierra. Descubre cómo enriquecerla con compost casero y ajustar el pH para que tus plantas absorban todo.',
-    readTime:'7 min', date:'14 may 2025' },
-  { id:3, icon:'💧', category:'Riego', catBg:'#DBEAFE', catColor:'#1D4ED8',
-    title:'Riego eficiente: técnicas para no matar tus plantas',
-    excerpt:'El exceso de agua es la primera causa de muerte en plantas de interior. Aprende sistemas de riego por goteo y cómo leer las señales de cada especie.',
-    readTime:'5 min', date:'10 may 2025' },
-  { id:4, icon:'🪴', category:'Plantas de Interior', catBg:'#F0FDF4', catColor:'#166534',
-    title:'Las mejores plantas para espacios con poca luz',
-    excerpt:'Pothos, sansevieria, zamioculca y filodendro: las variedades más resistentes para apartamentos venezolanos sin luz solar directa.',
-    readTime:'5 min', date:'5 may 2025' },
-  { id:5, icon:'🌿', category:'Control de Plagas', catBg:'#FFF1F2', catColor:'#BE123C',
-    title:'Control ecológico de plagas con ajo, neem y jabón potásico',
-    excerpt:'Elimina ácaros, pulgones y mosca blanca sin químicos. Preparamos contigo soluciones naturales paso a paso para proteger tu jardín.',
-    readTime:'8 min', date:'29 abr 2025' },
-  { id:6, icon:'🏡', category:'Jardinería Urbana', catBg:'#F5F3FF', catColor:'#6D28D9',
-    title:'Jardines verticales y en contenedores para apartamentos',
-    excerpt:'Crea un jardín en tu balcón o terraza con paletas de madera, macetas colgantes y hierbas aromáticas. Verde urbano accesible para todos.',
-    readTime:'6 min', date:'22 abr 2025' },
+  { id:1, icon:'📎', category:'Papelería Profesional', catBg:'#DBEAFE', catColor:'#1D4ED8',
+    title:'Guía completa de papelería para oficinas venezolanas',
+    excerpt:'Desde bolígrafos y cuadernos corporativos hasta archivadores y marcadores industriales — aprende qué suministros priorizar según el tamaño y giro de tu empresa.',
+    readTime:'6 min', date:'20 may 2025' },
+  { id:2, icon:'💺', category:'Mobiliario de Oficina', catBg:'#F0F9FF', catColor:'#0369A1',
+    title:'Cómo elegir escritorios y sillas ergonómicas para tu equipo',
+    excerpt:'El mobiliario correcto reduce el ausentismo y aumenta la productividad. Comparamos marcas disponibles en Venezuela y criterios clave de ergonomía.',
+    readTime:'7 min', date:'16 may 2025' },
+  { id:3, icon:'🖨️', category:'Tecnología', catBg:'#F5F3FF', catColor:'#5B21B6',
+    title:'Impresoras para empresas: láser vs inkjet, cuál conviene',
+    excerpt:'Analiza el costo por página, velocidad y volumen de impresión mensual. Te explicamos cuándo vale la pena cada tecnología para pymes y grandes corporaciones.',
+    readTime:'5 min', date:'12 may 2025' },
+  { id:4, icon:'🗂️', category:'Organización', catBg:'#FFF7ED', catColor:'#C2410C',
+    title:'Sistemas de archivo y gestión documental para pymes',
+    excerpt:'Archivadores AZ, separadores, cajas de cartón y soluciones digitales híbridas. Implementa un flujo de documentos que funcione para equipos de 5 a 200 personas.',
+    readTime:'6 min', date:'8 may 2025' },
+  { id:5, icon:'✏️', category:'Consumibles', catBg:'#F0FDF4', catColor:'#15803D',
+    title:'Tóneres, cartuchos y papel: gestión de inventario inteligente',
+    excerpt:'Evita quedarte sin insumos en momentos críticos. Te mostramos cómo calcular el stock mínimo de consumibles según tu volumen de impresión mensual.',
+    readTime:'8 min', date:'2 may 2025' },
+  { id:6, icon:'💼', category:'Suministros Globales', catBg:'#FFF1F2', catColor:'#BE123C',
+    title:'Compras en volumen: cómo negociar con proveedores de suministros',
+    excerpt:'Estrategias de compra por volumen, contratos marco y evaluación de proveedores para maximizar el ahorro en suministros de oficina a nivel empresarial.',
+    readTime:'7 min', date:'26 abr 2025' },
 ];
 
 const CATEGORIES = [
-  { name:'Plantas Tropicales', count:14, icon:'🌴', bg:'#D1FAE5', color:'#065F46' },
-  { name:'Horticultura',       count:9,  icon:'🥬', bg:'#FEF9C3', color:'#854D0E' },
-  { name:'Diseño de Jardines', count:7,  icon:'🌿', bg:'#DCFCE7', color:'#166534' },
-  { name:'Cuidado y Riego',    count:11, icon:'💧', bg:'#DBEAFE', color:'#1D4ED8' },
-  { name:'Control de Plagas',  count:6,  icon:'🌱', bg:'#FFF1F2', color:'#BE123C' },
-  { name:'Jardinería Urbana',  count:10, icon:'🏡', bg:'#F5F3FF', color:'#6D28D9' },
+  { name:'Papelería',        count:18, icon:'📎', bg:'#DBEAFE', color:'#1D4ED8' },
+  { name:'Mobiliario',       count:12, icon:'💺', bg:'#F0F9FF', color:'#0369A1' },
+  { name:'Tecnología',       count:9,  icon:'🖨️', bg:'#F5F3FF', color:'#5B21B6' },
+  { name:'Consumibles',      count:15, icon:'🖊️', bg:'#F0FDF4', color:'#15803D' },
+  { name:'Organización',     count:11, icon:'🗂️', bg:'#FFF7ED', color:'#C2410C' },
+  { name:'Ergonomía',        count:7,  icon:'🪑', bg:'#FFF1F2', color:'#BE123C' },
 ];
 
-const EMOJIS = ['🌴','🌿','🌱','🪴','💧','🌺','🍃','🌻','🌾','🌸','🥬','🌵','🌳','🍀','🌹','🌷'];
+const OFFICE_ICONS = ['📎','📐','📏','📋','🖊️','✏️','📌','🗂️','💼','🖥️','🖨️','⌨️','🗃️','📁','📝','📊'];
 
 // ── COMPONENTE PRINCIPAL ──────────────────────────────────────────────────────
 export default function RioProvincial() {
@@ -82,38 +82,38 @@ export default function RioProvincial() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Provinet Empresas Jardinería | Blog Educativo sobre Jardinería en Venezuela';
+    document.title = 'Provinet Empresas Servicios Globales | Blog Educativo de Suministros de Oficina';
     const m = (a, n, c) => {
       let el = document.querySelector(`meta[${a}="${n}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(a, n); document.head.appendChild(el); }
       el.setAttribute('content', c);
     };
-    m('name','description','Blog educativo sobre jardinería, plantas tropicales, horticultura y diseño de jardines en Venezuela. Información gratuita.');
-    m('name','keywords','jardinería Venezuela,plantas tropicales,horticultura,riego,control plagas,jardín urbano,Caracas');
-    m('property','og:title','Provinet Empresas Jardinería | Blog Educativo');
+    m('name','description','Blog educativo sobre suministros de oficina, papelería empresarial, mobiliario, tecnología y organización. Guías gratuitas para empresas venezolanas.');
+    m('name','keywords','suministros de oficina Venezuela,papelería empresarial,mobiliario oficina,impresoras empresas,consumibles,organización documental,Caracas');
+    m('property','og:title','Provinet Empresas Servicios Globales | Blog Educativo');
     m('property','og:type','website');
     m('property','og:url', SITE_URL);
     const s = document.createElement('script');
-    s.id='schema-jardineria'; s.type='application/ld+json'; s.textContent=SCHEMA;
-    if (!document.querySelector('#schema-jardineria')) document.head.appendChild(s);
-    if (localStorage.getItem('provonet_cookie')==='1') setCookie(true);
-    return () => { document.querySelector('#schema-jardineria')?.remove(); };
+    s.id='schema-servicios'; s.type='application/ld+json'; s.textContent=SCHEMA;
+    if (!document.querySelector('#schema-servicios')) document.head.appendChild(s);
+    if (localStorage.getItem('provinet_sg_cookie')==='1') setCookie(true);
+    return () => { document.querySelector('#schema-servicios')?.remove(); };
   }, []);
 
-  const acceptCookie = () => { localStorage.setItem('provonet_cookie','1'); setCookie(true); };
+  const acceptCookie = () => { localStorage.setItem('provinet_sg_cookie','1'); setCookie(true); };
 
   return (
-    <div style={{ fontFamily:'"Segoe UI",system-ui,sans-serif', background:C.cream, color:C.text, overflowX:'hidden' }}>
+    <div style={{ fontFamily:'"Segoe UI",system-ui,sans-serif', background:C.bg, color:C.text, overflowX:'hidden' }}>
 
       {/* ── NAVBAR ─────────────────────────────────────────────── */}
-      <nav style={{ background:C.white, borderBottom:`3px solid ${C.forest}`, position:'sticky', top:0, zIndex:50, boxShadow:'0 2px 12px rgba(0,0,0,0.07)' }}>
+      <nav style={{ background:C.white, borderBottom:`3px solid ${C.navy}`, position:'sticky', top:0, zIndex:50, boxShadow:'0 2px 12px rgba(0,0,0,0.08)' }}>
         <div style={{ maxWidth:1140, margin:'0 auto', padding: isMobile ? '0 16px' : '0 24px', height: isMobile ? 60 : 68, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
 
           {/* Logo */}
           <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-            <span style={{ fontSize: isMobile ? 22 : 26 }}>🌿</span>
-            <span style={{ fontWeight:800, fontSize: isMobile ? 15 : 17, color:C.dark, whiteSpace:'nowrap' }}>
-              Provinet <span style={{ color:C.forest }}>Jardinería</span>
+            <span style={{ fontSize: isMobile ? 22 : 26 }}>💼</span>
+            <span style={{ fontWeight:800, fontSize: isMobile ? 14 : 16, color:C.dark, whiteSpace:'nowrap', lineHeight:1.2 }}>
+              Provinet <span style={{ color:C.blue }}>Servicios Globales</span>
             </span>
           </div>
 
@@ -122,10 +122,10 @@ export default function RioProvincial() {
             <div style={{ display:'flex', alignItems:'center', gap:4 }}>
               {['#articulos','#categorias','#nosotros'].map((href,i) => (
                 <a key={href} href={href} style={{ color:C.text, fontSize:14, fontWeight:500, padding:'10px 14px', textDecoration:'none', borderRadius:6 }}>
-                  {['Artículos','Temas','Nosotros'][i]}
+                  {['Artículos','Categorías','Nosotros'][i]}
                 </a>
               ))}
-              <a href="#contacto" style={{ background:C.forest, color:C.white, fontSize:14, fontWeight:600, padding:'9px 20px', borderRadius:6, textDecoration:'none', marginLeft:8 }}>
+              <a href="#contacto" style={{ background:C.navy, color:C.white, fontSize:14, fontWeight:600, padding:'9px 20px', borderRadius:6, textDecoration:'none', marginLeft:8 }}>
                 Contacto
               </a>
             </div>
@@ -134,7 +134,7 @@ export default function RioProvincial() {
           {/* Mobile: botón contacto + hamburger */}
           {isMobile && (
             <div style={{ display:'flex', alignItems:'center', gap:8 }}>
-              <a href="#contacto" style={{ background:C.forest, color:C.white, fontSize:13, fontWeight:600, padding:'7px 14px', borderRadius:6, textDecoration:'none' }}>
+              <a href="#contacto" style={{ background:C.navy, color:C.white, fontSize:13, fontWeight:600, padding:'7px 14px', borderRadius:6, textDecoration:'none' }}>
                 Contacto
               </a>
               <button onClick={() => setMenuOpen(!menuOpen)}
@@ -148,9 +148,9 @@ export default function RioProvincial() {
         {/* Mobile dropdown menu */}
         {isMobile && menuOpen && (
           <div style={{ background:C.white, borderTop:`1px solid ${C.border}`, padding:'12px 16px 16px', display:'flex', flexDirection:'column', gap:4 }}>
-            {[['#articulos','Artículos'],['#categorias','Temas'],['#nosotros','Nosotros']].map(([href,label]) => (
+            {[['#articulos','Artículos'],['#categorias','Categorías'],['#nosotros','Nosotros']].map(([href,label]) => (
               <a key={href} href={href} onClick={() => setMenuOpen(false)}
-                style={{ color:C.text, fontSize:15, fontWeight:500, padding:'10px 12px', textDecoration:'none', borderRadius:8, display:'block', background:C.cream }}>
+                style={{ color:C.text, fontSize:15, fontWeight:500, padding:'10px 12px', textDecoration:'none', borderRadius:8, display:'block', background:C.bg }}>
                 {label}
               </a>
             ))}
@@ -162,46 +162,46 @@ export default function RioProvincial() {
       <section style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', minHeight: isMobile ? 'auto' : 480 }}>
         {/* Panel izquierdo oscuro */}
         <div style={{ background:C.dark, padding: isMobile ? '40px 24px 36px' : '72px 56px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-          <span style={{ display:'inline-block', background:C.terra, color:C.white, fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'5px 14px', borderRadius:20, marginBottom:20, alignSelf:'flex-start', whiteSpace:'nowrap' }}>
+          <span style={{ display:'inline-block', background:C.blue, color:C.white, fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'5px 14px', borderRadius:20, marginBottom:20, alignSelf:'flex-start', whiteSpace:'nowrap' }}>
             Blog Educativo · Venezuela
           </span>
           <h1 style={{ color:C.white, fontSize: isMobile ? 'clamp(28px,8vw,38px)' : 'clamp(28px,3.5vw,46px)', fontWeight:900, lineHeight:1.15, margin:'0 0 16px', letterSpacing:'-1px' }}>
-            Todo sobre<br /><span style={{ color:C.sage }}>Jardinería</span><br />en Venezuela
+            Todo sobre<br /><span style={{ color:'#93C5FD' }}>Suministros</span><br />de Oficina
           </h1>
-          <p style={{ color:'#A7B9A9', fontSize: isMobile ? 15 : 16, lineHeight:1.7, margin:'0 0 28px', maxWidth:380 }}>
-            Guías prácticas y artículos educativos sobre plantas tropicales, horticultura, diseño de jardines y cuidado del verde — completamente gratis.
+          <p style={{ color:'#94A3B8', fontSize: isMobile ? 15 : 16, lineHeight:1.7, margin:'0 0 28px', maxWidth:380 }}>
+            Guías prácticas y artículos educativos sobre papelería, mobiliario, tecnología y organización para empresas venezolanas — completamente gratis.
           </p>
           <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
-            <a href="#articulos" style={{ background:C.terra, color:C.white, fontWeight:700, fontSize:15, padding:'12px 26px', borderRadius:6, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8 }}>
+            <a href="#articulos" style={{ background:C.blue, color:C.white, fontWeight:700, fontSize:15, padding:'12px 26px', borderRadius:6, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8 }}>
               📖 Leer artículos
             </a>
-            <a href="#categorias" style={{ background:'transparent', color:'#A7B9A9', fontWeight:600, fontSize:15, padding:'12px 24px', borderRadius:6, textDecoration:'none', border:'1.5px solid rgba(255,255,255,0.2)', display:'inline-flex', alignItems:'center' }}>
-              Explorar temas
+            <a href="#categorias" style={{ background:'transparent', color:'#94A3B8', fontWeight:600, fontSize:15, padding:'12px 24px', borderRadius:6, textDecoration:'none', border:'1.5px solid rgba(255,255,255,0.2)', display:'inline-flex', alignItems:'center' }}>
+              Ver categorías
             </a>
           </div>
         </div>
 
-        {/* Panel derecho botánico — oculto en mobile */}
+        {/* Panel derecho — oculto en mobile */}
         {!isMobile && (
-          <div style={{ background:'linear-gradient(135deg,#e8f5ec 0%,#c8e6d4 100%)', display:'flex', alignItems:'center', justifyContent:'center', padding:40, position:'relative', overflow:'hidden' }}>
+          <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', display:'flex', alignItems:'center', justifyContent:'center', padding:40, position:'relative', overflow:'hidden' }}>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, opacity:0.92 }}>
-              {EMOJIS.map((e,i) => (
-                <div key={i} style={{ width:56, height:56, background:'rgba(255,255,255,0.7)', borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontSize:26, boxShadow:'0 2px 8px rgba(0,0,0,0.08)', transform:i%3===0?'rotate(-4deg)':i%3===1?'rotate(3deg)':'rotate(0deg)' }}>
+              {OFFICE_ICONS.map((e,i) => (
+                <div key={i} style={{ width:56, height:56, background:'rgba(255,255,255,0.85)', borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontSize:26, boxShadow:'0 2px 8px rgba(0,0,0,0.1)', transform:i%3===0?'rotate(-4deg)':i%3===1?'rotate(3deg)':'rotate(0deg)' }}>
                   {e}
                 </div>
               ))}
             </div>
-            <div style={{ position:'absolute', bottom:14, right:18, fontSize:12, color:'#6BAF82', fontWeight:600, letterSpacing:1, textTransform:'uppercase' }}>
-              Jardinería Tropical
+            <div style={{ position:'absolute', bottom:14, right:18, fontSize:12, color:C.navy, fontWeight:600, letterSpacing:1, textTransform:'uppercase' }}>
+              Servicios Globales
             </div>
           </div>
         )}
 
-        {/* Strip de emojis en mobile */}
+        {/* Strip de iconos en mobile */}
         {isMobile && (
-          <div style={{ background:'linear-gradient(135deg,#e8f5ec 0%,#c8e6d4 100%)', padding:'18px 16px', display:'flex', gap:10, overflowX:'auto', scrollbarWidth:'none' }}>
-            {EMOJIS.map((e,i) => (
-              <div key={i} style={{ width:44, height:44, background:'rgba(255,255,255,0.8)', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0, boxShadow:'0 1px 4px rgba(0,0,0,0.08)' }}>
+          <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', padding:'18px 16px', display:'flex', gap:10, overflowX:'auto', scrollbarWidth:'none' }}>
+            {OFFICE_ICONS.map((e,i) => (
+              <div key={i} style={{ width:44, height:44, background:'rgba(255,255,255,0.85)', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0, boxShadow:'0 1px 4px rgba(0,0,0,0.1)' }}>
                 {e}
               </div>
             ))}
@@ -210,14 +210,14 @@ export default function RioProvincial() {
       </section>
 
       {/* ── ARTÍCULOS DESTACADOS ────────────────────────────────── */}
-      <section id="articulos" style={{ padding: isMobile ? '48px 16px' : '72px 24px', background:C.cream }}>
+      <section id="articulos" style={{ padding: isMobile ? '48px 16px' : '72px 24px', background:C.bg }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:32, flexWrap:'wrap' }}>
             <h2 style={{ fontSize: isMobile ? 22 : 'clamp(22px,3vw,32px)', fontWeight:800, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
               Artículos Recientes
             </h2>
             {!isMobile && <div style={{ flex:1, height:2, background:C.border }} />}
-            <span style={{ fontSize:12, color:C.forest, fontWeight:700, textTransform:'uppercase', letterSpacing:1 }}>
+            <span style={{ fontSize:12, color:C.blue, fontWeight:700, textTransform:'uppercase', letterSpacing:1 }}>
               Actualización semanal
             </span>
           </div>
@@ -237,7 +237,7 @@ export default function RioProvincial() {
       <section id="categorias" style={{ background:C.dark, padding: isMobile ? '40px 16px' : '56px 24px' }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ marginBottom:28 }}>
-            <p style={{ color:C.sage, fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Explora por tema</p>
+            <p style={{ color:'#93C5FD', fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Explora por tema</p>
             <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, margin:0, letterSpacing:'-0.5px' }}>Categorías del Blog</h2>
           </div>
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3,1fr)', gap:12 }}>
@@ -247,7 +247,7 @@ export default function RioProvincial() {
       </section>
 
       {/* ── MÁS ARTÍCULOS — tarjetas horizontales ───────────────── */}
-      <section style={{ padding: isMobile ? '40px 16px' : '72px 24px', background:C.cream }}>
+      <section style={{ padding: isMobile ? '40px 16px' : '72px 24px', background:C.bg }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, color:C.dark, margin:'0 0 28px', letterSpacing:'-0.5px' }}>
             Más Artículos
@@ -261,14 +261,14 @@ export default function RioProvincial() {
       </section>
 
       {/* ── STATS ──────────────────────────────────────────────── */}
-      <section style={{ background:C.sand, padding: isMobile ? '40px 16px' : '56px 24px' }}>
+      <section style={{ background:C.silver, padding: isMobile ? '40px 16px' : '56px 24px' }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
-          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: isMobile ? 0 : 0 }}>
+          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap:0 }}>
             {[
-              { n:'57+',    label:'Artículos publicados',   icon:'📝' },
-              { n:'6',      label:'Categorías temáticas',   icon:'🗂️' },
-              { n:'20+',    label:'Años de experiencia',    icon:'🌳' },
-              { n:'100%',   label:'Contenido gratuito',     icon:'🎓' },
+              { n:'72+',  label:'Artículos publicados',   icon:'📝' },
+              { n:'6',    label:'Categorías temáticas',   icon:'🗂️' },
+              { n:'15+',  label:'Años de experiencia',    icon:'💼' },
+              { n:'100%', label:'Contenido gratuito',     icon:'🎓' },
             ].map((s,i,arr) => (
               <div key={s.n} style={{
                 textAlign:'center', padding: isMobile ? '24px 12px' : '32px 24px',
@@ -276,7 +276,7 @@ export default function RioProvincial() {
                 borderBottom: isMobile && i < 2 ? `1px solid ${C.border}` : 'none',
               }}>
                 <span style={{ fontSize: isMobile ? 26 : 32, display:'block', marginBottom:10 }}>{s.icon}</span>
-                <p style={{ fontSize: isMobile ? 'clamp(24px,7vw,34px)' : 'clamp(28px,4vw,40px)', fontWeight:900, color:C.forest, margin:'0 0 4px', letterSpacing:'-1px' }}>{s.n}</p>
+                <p style={{ fontSize: isMobile ? 'clamp(24px,7vw,34px)' : 'clamp(28px,4vw,40px)', fontWeight:900, color:C.navy, margin:'0 0 4px', letterSpacing:'-1px' }}>{s.n}</p>
                 <p style={{ fontSize: isMobile ? 12 : 14, color:C.muted, margin:0, lineHeight:1.4 }}>{s.label}</p>
               </div>
             ))}
@@ -287,95 +287,95 @@ export default function RioProvincial() {
       {/* ── SOBRE NOSOTROS ─────────────────────────────────────── */}
       <section id="nosotros" style={{ padding: isMobile ? '48px 16px' : '80px 24px', background:C.white }}>
         <div style={{ maxWidth:1140, margin:'0 auto', display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit,minmax(340px,1fr))', gap: isMobile ? 28 : 64, alignItems:'center' }}>
-          <div style={{ background:C.forest, borderRadius:16, padding: isMobile ? '32px 24px' : '48px 40px', position:'relative', overflow:'hidden' }}>
-            <div style={{ position:'absolute', top:-20, right:-20, fontSize:100, opacity:0.1, userSelect:'none' }}>🌿</div>
-            <span style={{ background:C.terra, color:C.white, fontSize:11, fontWeight:700, letterSpacing:2, textTransform:'uppercase', padding:'5px 12px', borderRadius:20, display:'inline-block', marginBottom:18 }}>
+          <div style={{ background:C.navy, borderRadius:16, padding: isMobile ? '32px 24px' : '48px 40px', position:'relative', overflow:'hidden' }}>
+            <div style={{ position:'absolute', top:-20, right:-20, fontSize:100, opacity:0.08, userSelect:'none' }}>💼</div>
+            <span style={{ background:C.blue, color:C.white, fontSize:11, fontWeight:700, letterSpacing:2, textTransform:'uppercase', padding:'5px 12px', borderRadius:20, display:'inline-block', marginBottom:18 }}>
               Quiénes somos
             </span>
             <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, lineHeight:1.2, margin:'0 0 18px', letterSpacing:'-0.5px' }}>
-              El blog de jardinería para Venezuela
+              El blog de suministros de oficina para Venezuela
             </h2>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
-              {['Plantas Tropicales','Horticultura Práctica','Diseño de Jardines','Jardinería Urbana'].map(t => (
+              {['Papelería y Material de Escritorio','Mobiliario Ergonómico','Tecnología para Empresas','Consumibles e Insumos','Organización Documental'].map(t => (
                 <div key={t} style={{ display:'flex', alignItems:'center', gap:10 }}>
-                  <span style={{ width:8, height:8, background:C.sage, borderRadius:'50%', flexShrink:0, display:'inline-block' }} />
-                  <span style={{ color:'#C8E6D4', fontSize:15, fontWeight:500 }}>{t}</span>
+                  <span style={{ width:8, height:8, background:'#93C5FD', borderRadius:'50%', flexShrink:0, display:'inline-block' }} />
+                  <span style={{ color:'#BFDBFE', fontSize:15, fontWeight:500 }}>{t}</span>
                 </div>
               ))}
             </div>
           </div>
           <div>
-            <p style={{ fontSize:12, color:C.forest, fontWeight:700, letterSpacing:2, textTransform:'uppercase', marginBottom:10 }}>Nuestra misión</p>
+            <p style={{ fontSize:12, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', marginBottom:10 }}>Nuestra misión</p>
             <h3 style={{ fontSize: isMobile ? 18 : 'clamp(18px,2vw,24px)', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.3 }}>
-              Información gratuita y accesible para todos los venezolanos
+              Información gratuita y accesible para empresas venezolanas
             </h3>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              <strong style={{ color:C.dark }}>Provinet Empresas Jardinería</strong> es un blog educativo venezolano dedicado a compartir conocimiento práctico sobre el mundo de las plantas, la jardinería tropical y el paisajismo.
+              <strong style={{ color:C.dark }}>Provinet Empresas Servicios Globales</strong> es un blog educativo venezolano dedicado a guiar a empresas, pymes y emprendedores en la selección, compra y gestión de suministros de oficina.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              Con más de <strong style={{ color:C.dark }}>20 años de experiencia</strong> en el sector, compartimos guías y consejos adaptados al clima y la flora venezolana.
+              Con más de <strong style={{ color:C.dark }}>15 años de experiencia</strong> en el sector empresarial, compartimos guías prácticas adaptadas al mercado venezolano, con información sobre proveedores, precios y mejores prácticas.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:0 }}>
-              Nuestro compromiso: <strong style={{ color:C.dark }}>información gratuita, precisa y accesible</strong> para toda la comunidad.
+              Nuestro compromiso: <strong style={{ color:C.dark }}>información gratuita, precisa y actualizada</strong> para toda la comunidad empresarial venezolana.
             </p>
           </div>
         </div>
       </section>
 
       {/* ── CONTACTO ───────────────────────────────────────────── */}
-      <section id="contacto" style={{ padding: isMobile ? '48px 16px' : '72px 24px', background:C.cream }}>
+      <section id="contacto" style={{ padding: isMobile ? '48px 16px' : '72px 24px', background:C.bg }}>
         <div style={{ maxWidth:900, margin:'0 auto' }}>
           <div style={{ textAlign:'center', marginBottom:36 }}>
-            <p style={{ color:C.forest, fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', marginBottom:8 }}>¿Tienes dudas?</p>
+            <p style={{ color:C.blue, fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', marginBottom:8 }}>¿Tienes dudas?</p>
             <h2 style={{ fontSize: isMobile ? 22 : 'clamp(22px,3vw,34px)', fontWeight:900, color:C.dark, margin:'0 0 10px', letterSpacing:'-0.5px' }}>Contáctanos</h2>
             <p style={{ color:C.muted, fontSize: isMobile ? 15 : 17 }}>Preguntas, sugerencias o propuestas de artículos</p>
           </div>
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap:16 }}>
             <ContactCard icon="📧" title="Correo Electrónico" value={CONTACT_EMAIL} href={`mailto:${CONTACT_EMAIL}`} desc="Respondemos en 48 horas hábiles" />
-            <ContactCard icon="📞" title="Teléfono" value={CONTACT_PHONE} href={`tel:${CONTACT_PHONE.replace(/\s|-/g,'')}`} desc="Lun–Sáb de 8:00 AM a 6:00 PM" />
+            <ContactCard icon="📞" title="Teléfono" value={CONTACT_PHONE} href={`tel:${CONTACT_PHONE.replace(/\s|-/g,'')}`} desc="Lun–Vie de 8:00 AM a 5:00 PM" />
             <ContactCard icon="📍" title="Ubicación" value={ADDRESS} desc="Operamos en todo el territorio nacional" />
           </div>
         </div>
       </section>
 
       {/* ── FOOTER ─────────────────────────────────────────────── */}
-      <footer style={{ background:C.dark, color:'#8FA890' }}>
+      <footer style={{ background:C.dark, color:'#94A3B8' }}>
         <div style={{ borderBottom:'1px solid rgba(255,255,255,0.08)', padding: isMobile ? '36px 16px 28px' : '48px 24px 40px' }}>
           <div style={{ maxWidth:1140, margin:'0 auto', display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: isMobile ? 28 : 40 }}>
             <div style={{ gridColumn: isMobile ? 'span 2' : 'span 1' }}>
               <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}>
-                <span style={{ fontSize:20 }}>🌿</span>
-                <span style={{ color:C.white, fontWeight:800, fontSize:15 }}>Provinet Jardinería</span>
+                <span style={{ fontSize:20 }}>💼</span>
+                <span style={{ color:C.white, fontWeight:800, fontSize:14 }}>Provinet Servicios Globales</span>
               </div>
-              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre jardinería y plantas tropicales en Venezuela.</p>
-              <p style={{ fontSize:12 }}><span style={{ color:C.sage }}>📍</span> {ADDRESS}</p>
+              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre suministros de oficina y servicios empresariales en Venezuela.</p>
+              <p style={{ fontSize:12 }}><span style={{ color:'#93C5FD' }}>📍</span> {ADDRESS}</p>
               <p style={{ fontSize:12, marginTop:4 }}>
-                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#8FA890', textDecoration:'none' }}><span style={{ color:C.sage }}>📧</span> {CONTACT_EMAIL}</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#94A3B8', textDecoration:'none' }}><span style={{ color:'#93C5FD' }}>📧</span> {CONTACT_EMAIL}</a>
               </p>
             </div>
             <div>
-              <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Temas</h4>
+              <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Categorías</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:8, fontSize:13 }}>
-                {['Plantas Tropicales','Horticultura','Diseño de Jardines','Cuidado y Riego','Jardinería Urbana'].map(t => (
-                  <a key={t} href="#categorias" style={{ color:'#8FA890', textDecoration:'none' }}>{t}</a>
+                {['Papelería','Mobiliario','Tecnología','Consumibles','Organización'].map(t => (
+                  <a key={t} href="#categorias" style={{ color:'#94A3B8', textDecoration:'none' }}>{t}</a>
                 ))}
               </div>
             </div>
             <div>
               <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Info</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:8, fontSize:13 }}>
-                <a href="#nosotros"  style={{ color:'#8FA890', textDecoration:'none' }}>Sobre Nosotros</a>
-                <a href="#articulos" style={{ color:'#8FA890', textDecoration:'none' }}>Artículos</a>
-                <a href="#contacto"  style={{ color:'#8FA890', textDecoration:'none' }}>Contacto</a>
+                <a href="#nosotros"  style={{ color:'#94A3B8', textDecoration:'none' }}>Sobre Nosotros</a>
+                <a href="#articulos" style={{ color:'#94A3B8', textDecoration:'none' }}>Artículos</a>
+                <a href="#contacto"  style={{ color:'#94A3B8', textDecoration:'none' }}>Contacto</a>
               </div>
             </div>
             <div>
               <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Legal</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:8, fontSize:13 }}>
-                {[['privacy','Privacidad'],['terms','Términos'],['cookies','Cookies']].map(([k,v]) => (
-                  <button key={k} onClick={() => setModal(k)} style={{ color:'#8FA890', background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textAlign:'left' }}>{v}</button>
+                {[['privacy','Privacidad'],['terms','Términos'],['cookies','Cookies'],['googleads','Google Ads']].map(([k,v]) => (
+                  <button key={k} onClick={() => setModal(k)} style={{ color:'#94A3B8', background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textAlign:'left' }}>{v}</button>
                 ))}
-                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#8FA890', textDecoration:'none' }}>Contacto Legal</a>
+                <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#94A3B8', textDecoration:'none' }}>Contacto Legal</a>
               </div>
             </div>
           </div>
@@ -383,8 +383,8 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto', padding: isMobile ? '16px' : '20px 24px', display:'flex', flexWrap:'wrap', justifyContent:'space-between', alignItems:'center', gap:10, fontSize:12 }}>
           <span>© {new Date().getFullYear()} {SITE_NAME}. Todos los derechos reservados.</span>
           <div style={{ display:'flex', gap:16 }}>
-            {[['privacy','Privacidad'],['terms','Términos'],['cookies','Cookies']].map(([k,v]) => (
-              <button key={k} onClick={() => setModal(k)} style={{ color:C.sage, background:'none', border:'none', cursor:'pointer', fontSize:12 }}>{v}</button>
+            {[['privacy','Privacidad'],['terms','Términos'],['cookies','Cookies'],['googleads','Google Ads']].map(([k,v]) => (
+              <button key={k} onClick={() => setModal(k)} style={{ color:'#93C5FD', background:'none', border:'none', cursor:'pointer', fontSize:12 }}>{v}</button>
             ))}
           </div>
         </div>
@@ -392,25 +392,33 @@ export default function RioProvincial() {
 
       {/* ── COOKIE BANNER ──────────────────────────────────────── */}
       {!cookie && (
-        <div style={{ position:'fixed', bottom:0, left:0, right:0, zIndex:999, background:C.dark, borderTop:`3px solid ${C.forest}`, padding: isMobile ? '14px 16px' : '16px 24px', display:'flex', flexWrap:'wrap', alignItems:'center', justifyContent:'center', gap:12 }}>
-          <p style={{ color:'#C8DDD0', fontSize:13, flex:'1 1 260px', margin:0 }}>
+        <div style={{ position:'fixed', bottom:0, left:0, right:0, zIndex:999, background:C.dark, borderTop:`3px solid ${C.navy}`, padding: isMobile ? '14px 16px' : '16px 24px', display:'flex', flexWrap:'wrap', alignItems:'center', justifyContent:'center', gap:12 }}>
+          <p style={{ color:'#CBD5E1', fontSize:13, flex:'1 1 260px', margin:0 }}>
             Usamos cookies para mejorar tu experiencia y mostrar publicidad relevante.{' '}
-            <button onClick={() => setModal('cookies')} style={{ color:C.sage, background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textDecoration:'underline' }}>Cookies</button>{' '}·{' '}
-            <button onClick={() => setModal('privacy')} style={{ color:C.sage, background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textDecoration:'underline' }}>Privacidad</button>
+            <button onClick={() => setModal('cookies')} style={{ color:'#93C5FD', background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textDecoration:'underline' }}>Cookies</button>{' '}·{' '}
+            <button onClick={() => setModal('privacy')} style={{ color:'#93C5FD', background:'none', border:'none', cursor:'pointer', fontSize:13, padding:0, textDecoration:'underline' }}>Privacidad</button>
           </p>
           <div style={{ display:'flex', gap:10 }}>
-            <button onClick={acceptCookie} style={{ background:C.forest, color:C.white, border:'none', borderRadius:6, padding:'10px 22px', fontWeight:700, fontSize:14, cursor:'pointer', minHeight:42 }}>Aceptar</button>
-            <button onClick={() => setModal('cookies')} style={{ background:'transparent', color:'#C8DDD0', border:'1px solid rgba(255,255,255,0.2)', borderRadius:6, padding:'10px 14px', fontSize:13, cursor:'pointer', minHeight:42 }}>Configurar</button>
+            <button onClick={acceptCookie} style={{ background:C.navy, color:C.white, border:'none', borderRadius:6, padding:'10px 22px', fontWeight:700, fontSize:14, cursor:'pointer', minHeight:42 }}>Aceptar</button>
+            <button onClick={() => setModal('cookies')} style={{ background:'transparent', color:'#CBD5E1', border:'1px solid rgba(255,255,255,0.2)', borderRadius:6, padding:'10px 14px', fontSize:13, cursor:'pointer', minHeight:42 }}>Configurar</button>
           </div>
         </div>
       )}
 
       {/* ── MODALES ────────────────────────────────────────────── */}
       {modal && (
-        <PolicyModal title={modal==='privacy'?'Política de Privacidad':modal==='terms'?'Términos de Uso':'Política de Cookies'} onClose={() => setModal(null)}>
-          {modal==='privacy'  && <PrivacyContent  onCookies={() => setModal('cookies')} />}
-          {modal==='terms'    && <TermsContent />}
-          {modal==='cookies'  && <CookiesContent  onAccept={() => { acceptCookie(); setModal(null); }} onPrivacy={() => setModal('privacy')} />}
+        <PolicyModal
+          title={
+            modal==='privacy'  ? 'Política de Privacidad' :
+            modal==='terms'    ? 'Términos de Uso' :
+            modal==='cookies'  ? 'Política de Cookies' :
+                                 'Política de Google Ads'
+          }
+          onClose={() => setModal(null)}>
+          {modal==='privacy'   && <PrivacyContent   onCookies={() => setModal('cookies')} />}
+          {modal==='terms'     && <TermsContent />}
+          {modal==='cookies'   && <CookiesContent   onAccept={() => { acceptCookie(); setModal(null); }} onPrivacy={() => setModal('privacy')} />}
+          {modal==='googleads' && <GoogleAdsContent onPrivacy={() => setModal('privacy')} onCookies={() => setModal('cookies')} />}
         </PolicyModal>
       )}
     </div>
@@ -432,7 +440,7 @@ function FeaturedCard({ article: a, isMobile }) {
         <p style={{ color:C.muted, fontSize: isMobile ? 14 : 15, lineHeight:1.75, margin:0, flex:1 }}>{a.excerpt}</p>
         <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingTop:10, borderTop:`1px solid ${C.border}` }}>
           <span style={{ color:C.muted, fontSize:13 }}>⏱ {a.readTime} de lectura</span>
-          <span style={{ color:C.terra, fontSize:14, fontWeight:700 }}>Leer →</span>
+          <span style={{ color:C.blue, fontSize:14, fontWeight:700 }}>Leer →</span>
         </div>
       </div>
     </div>
@@ -450,7 +458,7 @@ function SmallCard({ article: a, isMobile }) {
         <h3 style={{ fontSize: isMobile ? 13 : 14, fontWeight:700, color:C.dark, lineHeight:1.4, margin:'5px 0 8px' }}>{a.title}</h3>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
           <span style={{ color:C.muted, fontSize:12 }}>⏱ {a.readTime}</span>
-          <span style={{ color:C.terra, fontSize:12, fontWeight:700, flexShrink:0 }}>Leer →</span>
+          <span style={{ color:C.blue, fontSize:12, fontWeight:700, flexShrink:0 }}>Leer →</span>
         </div>
       </div>
     </div>
@@ -471,7 +479,7 @@ function HorizontalCard({ article: a, last, isMobile }) {
         <h3 style={{ fontSize: isMobile ? 15 : 17, fontWeight:800, color:C.dark, lineHeight:1.35, margin:'0 0 6px' }}>{a.title}</h3>
         {!isMobile && <p style={{ color:C.muted, fontSize:14, lineHeight:1.7, margin:0 }}>{a.excerpt}</p>}
       </div>
-      {!isMobile && <span style={{ color:C.terra, fontSize:14, fontWeight:700, flexShrink:0, alignSelf:'center' }}>Leer →</span>}
+      {!isMobile && <span style={{ color:C.blue, fontSize:14, fontWeight:700, flexShrink:0, alignSelf:'center' }}>Leer →</span>}
     </div>
   );
 }
@@ -482,7 +490,7 @@ function CategoryCard({ cat, isMobile }) {
       <span style={{ fontSize: isMobile ? 22 : 26 }}>{cat.icon}</span>
       <div style={{ minWidth:0 }}>
         <p style={{ color:C.white, fontWeight:700, fontSize: isMobile ? 13 : 14, margin:'0 0 2px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{cat.name}</p>
-        <p style={{ color:C.sage, fontSize:12, margin:0 }}>{cat.count} artículos</p>
+        <p style={{ color:'#93C5FD', fontSize:12, margin:0 }}>{cat.count} artículos</p>
       </div>
     </div>
   );
@@ -490,12 +498,12 @@ function CategoryCard({ cat, isMobile }) {
 
 function ContactCard({ icon, title, value, href = '', desc }) {
   return (
-    <div style={{ background:C.white, borderRadius:12, padding:'24px 20px', border:`1px solid ${C.border}`, borderTop:`4px solid ${C.forest}` }}>
+    <div style={{ background:C.white, borderRadius:12, padding:'24px 20px', border:`1px solid ${C.border}`, borderTop:`4px solid ${C.navy}` }}>
       <span style={{ fontSize:28, display:'block', marginBottom:12 }}>{icon}</span>
       <h3 style={{ color:C.dark, fontWeight:800, fontSize:15, marginBottom:8 }}>{title}</h3>
       {href
-        ? <a href={href} style={{ color:C.forest, fontWeight:600, fontSize:13, display:'block', marginBottom:6, textDecoration:'none', wordBreak:'break-all' }}>{value}</a>
-        : <p style={{ color:C.forest, fontWeight:600, fontSize:13, marginBottom:6 }}>{value}</p>
+        ? <a href={href} style={{ color:C.navy, fontWeight:600, fontSize:13, display:'block', marginBottom:6, textDecoration:'none', wordBreak:'break-all' }}>{value}</a>
+        : <p style={{ color:C.navy, fontWeight:600, fontSize:13, marginBottom:6 }}>{value}</p>
       }
       <p style={{ color:C.muted, fontSize:13, margin:0, lineHeight:1.6 }}>{desc}</p>
     </div>
@@ -509,7 +517,7 @@ function PolicyModal({ title, onClose, children }) {
       <div style={{ background:C.white, width:'100%', maxWidth:700, maxHeight:'92vh', borderRadius:'20px 20px 0 0', display:'flex', flexDirection:'column', boxShadow:'0 -8px 40px rgba(0,0,0,0.2)' }}>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center', padding:'18px 20px', borderBottom:`1px solid ${C.border}`, flexShrink:0 }}>
           <h2 style={{ margin:0, fontSize:17, fontWeight:800, color:C.dark }}>{title}</h2>
-          <button onClick={onClose} style={{ background:C.sand, border:'none', borderRadius:'50%', width:34, height:34, cursor:'pointer', fontSize:18, display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700 }}>×</button>
+          <button onClick={onClose} style={{ background:C.silver, border:'none', borderRadius:'50%', width:34, height:34, cursor:'pointer', fontSize:18, display:'flex', alignItems:'center', justifyContent:'center', fontWeight:700 }}>×</button>
         </div>
         <div style={{ overflowY:'auto', padding:'20px', fontSize:14, color:'#475569', lineHeight:1.85 }}>{children}</div>
         <div style={{ padding:'14px 20px', borderTop:`1px solid ${C.border}`, flexShrink:0 }}>
@@ -528,7 +536,7 @@ function PrivacyContent({ onCookies }) {
       <p style={{ margin:0, fontSize:12, color:'#94A3B8' }}>Última actualización: {LAST_UPDATED}</p>
       <p>En <strong>{SITE_NAME}</strong> nos comprometemos a proteger tu privacidad. Esta Política describe qué información recopilamos, cómo la usamos y tus derechos, en cumplimiento de las Políticas de Google, el RGPD y la legislación venezolana vigente.</p>
       <PolicySection title="1. Responsable del tratamiento">
-        <p><strong>Provinet Empresas Jardinería</strong>, con domicilio en {ADDRESS}. Consultas: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.forest }}>{CONTACT_EMAIL}</a></p>
+        <p><strong>{SITE_NAME}</strong>, con domicilio en {ADDRESS}. Consultas: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.navy }}>{CONTACT_EMAIL}</a></p>
       </PolicySection>
       <PolicySection title="2. Datos que recopilamos">
         <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
@@ -545,7 +553,7 @@ function PrivacyContent({ onCookies }) {
           <li>Analizar el comportamiento de navegación para optimizar la experiencia.</li>
           <li>Medir el rendimiento de campañas en Google Ads.</li>
           <li>Responder consultas enviadas por correo.</li>
-          <li>Mostrar publicidad relevante a través de Google.</li>
+          <li>Mostrar publicidad relevante a través de Google AdSense.</li>
           <li>Cumplir con obligaciones legales aplicables.</li>
         </ul>
       </PolicySection>
@@ -558,8 +566,8 @@ function PrivacyContent({ onCookies }) {
       </PolicySection>
       <PolicySection title="5. Google Ads, Google Analytics y publicidad">
         <p>Este sitio utiliza <strong>Google Ads</strong> y <strong>Google Analytics</strong> para medir campañas y analizar el tráfico. Google puede usar cookies para personalizar anuncios.</p>
-        <p style={{ marginTop:8 }}>Controla publicidad personalizada: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>google.com/settings/ads</a></p>
-        <p style={{ marginTop:8 }}>Privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>policies.google.com/privacy</a></p>
+        <p style={{ marginTop:8 }}>Controla publicidad personalizada: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>google.com/settings/ads</a></p>
+        <p style={{ marginTop:8 }}>Privacidad de Google: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>policies.google.com/privacy</a></p>
         <p style={{ marginTop:8 }}>Este sitio puede participar en <strong>Google AdSense</strong>. Los anuncios son gestionados por Google conforme a sus Políticas para Editores.</p>
       </PolicySection>
       <PolicySection title="6. Compartición de datos con terceros">
@@ -590,11 +598,11 @@ function PrivacyContent({ onCookies }) {
           <li><strong>Portabilidad</strong> de datos en formato legible.</li>
           <li><strong>Retirar consentimiento</strong> en cualquier momento.</li>
         </ul>
-        <p style={{ marginTop:12 }}>Ejerce tus derechos en: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.forest }}>{CONTACT_EMAIL}</a></p>
+        <p style={{ marginTop:12 }}>Ejerce tus derechos en: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.navy }}>{CONTACT_EMAIL}</a></p>
       </PolicySection>
       <PolicySection title="10. Cookies">
         <p>Para más detalle, consulta nuestra{' '}
-          <button onClick={onCookies} style={{ color:C.forest, background:'none', border:'none', cursor:'pointer', fontSize:14, padding:0, textDecoration:'underline' }}>Política de Cookies</button>.
+          <button onClick={onCookies} style={{ color:C.navy, background:'none', border:'none', cursor:'pointer', fontSize:14, padding:0, textDecoration:'underline' }}>Política de Cookies</button>.
         </p>
       </PolicySection>
       <PolicySection title="11. Seguridad">
@@ -616,10 +624,10 @@ function TermsContent() {
       <p style={{ margin:0, fontSize:12, color:'#94A3B8' }}>Última actualización: {LAST_UPDATED}</p>
       <p>Al usar el sitio de <strong>{SITE_NAME}</strong>, aceptas estos Términos en su totalidad.</p>
       <PolicySection title="1. Objeto y titularidad">
-        <p>Operado por <strong>Provinet Empresas Jardinería</strong>, blog educativo sobre jardinería y plantas, con domicilio en {ADDRESS}. Finalidad: contenido informativo y educativo gratuito sobre jardinería en Venezuela.</p>
+        <p>Operado por <strong>{SITE_NAME}</strong>, blog educativo sobre suministros de oficina y servicios empresariales, con domicilio en {ADDRESS}. Finalidad: contenido informativo y educativo gratuito para empresas venezolanas.</p>
       </PolicySection>
       <PolicySection title="2. Naturaleza del contenido">
-        <p>Todo el contenido tiene carácter <strong>exclusivamente informativo y educativo</strong>. No constituye asesoramiento agronómico o botánico vinculante. Los resultados de cultivo pueden variar según condiciones locales.</p>
+        <p>Todo el contenido tiene carácter <strong>exclusivamente informativo y educativo</strong>. No constituye asesoramiento comercial o empresarial vinculante. Los precios y disponibilidad de productos pueden variar según el proveedor y región.</p>
       </PolicySection>
       <PolicySection title="3. Uso aceptable">
         <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
@@ -635,11 +643,11 @@ function TermsContent() {
         <p>Todos los contenidos son propiedad de {SITE_NAME} o sus titulares, protegidos por ley. Se permite citar fragmentos con atribución y enlace. Queda prohibida la reproducción total sin autorización.</p>
       </PolicySection>
       <PolicySection title="5. Limitación de responsabilidad">
-        <p>{SITE_NAME} no se responsabiliza de decisiones tomadas únicamente con base en el contenido del blog, daños derivados del uso del sitio ni contenidos de sitios de terceros enlazados.</p>
+        <p>{SITE_NAME} no se responsabiliza de decisiones comerciales tomadas únicamente con base en el contenido del blog, daños derivados del uso del sitio ni contenidos de sitios de terceros enlazados.</p>
       </PolicySection>
       <PolicySection title="6. Publicidad de Google">
         <p>Este sitio puede mostrar publicidad vía <strong>Google Ads / Google AdSense</strong>. Los anunciantes son responsables de sus contenidos. La aparición de anuncios no implica respaldo por parte de {SITE_NAME}.</p>
-        <p style={{ marginTop:8 }}>Gestiona preferencias en: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>google.com/settings/ads</a></p>
+        <p style={{ marginTop:8 }}>Gestiona preferencias en: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>google.com/settings/ads</a></p>
       </PolicySection>
       <PolicySection title="7. Enlaces externos">
         <p>Los enlaces a sitios externos son informativos. {SITE_NAME} no controla su contenido ni asume responsabilidad por ellos.</p>
@@ -654,7 +662,7 @@ function TermsContent() {
         <p>Estos Términos se rigen por la legislación de la República Bolivariana de Venezuela. Las controversias se someten a los tribunales de {ADDRESS}.</p>
       </PolicySection>
       <PolicySection title="11. Contacto">
-        <p><a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.forest }}>{CONTACT_EMAIL}</a></p>
+        <p><a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.navy }}>{CONTACT_EMAIL}</a></p>
       </PolicySection>
     </div>
   );
@@ -670,8 +678,8 @@ function CookiesContent({ onAccept, onPrivacy }) {
       </PolicySection>
       <PolicySection title="Tipos de cookies que utilizamos">
         <div style={{ display:'flex', flexDirection:'column', gap:14 }}>
-          <CookieCategory color="#F0FDF4" labelColor="#15803D" label="Esenciales / Necesarias" text="Imprescindibles para el funcionamiento básico.">
-            <CookieItem name="provonet_cookie" desc="Almacena tu preferencia de consentimiento." duration="12 meses" />
+          <CookieCategory color="#F0F9FF" labelColor="#0369A1" label="Esenciales / Necesarias" text="Imprescindibles para el funcionamiento básico.">
+            <CookieItem name="provinet_sg_cookie" desc="Almacena tu preferencia de consentimiento de cookies." duration="12 meses" />
           </CookieCategory>
           <CookieCategory color="#EFF6FF" labelColor="#1E40AF" label="Analíticas (Google Analytics)" text="Nos ayudan a entender cómo interactúas con el blog.">
             <CookieItem name="_ga"   desc="Identifica usuarios únicos de forma anónima." duration="2 años" />
@@ -692,10 +700,10 @@ function CookiesContent({ onAccept, onPrivacy }) {
         </div>
       </PolicySection>
       <PolicySection title="Cookies de terceros">
-        <p><strong>Google LLC</strong> puede instalar cookies propias. Política: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>policies.google.com/privacy</a></p>
-        <p style={{ marginTop:8 }}>Excluirte de publicidad personalizada: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>google.com/settings/ads</a></p>
-        <p style={{ marginTop:8 }}>Exclusión de Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>tools.google.com/dlpage/gaoptout</a></p>
-        <p style={{ marginTop:8 }}>Preferencias publicitarias (DAA): <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style={{ color:C.forest }}>aboutads.info/choices</a></p>
+        <p><strong>Google LLC</strong> puede instalar cookies propias. Política: <a href="https://policies.google.com/privacy" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>policies.google.com/privacy</a></p>
+        <p style={{ marginTop:8 }}>Excluirte de publicidad personalizada: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>google.com/settings/ads</a></p>
+        <p style={{ marginTop:8 }}>Exclusión de Google Analytics: <a href="https://tools.google.com/dlpage/gaoptout" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>tools.google.com/dlpage/gaoptout</a></p>
+        <p style={{ marginTop:8 }}>Preferencias publicitarias (DAA): <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>aboutads.info/choices</a></p>
       </PolicySection>
       <PolicySection title="Cómo gestionar las cookies desde tu navegador">
         <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:6 }}>
@@ -706,15 +714,109 @@ function CookiesContent({ onAccept, onPrivacy }) {
           <li><strong>Opera:</strong> Configuración → Avanzado → Privacidad → Cookies</li>
         </ul>
         <p style={{ marginTop:10 }}>Más info en nuestra{' '}
-          <button onClick={onPrivacy} style={{ color:C.forest, background:'none', border:'none', cursor:'pointer', fontSize:14, padding:0, textDecoration:'underline' }}>Política de Privacidad</button>.
+          <button onClick={onPrivacy} style={{ color:C.navy, background:'none', border:'none', cursor:'pointer', fontSize:14, padding:0, textDecoration:'underline' }}>Política de Privacidad</button>.
         </p>
       </PolicySection>
       <PolicySection title="Tu consentimiento">
         <p>Al hacer clic en «Aceptar» consientes todas las cookies descritas. Puedes retirar tu consentimiento borrando las cookies desde tu navegador. La preferencia se almacena 12 meses.</p>
       </PolicySection>
-      <button onClick={onAccept} style={{ background:C.forest, color:C.white, border:'none', borderRadius:8, padding:'14px', fontSize:15, fontWeight:700, cursor:'pointer', minHeight:50, marginTop:4 }}>
+      <button onClick={onAccept} style={{ background:C.navy, color:C.white, border:'none', borderRadius:8, padding:'14px', fontSize:15, fontWeight:700, cursor:'pointer', minHeight:50, marginTop:4 }}>
         Aceptar todas las cookies
       </button>
+    </div>
+  );
+}
+
+function GoogleAdsContent({ onPrivacy, onCookies }) {
+  return (
+    <div style={{ display:'flex', flexDirection:'column', gap:20 }}>
+      <p style={{ margin:0, fontSize:12, color:'#94A3B8' }}>Última actualización: {LAST_UPDATED}</p>
+      <p>Esta política describe cómo <strong>{SITE_NAME}</strong> utiliza <strong>Google Ads</strong> y <strong>Google AdSense</strong>, en cumplimiento con las Políticas del Programa de Google para Editores y Anunciantes.</p>
+
+      <PolicySection title="1. Uso de Google Ads y AdSense">
+        <p>Este sitio web participa en el programa <strong>Google AdSense</strong> y puede publicar anuncios de <strong>Google Ads</strong>. Google actúa como proveedor externo de publicidad y utiliza cookies para mostrar anuncios personalizados basados en visitas anteriores a este u otros sitios web.</p>
+        <p style={{ marginTop:8 }}>Los anuncios que aparecen en este blog son proporcionados por Google LLC y están sujetos a sus propias políticas y términos de servicio.</p>
+      </PolicySection>
+
+      <PolicySection title="2. Cumplimiento de las Políticas de Google para Editores">
+        <p>Como editor asociado a Google AdSense, este sitio cumple con:</p>
+        <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
+          <li><strong>Política de contenido:</strong> El contenido publicado cumple con las directrices de contenido de Google (sin contenido engañoso, violento, ilegal ni para adultos).</li>
+          <li><strong>Política de clics no válidos:</strong> No se incentiva a los usuarios a hacer clic en anuncios ni se genera tráfico artificial.</li>
+          <li><strong>Política de ubicación de anuncios:</strong> Los anuncios no se ubican de forma que induzca a clics accidentales.</li>
+          <li><strong>Política de transparencia:</strong> Los anuncios se identifican claramente como publicidad.</li>
+          <li><strong>Política de datos del usuario:</strong> Se obtiene el consentimiento del usuario para el uso de cookies publicitarias según lo exige Google.</li>
+        </ul>
+      </PolicySection>
+
+      <PolicySection title="3. Seguimiento de conversiones de Google Ads">
+        <p>Este sitio puede utilizar el seguimiento de conversiones de Google Ads. Cuando un usuario hace clic en un anuncio de Google y llega a este sitio, se puede instalar una cookie temporal en su dispositivo para medir la efectividad de la campaña.</p>
+        <p style={{ marginTop:8 }}>Esta cookie no contiene información personal identificable y expira en un plazo determinado (generalmente 30 días).</p>
+      </PolicySection>
+
+      <PolicySection title="4. Remarketing y Audiencias Personalizadas">
+        <p>Podemos utilizar las funciones de <strong>Remarketing de Google Ads</strong> para mostrar anuncios relevantes a usuarios que han visitado previamente nuestro sitio. Google usa cookies para hacer coincidir los anuncios con los usuarios en otros sitios de la Red de Display de Google.</p>
+        <p style={{ marginTop:8 }}>Para excluirte del remarketing personalizado, visita: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>google.com/settings/ads</a></p>
+      </PolicySection>
+
+      <PolicySection title="5. Señales de consentimiento (Consent Mode)">
+        <p>Este sitio implementa el <strong>Modo de Consentimiento de Google (Google Consent Mode)</strong>. Cuando el usuario rechaza cookies no esenciales, Google adapta el comportamiento de sus herramientas de medición para respetar esa preferencia, sin dejar de proporcionar métricas agregadas.</p>
+        <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
+          <li><strong>ad_storage:</strong> Controla el almacenamiento relacionado con publicidad (anuncios y seguimiento).</li>
+          <li><strong>analytics_storage:</strong> Controla el almacenamiento relacionado con análisis (duración de sesión, etc.).</li>
+          <li><strong>ad_personalization:</strong> Controla si los datos se pueden usar para personalización de anuncios.</li>
+          <li><strong>ad_user_data:</strong> Controla el envío de datos de usuario a Google con fines publicitarios.</li>
+        </ul>
+      </PolicySection>
+
+      <PolicySection title="6. Política de Divulgación de Datos Requerida por Google">
+        <p>De conformidad con los requisitos de Google para editores de AdSense, informamos explícitamente que:</p>
+        <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
+          <li>Proveedores externos, incluido Google, utilizan cookies para publicar anuncios.</li>
+          <li>Google usa la cookie DART para publicar anuncios basados en visitas previas a este sitio y a otros en Internet.</li>
+          <li>Los usuarios pueden inhabilitar la cookie DART visitando la Política de privacidad de la red de contenido y anuncios de Google.</li>
+          <li>Utilizamos publicidad de comportamiento de interés de terceros en nuestro sitio.</li>
+        </ul>
+      </PolicySection>
+
+      <PolicySection title="7. Restricciones de contenido y uso del sitio">
+        <p>En cumplimiento con las políticas de Google Ads y AdSense, este sitio:</p>
+        <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
+          <li>No publica contenido que promueva actividades ilegales.</li>
+          <li>No contiene contenido que infrinja derechos de propiedad intelectual.</li>
+          <li>No muestra contenido engañoso o falso sobre productos o servicios.</li>
+          <li>No está dirigido a menores de 13 años con fines publicitarios.</li>
+          <li>Proporciona una experiencia de usuario clara y sin prácticas abusivas.</li>
+        </ul>
+      </PolicySection>
+
+      <PolicySection title="8. Responsabilidad del anunciante">
+        <p>Los anuncios mostrados son responsabilidad de Google LLC y de los anunciantes que los contratan. {SITE_NAME} no avala ni garantiza los productos, servicios o afirmaciones contenidas en dichos anuncios.</p>
+      </PolicySection>
+
+      <PolicySection title="9. Gestión de preferencias publicitarias">
+        <p>Puedes gestionar o deshabilitar los anuncios personalizados mediante las siguientes opciones:</p>
+        <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
+          <li>Mi Centro de Anuncios de Google: <a href="https://myadcenter.google.com" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>myadcenter.google.com</a></li>
+          <li>Configuración de anuncios de Google: <a href="https://www.google.com/settings/ads" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>google.com/settings/ads</a></li>
+          <li>Network Advertising Initiative: <a href="https://www.networkadvertising.org/choices/" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>networkadvertising.org/choices</a></li>
+          <li>Digital Advertising Alliance: <a href="https://www.aboutads.info/choices/" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>aboutads.info/choices</a></li>
+          <li>Your Online Choices (UE): <a href="https://www.youronlinechoices.com" target="_blank" rel="noopener noreferrer" style={{ color:C.navy }}>youronlinechoices.com</a></li>
+        </ul>
+      </PolicySection>
+
+      <PolicySection title="10. Contacto para asuntos de publicidad">
+        <p>Para preguntas sobre la publicidad mostrada en este sitio o para ejercer tus derechos relacionados con datos publicitarios, contacta: <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:C.navy }}>{CONTACT_EMAIL}</a></p>
+      </PolicySection>
+
+      <div style={{ display:'flex', gap:10, flexWrap:'wrap', marginTop:4 }}>
+        <button onClick={onPrivacy} style={{ background:C.navy, color:C.white, border:'none', borderRadius:8, padding:'12px 20px', fontSize:14, fontWeight:700, cursor:'pointer' }}>
+          Ver Política de Privacidad
+        </button>
+        <button onClick={onCookies} style={{ background:'transparent', color:C.navy, border:`2px solid ${C.navy}`, borderRadius:8, padding:'12px 20px', fontSize:14, fontWeight:700, cursor:'pointer' }}>
+          Ver Política de Cookies
+        </button>
+      </div>
     </div>
   );
 }
