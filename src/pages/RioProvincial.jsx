@@ -3,17 +3,17 @@ import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SITE_URL      = 'https://www.provinetservicios.com.ve';
-const SITE_NAME     = 'Provinet Empresas Servicios Globales';
+const SITE_NAME     = 'Provinet Empresas Blog Educativo';
 const CONTACT_EMAIL = 'contacto@provinetservicios.com.ve';
 const CONTACT_PHONE = '+58 212-000-0000';
 const ADDRESS       = 'Caracas, Venezuela';
-const LAST_UPDATED  = '26 de mayo de 2025';
+const LAST_UPDATED  = '28 de mayo de 2026';
 
 const SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Provinet Empresas Servicios Globales — Blog Educativo",
-  "description": "Blog educativo sobre suministros de oficina, papelería empresarial, mobiliario, tecnología y organización para empresas en Venezuela",
+  "name": "Provinet Empresas Blog Educativo",
+  "description": "Blog educativo sobre empresas: qué son, cómo funcionan, tipos de empresas, emprendimiento, gestión empresarial y registro en Venezuela",
   "url": SITE_URL,
   "publisher": {
     "@type": "Organization",
@@ -37,42 +37,42 @@ const C = {
 };
 
 const ARTICLES = [
-  { id:1, icon:'📎', category:'Papelería Profesional', catBg:'#DBEAFE', catColor:'#1D4ED8',
-    title:'Guía completa de papelería para oficinas venezolanas',
-    excerpt:'Desde bolígrafos y cuadernos corporativos hasta archivadores y marcadores industriales — aprende qué suministros priorizar según el tamaño y giro de tu empresa.',
-    readTime:'6 min', date:'20 may 2025' },
-  { id:2, icon:'💺', category:'Mobiliario de Oficina', catBg:'#F0F9FF', catColor:'#0369A1',
-    title:'Cómo elegir escritorios y sillas ergonómicas para tu equipo',
-    excerpt:'El mobiliario correcto reduce el ausentismo y aumenta la productividad. Comparamos marcas disponibles en Venezuela y criterios clave de ergonomía.',
-    readTime:'7 min', date:'16 may 2025' },
-  { id:3, icon:'🖨️', category:'Tecnología', catBg:'#F5F3FF', catColor:'#5B21B6',
-    title:'Impresoras para empresas: láser vs inkjet, cuál conviene',
-    excerpt:'Analiza el costo por página, velocidad y volumen de impresión mensual. Te explicamos cuándo vale la pena cada tecnología para pymes y grandes corporaciones.',
-    readTime:'5 min', date:'12 may 2025' },
-  { id:4, icon:'🗂️', category:'Organización', catBg:'#FFF7ED', catColor:'#C2410C',
-    title:'Sistemas de archivo y gestión documental para pymes',
-    excerpt:'Archivadores AZ, separadores, cajas de cartón y soluciones digitales híbridas. Implementa un flujo de documentos que funcione para equipos de 5 a 200 personas.',
-    readTime:'6 min', date:'8 may 2025' },
-  { id:5, icon:'✏️', category:'Consumibles', catBg:'#F0FDF4', catColor:'#15803D',
-    title:'Tóneres, cartuchos y papel: gestión de inventario inteligente',
-    excerpt:'Evita quedarte sin insumos en momentos críticos. Te mostramos cómo calcular el stock mínimo de consumibles según tu volumen de impresión mensual.',
-    readTime:'8 min', date:'2 may 2025' },
-  { id:6, icon:'💼', category:'Suministros Globales', catBg:'#FFF1F2', catColor:'#BE123C',
-    title:'Compras en volumen: cómo negociar con proveedores de suministros',
-    excerpt:'Estrategias de compra por volumen, contratos marco y evaluación de proveedores para maximizar el ahorro en suministros de oficina a nivel empresarial.',
-    readTime:'7 min', date:'26 abr 2025' },
+  { id:1, icon:'🏢', category:'Fundamentos Empresariales', catBg:'#DBEAFE', catColor:'#1D4ED8',
+    title:'¿Qué es una empresa? Definición, características y elementos esenciales',
+    excerpt:'Una empresa es una organización que combina capital, trabajo y tecnología para producir bienes o servicios. Aprende sus características clave: propósito, estructura, recursos y actividad económica dentro del mercado venezolano.',
+    readTime:'6 min', date:'22 may 2026' },
+  { id:2, icon:'⚖️', category:'Tipos de Empresas', catBg:'#F0F9FF', catColor:'#0369A1',
+    title:'Tipos de empresas en Venezuela: C.A., S.A., SRL, firma personal y más',
+    excerpt:'Conoce las principales formas jurídicas empresariales en Venezuela: Compañía Anónima, Sociedad de Responsabilidad Limitada, Firma Personal y Cooperativa. Diferencias, ventajas y cuándo elegir cada una.',
+    readTime:'7 min', date:'18 may 2026' },
+  { id:3, icon:'📊', category:'Estructura Organizacional', catBg:'#F5F3FF', catColor:'#5B21B6',
+    title:'Cómo funciona una empresa: estructura, departamentos y jerarquía',
+    excerpt:'Toda empresa se organiza en áreas funcionales: dirección, finanzas, operaciones, recursos humanos y marketing. Descubre cómo se relacionan estos departamentos y cómo fluye la información y la toma de decisiones.',
+    readTime:'8 min', date:'14 may 2026' },
+  { id:4, icon:'💡', category:'Emprendimiento', catBg:'#FFF7ED', catColor:'#C2410C',
+    title:'Cómo crear una empresa en Venezuela: pasos, trámites y registro',
+    excerpt:'Guía paso a paso para constituir tu empresa en Venezuela: registro ante el Registro Mercantil, RIF, inscripción en el IVSS y BCV. Documentos necesarios, tiempos estimados y costos aproximados.',
+    readTime:'9 min', date:'10 may 2026' },
+  { id:5, icon:'💰', category:'Gestión y Finanzas', catBg:'#F0FDF4', catColor:'#15803D',
+    title:'Gestión financiera básica para empresas: flujo de caja, costos y rentabilidad',
+    excerpt:'Domina los fundamentos financieros que toda empresa necesita: cómo calcular el punto de equilibrio, gestionar el flujo de caja, reducir costos operativos y medir la rentabilidad real del negocio.',
+    readTime:'8 min', date:'5 may 2026' },
+  { id:6, icon:'📈', category:'Crecimiento Empresarial', catBg:'#FFF1F2', catColor:'#BE123C',
+    title:'Estrategias de crecimiento empresarial: escalar tu negocio paso a paso',
+    excerpt:'Desde la consolidación interna hasta la expansión de mercado: aprende las estrategias más efectivas para hacer crecer tu empresa en Venezuela, incluyendo diversificación, alianzas estratégicas y digitalización.',
+    readTime:'7 min', date:'28 abr 2026' },
 ];
 
 const CATEGORIES = [
-  { name:'Papelería',        count:18, icon:'📎', bg:'#DBEAFE', color:'#1D4ED8' },
-  { name:'Mobiliario',       count:12, icon:'💺', bg:'#F0F9FF', color:'#0369A1' },
-  { name:'Tecnología',       count:9,  icon:'🖨️', bg:'#F5F3FF', color:'#5B21B6' },
-  { name:'Consumibles',      count:15, icon:'🖊️', bg:'#F0FDF4', color:'#15803D' },
-  { name:'Organización',     count:11, icon:'🗂️', bg:'#FFF7ED', color:'#C2410C' },
-  { name:'Ergonomía',        count:7,  icon:'🪑', bg:'#FFF1F2', color:'#BE123C' },
+  { name:'Fundamentos',      count:20, icon:'🏢', bg:'#DBEAFE', color:'#1D4ED8' },
+  { name:'Tipos de Empresa', count:14, icon:'⚖️', bg:'#F0F9FF', color:'#0369A1' },
+  { name:'Gestión',          count:17, icon:'📊', bg:'#F5F3FF', color:'#5B21B6' },
+  { name:'Emprendimiento',   count:19, icon:'💡', bg:'#F0FDF4', color:'#15803D' },
+  { name:'Finanzas',         count:13, icon:'💰', bg:'#FFF7ED', color:'#C2410C' },
+  { name:'Crecimiento',      count:11, icon:'📈', bg:'#FFF1F2', color:'#BE123C' },
 ];
 
-const OFFICE_ICONS = ['📎','📐','📏','📋','🖊️','✏️','📌','🗂️','💼','🖥️','🖨️','⌨️','🗃️','📁','📝','📊'];
+const BIZ_ICONS = ['🏢','🏦','📊','💰','🤝','📈','🏗️','⚖️','💡','🌐','🏭','📋','🗂️','💼','🔑','📑'];
 
 // ── COMPONENTE PRINCIPAL ──────────────────────────────────────────────────────
 export default function RioProvincial() {
@@ -82,15 +82,15 @@ export default function RioProvincial() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Provinet Empresas Servicios Globales | Blog Educativo de Suministros de Oficina';
+    document.title = 'Provinet Empresas Blog Educativo | Todo sobre Empresas y Negocios en Venezuela';
     const m = (a, n, c) => {
       let el = document.querySelector(`meta[${a}="${n}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(a, n); document.head.appendChild(el); }
       el.setAttribute('content', c);
     };
-    m('name','description','Blog educativo sobre suministros de oficina, papelería empresarial, mobiliario, tecnología y organización. Guías gratuitas para empresas venezolanas.');
-    m('name','keywords','suministros de oficina Venezuela,papelería empresarial,mobiliario oficina,impresoras empresas,consumibles,organización documental,Caracas');
-    m('property','og:title','Provinet Empresas Servicios Globales | Blog Educativo');
+    m('name','description','Blog educativo sobre empresas venezolanas: qué son, cómo funcionan, tipos de empresas, cómo crearlas, gestión financiera y estrategias de crecimiento. Contenido gratuito para emprendedores.');
+    m('name','keywords','que es una empresa Venezuela,tipos de empresas Venezuela,como crear empresa Venezuela,gestión empresarial,emprendimiento Venezuela,compañía anónima,SRL,Caracas');
+    m('property','og:title','Provinet Empresas Blog Educativo | Todo sobre Empresas');
     m('property','og:type','website');
     m('property','og:url', SITE_URL);
     const s = document.createElement('script');
@@ -111,14 +111,14 @@ export default function RioProvincial() {
 
           {/* Logo */}
           <div style={{ display:'flex', alignItems:'center', gap:8, minWidth:0 }}>
-            <span style={{ fontSize: isMobile ? 20 : 26, flexShrink:0 }}>💼</span>
+            <span style={{ fontSize: isMobile ? 20 : 26, flexShrink:0 }}>🏢</span>
             {isMobile ? (
               <span style={{ fontWeight:800, color:C.dark, lineHeight:1.2, fontSize:12 }}>
-                Provinet <span style={{ color:C.blue }}>Empresas</span><br />Servicios Globales
+                Provinet <span style={{ color:C.blue }}>Empresas</span><br />Blog Educativo
               </span>
             ) : (
               <span style={{ fontWeight:800, fontSize:15, color:C.dark, whiteSpace:'nowrap', lineHeight:1.2 }}>
-                Provinet <span style={{ color:C.blue }}>Empresas</span> Servicios Globales
+                Provinet <span style={{ color:C.blue }}>Empresas</span> Blog Educativo
               </span>
             )}
           </div>
@@ -172,10 +172,10 @@ export default function RioProvincial() {
             Blog Educativo · Venezuela
           </span>
           <h1 style={{ color:C.white, fontSize: isMobile ? 'clamp(28px,8vw,38px)' : 'clamp(28px,3.5vw,46px)', fontWeight:900, lineHeight:1.15, margin:'0 0 16px', letterSpacing:'-1px' }}>
-            Todo sobre<br /><span style={{ color:'#93C5FD' }}>Suministros</span><br />de Oficina
+            Todo sobre<br /><span style={{ color:'#93C5FD' }}>Empresas</span><br />y Negocios
           </h1>
           <p style={{ color:'#94A3B8', fontSize: isMobile ? 15 : 16, lineHeight:1.7, margin:'0 0 28px', maxWidth:380 }}>
-            Guías prácticas y artículos educativos sobre papelería, mobiliario, tecnología y organización para empresas venezolanas — completamente gratis.
+            Aprende qué son las empresas, cómo funcionan, cómo crearlas y gestionarlas — guías prácticas y gratuitas para emprendedores y empresarios venezolanos.
           </p>
           <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
             <a href="#articulos" style={{ background:C.blue, color:C.white, fontWeight:700, fontSize:15, padding:'12px 26px', borderRadius:6, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8 }}>
@@ -191,14 +191,14 @@ export default function RioProvincial() {
         {!isMobile && (
           <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', display:'flex', alignItems:'center', justifyContent:'center', padding:40, position:'relative', overflow:'hidden' }}>
             <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, opacity:0.92 }}>
-              {OFFICE_ICONS.map((e,i) => (
+              {BIZ_ICONS.map((e,i) => (
                 <div key={i} style={{ width:56, height:56, background:'rgba(255,255,255,0.85)', borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontSize:26, boxShadow:'0 2px 8px rgba(0,0,0,0.1)', transform:i%3===0?'rotate(-4deg)':i%3===1?'rotate(3deg)':'rotate(0deg)' }}>
                   {e}
                 </div>
               ))}
             </div>
             <div style={{ position:'absolute', bottom:14, right:18, fontSize:12, color:C.navy, fontWeight:600, letterSpacing:1, textTransform:'uppercase' }}>
-              Servicios Globales
+              Blog Educativo
             </div>
           </div>
         )}
@@ -206,7 +206,7 @@ export default function RioProvincial() {
         {/* Strip de iconos en mobile */}
         {isMobile && (
           <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', padding:'18px 16px', display:'flex', gap:10, overflowX:'auto', scrollbarWidth:'none' }}>
-            {OFFICE_ICONS.map((e,i) => (
+            {BIZ_ICONS.map((e,i) => (
               <div key={i} style={{ width:44, height:44, background:'rgba(255,255,255,0.85)', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0, boxShadow:'0 1px 4px rgba(0,0,0,0.1)' }}>
                 {e}
               </div>
@@ -228,13 +228,43 @@ export default function RioProvincial() {
             </span>
           </div>
 
-          {/* Magazine grid: 1 featured + 2 small */}
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : '1.6fr 1fr', gap:20 }}>
             <FeaturedCard article={ARTICLES[0]} isMobile={isMobile} />
             <div style={{ display:'flex', flexDirection: isMobile ? 'row' : 'column', gap:isMobile ? 14 : 20, flexWrap: isMobile ? 'nowrap' : 'unset', overflowX: isMobile ? 'auto' : 'visible' }}>
               <SmallCard article={ARTICLES[1]} isMobile={isMobile} />
               <SmallCard article={ARTICLES[2]} isMobile={isMobile} />
             </div>
+          </div>
+        </div>
+      </section>
+
+      {/* ── QUÉ ES UNA EMPRESA — bloque informativo ─────────────── */}
+      <section style={{ background:C.white, padding: isMobile ? '40px 16px' : '64px 24px', borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}` }}>
+        <div style={{ maxWidth:1140, margin:'0 auto' }}>
+          <div style={{ textAlign:'center', marginBottom: isMobile ? 28 : 40 }}>
+            <p style={{ color:C.blue, fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', marginBottom:8 }}>Conceptos clave</p>
+            <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, color:C.dark, margin:'0 0 12px' }}>
+              ¿Qué es una empresa y cómo funciona?
+            </h2>
+            <p style={{ color:C.muted, fontSize: isMobile ? 14 : 16, maxWidth:620, margin:'0 auto', lineHeight:1.7 }}>
+              Una empresa es una unidad económica que organiza recursos humanos, financieros y materiales para ofrecer bienes o servicios al mercado con el objetivo de generar valor.
+            </p>
+          </div>
+          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap:16 }}>
+            {[
+              { icon:'🎯', title:'Propósito', text:'Toda empresa nace con un objetivo: satisfacer una necesidad del mercado o resolver un problema. Su razón de ser define su estrategia y estructura.' },
+              { icon:'👥', title:'Personas', text:'El recurso más valioso. Las empresas están formadas por personas con roles específicos: directivos, gerentes, empleados y colaboradores externos.' },
+              { icon:'⚙️', title:'Procesos', text:'Las empresas operan mediante procesos: producción, ventas, logística, finanzas y administración, todos coordinados para alcanzar sus metas.' },
+              { icon:'💰', title:'Capital', text:'El capital (propio o financiado) permite adquirir activos, contratar personal y operar. Su gestión eficiente es clave para la sostenibilidad.' },
+              { icon:'📋', title:'Marco Legal', text:'Toda empresa debe estar legalmente constituida: nombre comercial, tipo societario, RIF, registro mercantil y cumplimiento tributario.' },
+              { icon:'📈', title:'Crecimiento', text:'Las empresas exitosas planifican su crecimiento: nuevos productos, mercados, alianzas y reinversión de utilidades para escalar operaciones.' },
+            ].map(item => (
+              <div key={item.title} style={{ background:C.bg, borderRadius:12, padding: isMobile ? '20px 18px' : '24px 22px', border:`1px solid ${C.border}` }}>
+                <span style={{ fontSize:28, display:'block', marginBottom:12 }}>{item.icon}</span>
+                <h3 style={{ color:C.dark, fontWeight:800, fontSize:15, marginBottom:8, margin:'0 0 8px' }}>{item.title}</h3>
+                <p style={{ color:C.muted, fontSize:14, lineHeight:1.7, margin:0 }}>{item.text}</p>
+              </div>
+            ))}
           </div>
         </div>
       </section>
@@ -252,7 +282,7 @@ export default function RioProvincial() {
         </div>
       </section>
 
-      {/* ── MÁS ARTÍCULOS — tarjetas horizontales ───────────────── */}
+      {/* ── MÁS ARTÍCULOS ───────────────────────────────────────── */}
       <section style={{ padding: isMobile ? '40px 16px' : '72px 24px', background:C.bg }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, color:C.dark, margin:'0 0 28px', letterSpacing:'-0.5px' }}>
@@ -271,7 +301,7 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap:0 }}>
             {[
-              { n:'72+',  label:'Artículos publicados',   icon:'📝' },
+              { n:'80+',  label:'Artículos publicados',   icon:'📝' },
               { n:'6',    label:'Categorías temáticas',   icon:'🗂️' },
               { n:'15+',  label:'Años de experiencia',    icon:'💼' },
               { n:'100%', label:'Contenido gratuito',     icon:'🎓' },
@@ -294,15 +324,15 @@ export default function RioProvincial() {
       <section id="nosotros" style={{ padding: isMobile ? '48px 16px' : '80px 24px', background:C.white }}>
         <div style={{ maxWidth:1140, margin:'0 auto', display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(auto-fit,minmax(340px,1fr))', gap: isMobile ? 28 : 64, alignItems:'center' }}>
           <div style={{ background:C.navy, borderRadius:16, padding: isMobile ? '32px 24px' : '48px 40px', position:'relative', overflow:'hidden' }}>
-            <div style={{ position:'absolute', top:-20, right:-20, fontSize:100, opacity:0.08, userSelect:'none' }}>💼</div>
+            <div style={{ position:'absolute', top:-20, right:-20, fontSize:100, opacity:0.08, userSelect:'none' }}>🏢</div>
             <span style={{ background:C.blue, color:C.white, fontSize:11, fontWeight:700, letterSpacing:2, textTransform:'uppercase', padding:'5px 12px', borderRadius:20, display:'inline-block', marginBottom:18 }}>
               Quiénes somos
             </span>
             <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, lineHeight:1.2, margin:'0 0 18px', letterSpacing:'-0.5px' }}>
-              El blog de suministros de oficina para Venezuela
+              El blog de empresas y negocios para Venezuela
             </h2>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
-              {['Papelería y Material de Escritorio','Mobiliario Ergonómico','Tecnología para Empresas','Consumibles e Insumos','Organización Documental'].map(t => (
+              {['Fundamentos y tipos de empresas','Estructura y organización interna','Cómo crear y registrar tu empresa','Gestión financiera y contabilidad','Estrategias de crecimiento y marketing'].map(t => (
                 <div key={t} style={{ display:'flex', alignItems:'center', gap:10 }}>
                   <span style={{ width:8, height:8, background:'#93C5FD', borderRadius:'50%', flexShrink:0, display:'inline-block' }} />
                   <span style={{ color:'#BFDBFE', fontSize:15, fontWeight:500 }}>{t}</span>
@@ -313,13 +343,13 @@ export default function RioProvincial() {
           <div>
             <p style={{ fontSize:12, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', marginBottom:10 }}>Nuestra misión</p>
             <h3 style={{ fontSize: isMobile ? 18 : 'clamp(18px,2vw,24px)', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.3 }}>
-              Información gratuita y accesible para empresas venezolanas
+              Educación empresarial gratuita y accesible para Venezuela
             </h3>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              <strong style={{ color:C.dark }}>Provinet Empresas Servicios Globales</strong> es un blog educativo venezolano dedicado a guiar a empresas, pymes y emprendedores en la selección, compra y gestión de suministros de oficina.
+              <strong style={{ color:C.dark }}>Provinet Empresas Blog Educativo</strong> es un portal venezolano dedicado a explicar, de forma clara y práctica, qué son las empresas, cómo se constituyen legalmente y cómo se gestionan para crecer en el mercado nacional e internacional.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              Con más de <strong style={{ color:C.dark }}>15 años de experiencia</strong> en el sector empresarial, compartimos guías prácticas adaptadas al mercado venezolano, con información sobre proveedores, precios y mejores prácticas.
+              Con más de <strong style={{ color:C.dark }}>15 años de experiencia</strong> en el sector empresarial venezolano, compartimos guías, conceptos y estrategias adaptados a la realidad del emprendedor y la empresa local.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:0 }}>
               Nuestro compromiso: <strong style={{ color:C.dark }}>información gratuita, precisa y actualizada</strong> para toda la comunidad empresarial venezolana.
@@ -350,10 +380,10 @@ export default function RioProvincial() {
           <div style={{ maxWidth:1140, margin:'0 auto', display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap: isMobile ? 28 : 40 }}>
             <div style={{ gridColumn: isMobile ? 'span 2' : 'span 1' }}>
               <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}>
-                <span style={{ fontSize:20 }}>💼</span>
-                <span style={{ color:C.white, fontWeight:800, fontSize:13 }}>Provinet Empresas Servicios Globales</span>
+                <span style={{ fontSize:20 }}>🏢</span>
+                <span style={{ color:C.white, fontWeight:800, fontSize:13 }}>Provinet Empresas Blog Educativo</span>
               </div>
-              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre suministros de oficina y servicios empresariales en Venezuela.</p>
+              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre empresas, negocios y emprendimiento en Venezuela.</p>
               <p style={{ fontSize:12 }}><span style={{ color:'#93C5FD' }}>📍</span> {ADDRESS}</p>
               <p style={{ fontSize:12, marginTop:4 }}>
                 <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#94A3B8', textDecoration:'none' }}><span style={{ color:'#93C5FD' }}>📧</span> {CONTACT_EMAIL}</a>
@@ -362,7 +392,7 @@ export default function RioProvincial() {
             <div>
               <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Categorías</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:8, fontSize:13 }}>
-                {['Papelería','Mobiliario','Tecnología','Consumibles','Organización'].map(t => (
+                {['Fundamentos','Tipos de Empresa','Gestión','Emprendimiento','Finanzas'].map(t => (
                   <a key={t} href="#categorias" style={{ color:'#94A3B8', textDecoration:'none' }}>{t}</a>
                 ))}
               </div>
@@ -630,10 +660,10 @@ function TermsContent() {
       <p style={{ margin:0, fontSize:12, color:'#94A3B8' }}>Última actualización: {LAST_UPDATED}</p>
       <p>Al usar el sitio de <strong>{SITE_NAME}</strong>, aceptas estos Términos en su totalidad.</p>
       <PolicySection title="1. Objeto y titularidad">
-        <p>Operado por <strong>{SITE_NAME}</strong>, blog educativo sobre suministros de oficina y servicios empresariales, con domicilio en {ADDRESS}. Finalidad: contenido informativo y educativo gratuito para empresas venezolanas.</p>
+        <p>Operado por <strong>{SITE_NAME}</strong>, blog educativo sobre empresas, negocios y emprendimiento, con domicilio en {ADDRESS}. Finalidad: contenido informativo y educativo gratuito para la comunidad empresarial venezolana.</p>
       </PolicySection>
       <PolicySection title="2. Naturaleza del contenido">
-        <p>Todo el contenido tiene carácter <strong>exclusivamente informativo y educativo</strong>. No constituye asesoramiento comercial o empresarial vinculante. Los precios y disponibilidad de productos pueden variar según el proveedor y región.</p>
+        <p>Todo el contenido tiene carácter <strong>exclusivamente informativo y educativo</strong>. No constituye asesoramiento legal, financiero o empresarial vinculante. Los datos sobre trámites, costos y normativas pueden variar según la legislación vigente.</p>
       </PolicySection>
       <PolicySection title="3. Uso aceptable">
         <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
@@ -649,7 +679,7 @@ function TermsContent() {
         <p>Todos los contenidos son propiedad de {SITE_NAME} o sus titulares, protegidos por ley. Se permite citar fragmentos con atribución y enlace. Queda prohibida la reproducción total sin autorización.</p>
       </PolicySection>
       <PolicySection title="5. Limitación de responsabilidad">
-        <p>{SITE_NAME} no se responsabiliza de decisiones comerciales tomadas únicamente con base en el contenido del blog, daños derivados del uso del sitio ni contenidos de sitios de terceros enlazados.</p>
+        <p>{SITE_NAME} no se responsabiliza de decisiones empresariales tomadas únicamente con base en el contenido del blog, daños derivados del uso del sitio ni contenidos de sitios de terceros enlazados.</p>
       </PolicySection>
       <PolicySection title="6. Publicidad de Google">
         <p>Este sitio puede mostrar publicidad vía <strong>Google Ads / Google AdSense</strong>. Los anunciantes son responsables de sus contenidos. La aparición de anuncios no implica respaldo por parte de {SITE_NAME}.</p>
@@ -790,7 +820,7 @@ function GoogleAdsContent({ onPrivacy, onCookies }) {
         <ul style={{ paddingLeft:20, margin:'8px 0 0', display:'flex', flexDirection:'column', gap:8 }}>
           <li>No publica contenido que promueva actividades ilegales.</li>
           <li>No contiene contenido que infrinja derechos de propiedad intelectual.</li>
-          <li>No muestra contenido engañoso o falso sobre productos o servicios.</li>
+          <li>No muestra contenido engañoso o falso sobre empresas o negocios.</li>
           <li>No está dirigido a menores de 13 años con fines publicitarios.</li>
           <li>Proporciona una experiencia de usuario clara y sin prácticas abusivas.</li>
         </ul>
