@@ -106,12 +106,13 @@ export default function RioProvincial() {
     <div style={{ fontFamily:'"Segoe UI",system-ui,sans-serif', background:C.bg, color:C.text, overflowX:'hidden' }}>
 
       {/* ── NAVBAR ─────────────────────────────────────────────── */}
-      <nav style={{ background:C.white, borderBottom:`3px solid ${C.navy}`, position:'sticky', top:0, zIndex:50, boxShadow:'0 2px 12px rgba(0,0,0,0.08)' }}>
+      <nav style={{ background:C.white, borderBottom:`1px solid ${C.border}`, position:'sticky', top:0, zIndex:50, boxShadow:'0 1px 16px rgba(15,30,74,0.10)' }}>
         <div style={{ maxWidth:1140, margin:'0 auto', padding: isMobile ? '0 16px' : '0 24px', height: isMobile ? 60 : 68, display:'flex', alignItems:'center', justifyContent:'space-between' }}>
 
           {/* Logo */}
-          <div style={{ display:'flex', alignItems:'center', gap:8, minWidth:0 }}>
-            <span style={{ fontSize: isMobile ? 20 : 26, flexShrink:0 }}>🏢</span>
+          <div style={{ display:'flex', alignItems:'center', gap:10, minWidth:0 }}>
+            <div style={{ width:4, height:32, background:`linear-gradient(180deg,${C.blue},${C.navy})`, borderRadius:4, flexShrink:0 }} />
+            <span style={{ fontSize: isMobile ? 19 : 24, flexShrink:0 }}>🏢</span>
             {isMobile ? (
               <span style={{ fontWeight:800, color:C.dark, lineHeight:1.2, fontSize:12 }}>
                 Provinet <span style={{ color:C.blue }}>Empresas</span><br />Blog Educativo
@@ -125,13 +126,13 @@ export default function RioProvincial() {
 
           {/* Desktop nav */}
           {!isMobile && (
-            <div style={{ display:'flex', alignItems:'center', gap:4 }}>
+            <div style={{ display:'flex', alignItems:'center', gap:2 }}>
               {['#articulos','#categorias','#nosotros'].map((href,i) => (
-                <a key={href} href={href} style={{ color:C.text, fontSize:14, fontWeight:500, padding:'10px 14px', textDecoration:'none', borderRadius:6 }}>
+                <a key={href} href={href} style={{ color:C.muted, fontSize:14, fontWeight:600, padding:'10px 16px', textDecoration:'none', borderRadius:8, letterSpacing:0.2 }}>
                   {['Artículos','Categorías','Nosotros'][i]}
                 </a>
               ))}
-              <a href="#contacto" style={{ background:C.navy, color:C.white, fontSize:14, fontWeight:600, padding:'9px 20px', borderRadius:6, textDecoration:'none', marginLeft:8 }}>
+              <a href="#contacto" style={{ background:`linear-gradient(135deg,${C.blue},${C.navy})`, color:C.white, fontSize:14, fontWeight:700, padding:'9px 22px', borderRadius:8, textDecoration:'none', marginLeft:10, boxShadow:`0 4px 14px rgba(37,99,235,0.35)` }}>
                 Contacto
               </a>
             </div>
@@ -165,49 +166,76 @@ export default function RioProvincial() {
       </nav>
 
       {/* ── HERO ───────────────────────────────────────────────── */}
-      <section style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : '1fr 1fr', minHeight: isMobile ? 'auto' : 480 }}>
-        {/* Panel izquierdo oscuro */}
-        <div style={{ background:C.dark, padding: isMobile ? '40px 24px 36px' : '72px 56px', display:'flex', flexDirection:'column', justifyContent:'center' }}>
-          <span style={{ display:'inline-block', background:C.blue, color:C.white, fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'5px 14px', borderRadius:20, marginBottom:20, alignSelf:'flex-start', whiteSpace:'nowrap' }}>
-            Blog Educativo · Venezuela
-          </span>
-          <h1 style={{ color:C.white, fontSize: isMobile ? 'clamp(28px,8vw,38px)' : 'clamp(28px,3.5vw,46px)', fontWeight:900, lineHeight:1.15, margin:'0 0 16px', letterSpacing:'-1px' }}>
-            Todo sobre<br /><span style={{ color:'#93C5FD' }}>Empresas</span><br />y Negocios
-          </h1>
-          <p style={{ color:'#94A3B8', fontSize: isMobile ? 15 : 16, lineHeight:1.7, margin:'0 0 28px', maxWidth:380 }}>
-            Aprende qué son las empresas, cómo funcionan, cómo crearlas y gestionarlas — guías prácticas y gratuitas para emprendedores y empresarios venezolanos.
-          </p>
-          <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
-            <a href="#articulos" style={{ background:C.blue, color:C.white, fontWeight:700, fontSize:15, padding:'12px 26px', borderRadius:6, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8 }}>
-              📖 Leer artículos
-            </a>
-            <a href="#categorias" style={{ background:'transparent', color:'#94A3B8', fontWeight:600, fontSize:15, padding:'12px 24px', borderRadius:6, textDecoration:'none', border:'1.5px solid rgba(255,255,255,0.2)', display:'inline-flex', alignItems:'center' }}>
-              Ver categorías
-            </a>
-          </div>
-        </div>
+      <section style={{
+        background:`linear-gradient(140deg, #080f2a 0%, ${C.dark} 55%, #162B6E 100%)`,
+        position:'relative',
+        zIndex:1,
+        paddingBottom: isMobile ? 0 : 56,
+        clipPath: isMobile ? 'none' : 'polygon(0 0, 100% 0, 100% 88%, 0 100%)',
+        marginBottom: isMobile ? 0 : -36,
+      }}>
+        <div style={{ maxWidth:1140, margin:'0 auto', padding: isMobile ? '0' : '0 24px', display:'flex', alignItems:'center', gap:0 }}>
 
-        {/* Panel derecho — oculto en mobile */}
-        {!isMobile && (
-          <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', display:'flex', alignItems:'center', justifyContent:'center', padding:40, position:'relative', overflow:'hidden' }}>
-            <div style={{ display:'grid', gridTemplateColumns:'repeat(4,1fr)', gap:16, opacity:0.92 }}>
-              {BIZ_ICONS.map((e,i) => (
-                <div key={i} style={{ width:56, height:56, background:'rgba(255,255,255,0.85)', borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontSize:26, boxShadow:'0 2px 8px rgba(0,0,0,0.1)', transform:i%3===0?'rotate(-4deg)':i%3===1?'rotate(3deg)':'rotate(0deg)' }}>
-                  {e}
+          {/* Texto izquierdo */}
+          <div style={{ flex:'1 1 0', padding: isMobile ? '44px 24px 36px' : '88px 0 80px' }}>
+            <span style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(37,99,235,0.2)', border:'1px solid rgba(147,197,253,0.35)', color:'#93C5FD', fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'5px 14px', borderRadius:20, marginBottom:22 }}>
+              <span style={{ width:6, height:6, borderRadius:'50%', background:'#93C5FD', display:'inline-block' }} />
+              Blog Educativo · Venezuela
+            </span>
+            <h1 style={{ color:C.white, fontSize: isMobile ? 'clamp(30px,9vw,42px)' : 'clamp(32px,3.8vw,52px)', fontWeight:900, lineHeight:1.1, margin:'0 0 18px', letterSpacing:'-1.5px' }}>
+              Todo sobre<br />
+              <span style={{ background:'linear-gradient(90deg,#60A5FA,#93C5FD)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Empresas</span>
+              <br />y Negocios
+            </h1>
+            <p style={{ color:'#94A3B8', fontSize: isMobile ? 15 : 16, lineHeight:1.75, margin:'0 0 32px', maxWidth:400 }}>
+              Aprende qué son las empresas, cómo funcionan, cómo crearlas y gestionarlas — guías prácticas y gratuitas para emprendedores venezolanos.
+            </p>
+            <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
+              <a href="#articulos" style={{ background:`linear-gradient(135deg,${C.blue},#1D4ED8)`, color:C.white, fontWeight:700, fontSize:15, padding:'13px 28px', borderRadius:8, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8, boxShadow:'0 6px 20px rgba(37,99,235,0.45)' }}>
+                📖 Leer artículos
+              </a>
+              <a href="#categorias" style={{ background:'rgba(255,255,255,0.07)', color:'#CBD5E1', fontWeight:600, fontSize:15, padding:'13px 24px', borderRadius:8, textDecoration:'none', border:'1.5px solid rgba(255,255,255,0.15)', display:'inline-flex', alignItems:'center', backdropFilter:'blur(4px)' }}>
+                Ver categorías
+              </a>
+            </div>
+          </div>
+
+          {/* Visual derecho — solo desktop */}
+          {!isMobile && (
+            <div style={{ flex:'0 0 400px', height:480, position:'relative', display:'flex', alignItems:'center', justifyContent:'center' }}>
+              {/* Círculo exterior decorativo */}
+              <div style={{ position:'absolute', width:320, height:320, borderRadius:'50%', border:'1px dashed rgba(147,197,253,0.18)', pointerEvents:'none' }} />
+              <div style={{ position:'absolute', width:240, height:240, borderRadius:'50%', border:'1px solid rgba(37,99,235,0.25)', pointerEvents:'none' }} />
+              {/* Círculo central */}
+              <div style={{ width:170, height:170, borderRadius:'50%', background:'rgba(37,99,235,0.18)', border:'2px solid rgba(96,165,250,0.4)', display:'flex', flexDirection:'column', alignItems:'center', justifyContent:'center', gap:4, zIndex:2 }}>
+                <span style={{ fontSize:42 }}>🏢</span>
+                <p style={{ color:C.white, fontWeight:900, fontSize:30, margin:0, letterSpacing:'-1px' }}>80+</p>
+                <p style={{ color:'#93C5FD', fontSize:12, margin:0, fontWeight:600, textTransform:'uppercase', letterSpacing:1 }}>Artículos</p>
+              </div>
+              {/* Badges flotantes */}
+              {[
+                { top:48,  left:16,  icon:'⚖️', label:'Tipos de Empresa' },
+                { top:44,  right:8,  icon:'💡', label:'Emprendimiento'   },
+                { bottom:100, left:4,  icon:'💰', label:'Finanzas'          },
+                { bottom:60, right:12, icon:'📈', label:'Crecimiento'       },
+              ].map((b,i) => (
+                <div key={i} style={{ position:'absolute', top:b.top, bottom:b.bottom, left:b.left, right:b.right, background:'rgba(255,255,255,0.08)', backdropFilter:'blur(10px)', border:'1px solid rgba(255,255,255,0.18)', borderRadius:12, padding:'9px 16px', display:'flex', alignItems:'center', gap:8, whiteSpace:'nowrap', zIndex:3 }}>
+                  <span style={{ fontSize:20 }}>{b.icon}</span>
+                  <span style={{ color:C.white, fontSize:12, fontWeight:700 }}>{b.label}</span>
                 </div>
               ))}
             </div>
-            <div style={{ position:'absolute', bottom:14, right:18, fontSize:12, color:C.navy, fontWeight:600, letterSpacing:1, textTransform:'uppercase' }}>
-              Blog Educativo
-            </div>
-          </div>
-        )}
+          )}
 
-        {/* Strip de iconos en mobile */}
+          {/* Strip mobile */}
+          {isMobile && null}
+        </div>
+
+        {/* Strip de iconos en mobile — fuera del flex */}
         {isMobile && (
-          <div style={{ background:'linear-gradient(135deg,#EEF2FF 0%,#DBEAFE 100%)', padding:'18px 16px', display:'flex', gap:10, overflowX:'auto', scrollbarWidth:'none' }}>
+          <div style={{ padding:'18px 16px 22px', display:'flex', gap:10, overflowX:'auto', scrollbarWidth:'none' }}>
             {BIZ_ICONS.map((e,i) => (
-              <div key={i} style={{ width:44, height:44, background:'rgba(255,255,255,0.85)', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0, boxShadow:'0 1px 4px rgba(0,0,0,0.1)' }}>
+              <div key={i} style={{ width:44, height:44, background:'rgba(255,255,255,0.1)', border:'1px solid rgba(255,255,255,0.15)', borderRadius:10, display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0 }}>
                 {e}
               </div>
             ))}
@@ -216,14 +244,17 @@ export default function RioProvincial() {
       </section>
 
       {/* ── ARTÍCULOS DESTACADOS ────────────────────────────────── */}
-      <section id="articulos" style={{ padding: isMobile ? '48px 16px' : '72px 24px', background:C.bg }}>
+      <section id="articulos" style={{ padding: isMobile ? '56px 16px 48px' : '96px 24px 72px', background:C.bg, position:'relative', zIndex:2 }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
-          <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:32, flexWrap:'wrap' }}>
-            <h2 style={{ fontSize: isMobile ? 22 : 'clamp(22px,3vw,32px)', fontWeight:800, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
-              Artículos Recientes
-            </h2>
-            {!isMobile && <div style={{ flex:1, height:2, background:C.border }} />}
-            <span style={{ fontSize:12, color:C.blue, fontWeight:700, textTransform:'uppercase', letterSpacing:1 }}>
+          <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:36, flexWrap:'wrap' }}>
+            <div>
+              <p style={{ fontSize:11, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', margin:'0 0 4px' }}>Últimas publicaciones</p>
+              <h2 style={{ fontSize: isMobile ? 22 : 'clamp(22px,3vw,32px)', fontWeight:900, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
+                Artículos Recientes
+              </h2>
+            </div>
+            {!isMobile && <div style={{ flex:1, height:1, background:C.border, marginTop:18 }} />}
+            <span style={{ fontSize:11, color:C.white, fontWeight:700, textTransform:'uppercase', letterSpacing:1, background:C.blue, padding:'5px 12px', borderRadius:20, marginTop: isMobile ? 0 : 18 }}>
               Actualización semanal
             </span>
           </div>
@@ -239,30 +270,36 @@ export default function RioProvincial() {
       </section>
 
       {/* ── QUÉ ES UNA EMPRESA — bloque informativo ─────────────── */}
-      <section style={{ background:C.white, padding: isMobile ? '40px 16px' : '64px 24px', borderTop:`1px solid ${C.border}`, borderBottom:`1px solid ${C.border}` }}>
+      <section style={{ background:C.white, padding: isMobile ? '48px 16px' : '72px 24px' }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
-          <div style={{ textAlign:'center', marginBottom: isMobile ? 28 : 40 }}>
-            <p style={{ color:C.blue, fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', marginBottom:8 }}>Conceptos clave</p>
-            <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, color:C.dark, margin:'0 0 12px' }}>
-              ¿Qué es una empresa y cómo funciona?
-            </h2>
-            <p style={{ color:C.muted, fontSize: isMobile ? 14 : 16, maxWidth:620, margin:'0 auto', lineHeight:1.7 }}>
-              Una empresa es una unidad económica que organiza recursos humanos, financieros y materiales para ofrecer bienes o servicios al mercado con el objetivo de generar valor.
-            </p>
+          <div style={{ display:'flex', alignItems: isMobile ? 'flex-start' : 'center', gap:20, marginBottom: isMobile ? 28 : 44, flexDirection: isMobile ? 'column' : 'row' }}>
+            <div style={{ flex:1 }}>
+              <p style={{ color:C.blue, fontWeight:700, fontSize:11, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Conceptos clave</p>
+              <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
+                ¿Qué es una empresa y cómo funciona?
+              </h2>
+            </div>
+            {!isMobile && (
+              <p style={{ color:C.muted, fontSize:15, maxWidth:380, margin:0, lineHeight:1.7, flex:'0 0 380px' }}>
+                Una unidad económica que organiza recursos humanos, financieros y materiales para ofrecer bienes o servicios al mercado.
+              </p>
+            )}
           </div>
-          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap:16 }}>
+          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap:14 }}>
             {[
-              { icon:'🎯', title:'Propósito', text:'Toda empresa nace con un objetivo: satisfacer una necesidad del mercado o resolver un problema. Su razón de ser define su estrategia y estructura.' },
-              { icon:'👥', title:'Personas', text:'El recurso más valioso. Las empresas están formadas por personas con roles específicos: directivos, gerentes, empleados y colaboradores externos.' },
-              { icon:'⚙️', title:'Procesos', text:'Las empresas operan mediante procesos: producción, ventas, logística, finanzas y administración, todos coordinados para alcanzar sus metas.' },
-              { icon:'💰', title:'Capital', text:'El capital (propio o financiado) permite adquirir activos, contratar personal y operar. Su gestión eficiente es clave para la sostenibilidad.' },
-              { icon:'📋', title:'Marco Legal', text:'Toda empresa debe estar legalmente constituida: nombre comercial, tipo societario, RIF, registro mercantil y cumplimiento tributario.' },
-              { icon:'📈', title:'Crecimiento', text:'Las empresas exitosas planifican su crecimiento: nuevos productos, mercados, alianzas y reinversión de utilidades para escalar operaciones.' },
+              { icon:'🎯', title:'Propósito', text:'Toda empresa nace con un objetivo: satisfacer una necesidad del mercado o resolver un problema.', accent:'#DBEAFE', accentText:'#1D4ED8' },
+              { icon:'👥', title:'Personas',  text:'El recurso más valioso. Directivos, gerentes, empleados y colaboradores externos con roles definidos.', accent:'#F0FDF4', accentText:'#15803D' },
+              { icon:'⚙️', title:'Procesos',  text:'Producción, ventas, logística, finanzas y administración, coordinados para alcanzar las metas.', accent:'#F5F3FF', accentText:'#5B21B6' },
+              { icon:'💰', title:'Capital',   text:'El capital (propio o financiado) permite adquirir activos, contratar personal y sostener operaciones.', accent:'#FFF7ED', accentText:'#C2410C' },
+              { icon:'📋', title:'Marco Legal', text:'Nombre comercial, tipo societario, RIF, registro mercantil y cumplimiento tributario obligatorio.', accent:'#FFF1F2', accentText:'#BE123C' },
+              { icon:'📈', title:'Crecimiento', text:'Nuevos productos, mercados, alianzas y reinversión de utilidades para escalar el negocio.', accent:'#F0F9FF', accentText:'#0369A1' },
             ].map(item => (
-              <div key={item.title} style={{ background:C.bg, borderRadius:12, padding: isMobile ? '20px 18px' : '24px 22px', border:`1px solid ${C.border}` }}>
-                <span style={{ fontSize:28, display:'block', marginBottom:12 }}>{item.icon}</span>
-                <h3 style={{ color:C.dark, fontWeight:800, fontSize:15, marginBottom:8, margin:'0 0 8px' }}>{item.title}</h3>
-                <p style={{ color:C.muted, fontSize:14, lineHeight:1.7, margin:0 }}>{item.text}</p>
+              <div key={item.title} style={{ background:item.accent, borderRadius:14, padding: isMobile ? '20px 18px' : '24px 22px', border:`1px solid ${item.accentText}18`, display:'flex', gap:14, alignItems:'flex-start' }}>
+                <div style={{ width:44, height:44, borderRadius:10, background:'rgba(255,255,255,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0 }}>{item.icon}</div>
+                <div>
+                  <h3 style={{ color:item.accentText, fontWeight:800, fontSize:14, margin:'0 0 6px' }}>{item.title}</h3>
+                  <p style={{ color:'#334155', fontSize:13, lineHeight:1.7, margin:0 }}>{item.text}</p>
+                </div>
               </div>
             ))}
           </div>
@@ -297,23 +334,19 @@ export default function RioProvincial() {
       </section>
 
       {/* ── STATS ──────────────────────────────────────────────── */}
-      <section style={{ background:C.silver, padding: isMobile ? '40px 16px' : '56px 24px' }}>
+      <section style={{ background:C.dark, padding: isMobile ? '40px 16px' : '56px 24px' }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
-          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap:0 }}>
+          <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(4,1fr)', gap:14 }}>
             {[
-              { n:'80+',  label:'Artículos publicados',   icon:'📝' },
-              { n:'6',    label:'Categorías temáticas',   icon:'🗂️' },
-              { n:'15+',  label:'Años de experiencia',    icon:'💼' },
-              { n:'100%', label:'Contenido gratuito',     icon:'🎓' },
-            ].map((s,i,arr) => (
-              <div key={s.n} style={{
-                textAlign:'center', padding: isMobile ? '24px 12px' : '32px 24px',
-                borderRight: !isMobile && i < arr.length-1 ? `1px solid ${C.border}` : 'none',
-                borderBottom: isMobile && i < 2 ? `1px solid ${C.border}` : 'none',
-              }}>
-                <span style={{ fontSize: isMobile ? 26 : 32, display:'block', marginBottom:10 }}>{s.icon}</span>
-                <p style={{ fontSize: isMobile ? 'clamp(24px,7vw,34px)' : 'clamp(28px,4vw,40px)', fontWeight:900, color:C.navy, margin:'0 0 4px', letterSpacing:'-1px' }}>{s.n}</p>
-                <p style={{ fontSize: isMobile ? 12 : 14, color:C.muted, margin:0, lineHeight:1.4 }}>{s.label}</p>
+              { n:'80+',  label:'Artículos publicados', icon:'📝', accent:'#60A5FA' },
+              { n:'6',    label:'Categorías temáticas', icon:'🗂️', accent:'#34D399' },
+              { n:'15+',  label:'Años de experiencia',  icon:'💼', accent:'#FBBF24' },
+              { n:'100%', label:'Contenido gratuito',   icon:'🎓', accent:'#A78BFA' },
+            ].map(s => (
+              <div key={s.n} style={{ background:'rgba(255,255,255,0.05)', border:`1px solid rgba(255,255,255,0.08)`, borderTop:`3px solid ${s.accent}`, borderRadius:12, textAlign:'center', padding: isMobile ? '22px 10px' : '28px 20px' }}>
+                <span style={{ fontSize: isMobile ? 26 : 30, display:'block', marginBottom:10 }}>{s.icon}</span>
+                <p style={{ fontSize: isMobile ? 'clamp(24px,7vw,34px)' : 'clamp(26px,4vw,38px)', fontWeight:900, color:s.accent, margin:'0 0 4px', letterSpacing:'-1px' }}>{s.n}</p>
+                <p style={{ fontSize: isMobile ? 12 : 13, color:'#94A3B8', margin:0, lineHeight:1.4 }}>{s.label}</p>
               </div>
             ))}
           </div>
@@ -465,18 +498,24 @@ export default function RioProvincial() {
 
 function FeaturedCard({ article: a, isMobile }) {
   return (
-    <div style={{ background:C.white, borderRadius:14, overflow:'hidden', border:`1px solid ${C.border}`, display:'flex', flexDirection:'column', boxShadow:'0 4px 20px rgba(0,0,0,0.07)' }}>
-      <div style={{ background:a.catBg, padding: isMobile ? '28px 20px 20px' : '40px 32px 28px', display:'flex', alignItems:'center', gap:14 }}>
-        <span style={{ fontSize: isMobile ? 48 : 64 }}>{a.icon}</span>
-        <span style={{ background:a.catBg, color:a.catColor, fontSize:10, fontWeight:800, padding:'4px 10px', borderRadius:20, textTransform:'uppercase', letterSpacing:1, border:`1px solid ${a.catColor}33` }}>{a.category}</span>
+    <div style={{ background:C.white, borderRadius:16, overflow:'hidden', border:`1px solid ${C.border}`, display:'flex', flexDirection:'column', boxShadow:'0 8px 32px rgba(15,30,74,0.10)' }}>
+      {/* Barra de color superior */}
+      <div style={{ height:5, background:`linear-gradient(90deg,${a.catColor},${a.catColor}66)` }} />
+      <div style={{ background:`linear-gradient(135deg,${a.catBg} 0%,${C.white} 100%)`, padding: isMobile ? '24px 20px 18px' : '36px 32px 24px', display:'flex', alignItems:'center', gap:16 }}>
+        <div style={{ width: isMobile ? 60 : 80, height: isMobile ? 60 : 80, background:C.white, borderRadius:14, display:'flex', alignItems:'center', justifyContent:'center', fontSize: isMobile ? 36 : 48, boxShadow:`0 4px 14px ${a.catColor}22` }}>
+          {a.icon}
+        </div>
+        <div>
+          <span style={{ background:a.catColor, color:C.white, fontSize:10, fontWeight:800, padding:'3px 10px', borderRadius:20, textTransform:'uppercase', letterSpacing:1 }}>{a.category}</span>
+          <p style={{ color:C.muted, fontSize:12, margin:'6px 0 0' }}>{a.date}</p>
+        </div>
       </div>
-      <div style={{ padding: isMobile ? '20px' : '28px 32px 32px', flex:1, display:'flex', flexDirection:'column', gap:12 }}>
-        <span style={{ color:C.muted, fontSize:12 }}>{a.date}</span>
-        <h3 style={{ fontSize: isMobile ? 18 : 22, fontWeight:800, color:C.dark, lineHeight:1.3, margin:0 }}>{a.title}</h3>
-        <p style={{ color:C.muted, fontSize: isMobile ? 14 : 15, lineHeight:1.75, margin:0, flex:1 }}>{a.excerpt}</p>
-        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingTop:10, borderTop:`1px solid ${C.border}` }}>
+      <div style={{ padding: isMobile ? '18px 20px 22px' : '24px 32px 32px', flex:1, display:'flex', flexDirection:'column', gap:12 }}>
+        <h3 style={{ fontSize: isMobile ? 17 : 21, fontWeight:900, color:C.dark, lineHeight:1.3, margin:0 }}>{a.title}</h3>
+        <p style={{ color:C.muted, fontSize: isMobile ? 14 : 15, lineHeight:1.8, margin:0, flex:1 }}>{a.excerpt}</p>
+        <div style={{ display:'flex', alignItems:'center', justifyContent:'space-between', paddingTop:12, borderTop:`1px solid ${C.border}` }}>
           <span style={{ color:C.muted, fontSize:13 }}>⏱ {a.readTime} de lectura</span>
-          <span style={{ color:C.blue, fontSize:14, fontWeight:700 }}>Leer →</span>
+          <span style={{ color:C.blue, fontSize:14, fontWeight:800, display:'flex', alignItems:'center', gap:4 }}>Leer <span>→</span></span>
         </div>
       </div>
     </div>
@@ -485,16 +524,16 @@ function FeaturedCard({ article: a, isMobile }) {
 
 function SmallCard({ article: a, isMobile }) {
   return (
-    <div style={{ background:C.white, borderRadius:12, overflow:'hidden', border:`1px solid ${C.border}`, display:'flex', flexShrink: isMobile ? 0 : 'unset', width: isMobile ? 240 : 'auto', boxShadow:'0 2px 8px rgba(0,0,0,0.05)' }}>
-      <div style={{ background:a.catBg, width: isMobile ? 60 : 72, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', fontSize: isMobile ? 26 : 32 }}>
+    <div style={{ background:C.white, borderRadius:14, overflow:'hidden', border:`1px solid ${C.border}`, display:'flex', flexShrink: isMobile ? 0 : 'unset', width: isMobile ? 250 : 'auto', boxShadow:'0 4px 16px rgba(15,30,74,0.07)', borderLeft:`4px solid ${a.catColor}` }}>
+      <div style={{ background:a.catBg, width: isMobile ? 56 : 68, flexShrink:0, display:'flex', alignItems:'center', justifyContent:'center', fontSize: isMobile ? 26 : 30 }}>
         {a.icon}
       </div>
-      <div style={{ padding: isMobile ? '14px 16px' : '18px 20px', flex:1, minWidth:0 }}>
-        <span style={{ color:a.catColor, fontSize:10, fontWeight:800, textTransform:'uppercase', letterSpacing:1 }}>{a.category}</span>
-        <h3 style={{ fontSize: isMobile ? 13 : 14, fontWeight:700, color:C.dark, lineHeight:1.4, margin:'5px 0 8px' }}>{a.title}</h3>
+      <div style={{ padding: isMobile ? '13px 14px' : '16px 18px', flex:1, minWidth:0 }}>
+        <span style={{ background:a.catBg, color:a.catColor, fontSize:9, fontWeight:800, textTransform:'uppercase', letterSpacing:1, padding:'2px 8px', borderRadius:20 }}>{a.category}</span>
+        <h3 style={{ fontSize: isMobile ? 12 : 13, fontWeight:800, color:C.dark, lineHeight:1.4, margin:'6px 0 8px' }}>{a.title}</h3>
         <div style={{ display:'flex', justifyContent:'space-between', alignItems:'center' }}>
-          <span style={{ color:C.muted, fontSize:12 }}>⏱ {a.readTime}</span>
-          <span style={{ color:C.blue, fontSize:12, fontWeight:700, flexShrink:0 }}>Leer →</span>
+          <span style={{ color:C.muted, fontSize:11 }}>⏱ {a.readTime}</span>
+          <span style={{ color:C.blue, fontSize:11, fontWeight:800, flexShrink:0 }}>Leer →</span>
         </div>
       </div>
     </div>
@@ -522,12 +561,13 @@ function HorizontalCard({ article: a, last, isMobile }) {
 
 function CategoryCard({ cat, isMobile }) {
   return (
-    <div style={{ background:'rgba(255,255,255,0.07)', border:'1px solid rgba(255,255,255,0.12)', borderRadius:10, padding: isMobile ? '14px 12px' : '16px 20px', display:'flex', alignItems:'center', gap:10, cursor:'default' }}>
-      <span style={{ fontSize: isMobile ? 22 : 26 }}>{cat.icon}</span>
+    <div style={{ background:'rgba(255,255,255,0.06)', border:'1px solid rgba(255,255,255,0.10)', borderRadius:12, padding: isMobile ? '16px 14px' : '20px 22px', display:'flex', alignItems:'center', gap:14, cursor:'default' }}>
+      <div style={{ width: isMobile ? 40 : 48, height: isMobile ? 40 : 48, borderRadius:10, background:cat.bg, display:'flex', alignItems:'center', justifyContent:'center', fontSize: isMobile ? 20 : 24, flexShrink:0 }}>{cat.icon}</div>
       <div style={{ minWidth:0 }}>
-        <p style={{ color:C.white, fontWeight:700, fontSize: isMobile ? 13 : 14, margin:'0 0 2px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{cat.name}</p>
-        <p style={{ color:'#93C5FD', fontSize:12, margin:0 }}>{cat.count} artículos</p>
+        <p style={{ color:C.white, fontWeight:800, fontSize: isMobile ? 13 : 14, margin:'0 0 3px', overflow:'hidden', textOverflow:'ellipsis', whiteSpace:'nowrap' }}>{cat.name}</p>
+        <p style={{ color:'#64748B', fontSize:12, margin:0 }}>{cat.count} artículos</p>
       </div>
+      {!isMobile && <span style={{ color:'#334155', marginLeft:'auto', fontSize:14 }}>→</span>}
     </div>
   );
 }
