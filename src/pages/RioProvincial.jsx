@@ -3,16 +3,16 @@ import { useState, useEffect } from 'react';
 import { useIsMobile } from '@/hooks/use-mobile';
 
 const SITE_URL      = 'https://www.provinetservicios.com.ve';
-const SITE_NAME     = 'Provinet Empresas Blog Educativo';
+const SITE_NAME     = 'Provinet Empresas Pymes Blog';
 const CONTACT_EMAIL = 'contacto@provinetservicios.com.ve';
 const CONTACT_PHONE = '+58 212-000-0000';
 const ADDRESS       = 'Caracas, Venezuela';
-const LAST_UPDATED  = '28 de mayo de 2026';
+const LAST_UPDATED  = '31 de mayo de 2026';
 
 const SCHEMA = JSON.stringify({
   "@context": "https://schema.org",
   "@type": "Blog",
-  "name": "Provinet Empresas Blog Educativo",
+  "name": "Provinet Empresas Pymes Blog",
   "description": "Blog educativo sobre empresas: qué son, cómo funcionan, tipos de empresas, emprendimiento, gestión empresarial y registro en Venezuela",
   "url": SITE_URL,
   "publisher": {
@@ -37,41 +37,39 @@ const C = {
 };
 
 const ARTICLES = [
-  { id:1, icon:'🏢', category:'Fundamentos Empresariales', catBg:'#DBEAFE', catColor:'#1D4ED8',
-    title:'¿Qué es una empresa? Definición, características y elementos esenciales',
-    excerpt:'Una empresa es una organización que combina capital, trabajo y tecnología para producir bienes o servicios. Aprende sus características clave: propósito, estructura, recursos y actividad económica dentro del mercado venezolano.',
-    readTime:'6 min', date:'22 may 2026' },
-  { id:2, icon:'⚖️', category:'Tipos de Empresas', catBg:'#F0F9FF', catColor:'#0369A1',
-    title:'Tipos de empresas en Venezuela: C.A., S.A., SRL, firma personal y más',
-    excerpt:'Conoce las principales formas jurídicas empresariales en Venezuela: Compañía Anónima, Sociedad de Responsabilidad Limitada, Firma Personal y Cooperativa. Diferencias, ventajas y cuándo elegir cada una.',
-    readTime:'7 min', date:'18 may 2026' },
-  { id:3, icon:'📊', category:'Estructura Organizacional', catBg:'#F5F3FF', catColor:'#5B21B6',
-    title:'Cómo funciona una empresa: estructura, departamentos y jerarquía',
-    excerpt:'Toda empresa se organiza en áreas funcionales: dirección, finanzas, operaciones, recursos humanos y marketing. Descubre cómo se relacionan estos departamentos y cómo fluye la información y la toma de decisiones.',
-    readTime:'8 min', date:'14 may 2026' },
-  { id:4, icon:'💡', category:'Emprendimiento', catBg:'#FFF7ED', catColor:'#C2410C',
-    title:'Cómo crear una empresa en Venezuela: pasos, trámites y registro',
-    excerpt:'Guía paso a paso para constituir tu empresa en Venezuela: registro ante el Registro Mercantil, RIF, inscripción en el IVSS y BCV. Documentos necesarios, tiempos estimados y costos aproximados.',
-    readTime:'9 min', date:'10 may 2026' },
-  { id:5, icon:'💰', category:'Gestión y Finanzas', catBg:'#F0FDF4', catColor:'#15803D',
-    title:'Gestión financiera básica para empresas: flujo de caja, costos y rentabilidad',
-    excerpt:'Domina los fundamentos financieros que toda empresa necesita: cómo calcular el punto de equilibrio, gestionar el flujo de caja, reducir costos operativos y medir la rentabilidad real del negocio.',
-    readTime:'8 min', date:'5 may 2026' },
-  { id:6, icon:'📈', category:'Crecimiento Empresarial', catBg:'#FFF1F2', catColor:'#BE123C',
-    title:'Estrategias de crecimiento empresarial: escalar tu negocio paso a paso',
-    excerpt:'Desde la consolidación interna hasta la expansión de mercado: aprende las estrategias más efectivas para hacer crecer tu empresa en Venezuela, incluyendo diversificación, alianzas estratégicas y digitalización.',
-    readTime:'7 min', date:'28 abr 2026' },
-];
-
+  { id:1, icon:'⚖️', category:'Tipos de Pyme', catBg:'#DBEAFE', catColor:'#1D4ED8',
+    title:'¿Qué es una Pyme? Definición, características y clasificación en Venezuela',
+    excerpt:'Una Pyme es mucho más que un negocio pequeño. Te explicamos qué son las pequeñas y medianas empresas en Venezuela, cómo se clasifican y por qué son el motor real de la economía del país.',
+    readTime:'7 min', date:'28 may 2026' },
+  { id:2, icon:'📋', category:'Tipos de Pyme', catBg:'#F0F9FF', catColor:'#0369A1',
+    title:'Figuras jurídicas para Pymes en Venezuela: C.A., SRL y firma personal',
+    excerpt:'Antes de abrir tu negocio debes elegir la figura legal correcta. Te explicamos las diferencias entre Compañía Anónima, SRL y firma personal, y cuándo conviene cada una.',
+    readTime:'8 min', date:'23 may 2026' },
+  { id:3, icon:'💡', category:'Emprendimiento', catBg:'#F5F3FF', catColor:'#5B21B6',
+    title:'Cómo crear una Pyme en Venezuela: pasos legales y trámites esenciales',
+    excerpt:'Formalizar tu negocio en Venezuela requiere seguir pasos ante el Registro Mercantil, el SENIAT y otros organismos. Te guíamos paso a paso para que no te falte nada.',
+    readTime:'9 min', date:'18 may 2026' },
+  { id:4, icon:'💰', category:'Finanzas', catBg:'#FFF7ED', catColor:'#C2410C',
+    title:'Fuentes de financiamiento para Pymes en Venezuela: guía completa',
+    excerpt:'El acceso al crédito es uno de los mayores retos de las Pymes venezolanas. Conoce las principales fuentes de financiamiento bancario, estatal y privado, y cómo acceder a ellas.',
+    readTime:'8 min', date:'12 may 2026' },
+  { id:5, icon:'📊', category:'Administración', catBg:'#F0FDF4', catColor:'#15803D',
+    title:'Administración básica para tu Pyme: lo que debes controlar cada mes',
+    excerpt:'Una Pyme bien administrada sobrevive y crece; una mal administrada cierra aunque venda mucho. Aprende los conceptos básicos que todo emprendedor debe dominar.',
+    readTime:'7 min', date:'6 may 2026' },
+  { id:6, icon:'📈', category:'Crecimiento', catBg:'#FFF1F2', catColor:'#BE123C',
+    title:'Marketing digital para Pymes venezolanas: cómo conseguir clientes en internet',
+    excerpt:'Internet es el canal más accesible para que una Pyme venezolana llegue a nuevos clientes. Estrategias básicas que funcionan con presupuesto limitado: Instagram, WhatsApp Business y más.',
+    readTime:'8 min', date:'30 abr 2026' },
+]
 const CATEGORIES = [
-  { name:'Fundamentos',      count:20, icon:'🏢', bg:'#DBEAFE', color:'#1D4ED8' },
-  { name:'Tipos de Empresa', count:14, icon:'⚖️', bg:'#F0F9FF', color:'#0369A1' },
-  { name:'Gestión',          count:17, icon:'📊', bg:'#F5F3FF', color:'#5B21B6' },
-  { name:'Emprendimiento',   count:19, icon:'💡', bg:'#F0FDF4', color:'#15803D' },
-  { name:'Finanzas',         count:13, icon:'💰', bg:'#FFF7ED', color:'#C2410C' },
-  { name:'Crecimiento',      count:11, icon:'📈', bg:'#FFF1F2', color:'#BE123C' },
-];
-
+  { name:'Tipos de Pyme',    count:16, icon:'⚖️', bg:'#DBEAFE', color:'#1D4ED8' },
+  { name:'Emprendimiento',   count:19, icon:'💡', bg:'#F0F9FF', color:'#0369A1' },
+  { name:'Finanzas',         count:15, icon:'💰', bg:'#F5F3FF', color:'#5B21B6' },
+  { name:'Administración',   count:14, icon:'📊', bg:'#F0FDF4', color:'#15803D' },
+  { name:'Crecimiento',      count:13, icon:'📈', bg:'#FFF7ED', color:'#C2410C' },
+  { name:'Digitalización',   count:11, icon:'🖥️', bg:'#FFF1F2', color:'#BE123C' },
+]
 const BIZ_ICONS = ['🏢','🏦','📊','💰','🤝','📈','🏗️','⚖️','💡','🌐','🏭','📋','🗂️','💼','🔑','📑'];
 
 // ── COMPONENTE PRINCIPAL ──────────────────────────────────────────────────────
@@ -82,15 +80,15 @@ export default function RioProvincial() {
   const [menuOpen, setMenuOpen] = useState(false);
 
   useEffect(() => {
-    document.title = 'Provinet Empresas Blog Educativo | Todo sobre Empresas y Negocios en Venezuela';
+    document.title = 'Provinet Empresas Pymes Blog | Todo sobre Pymes y Negocios en Venezuela';
     const m = (a, n, c) => {
       let el = document.querySelector(`meta[${a}="${n}"]`);
       if (!el) { el = document.createElement('meta'); el.setAttribute(a, n); document.head.appendChild(el); }
       el.setAttribute('content', c);
     };
-    m('name','description','Blog educativo sobre empresas venezolanas: qué son, cómo funcionan, tipos de empresas, cómo crearlas, gestión financiera y estrategias de crecimiento. Contenido gratuito para emprendedores.');
-    m('name','keywords','que es una empresa Venezuela,tipos de empresas Venezuela,como crear empresa Venezuela,gestión empresarial,emprendimiento Venezuela,compañía anónima,SRL,Caracas');
-    m('property','og:title','Provinet Empresas Blog Educativo | Todo sobre Empresas');
+    m('name','description','Blog educativo sobre Pymes en Venezuela: cómo crear, administrar, financiar y hacer crecer tu pequeña o mediana empresa. Guías prácticas y gratuitas para emprendedores venezolanos.');
+    m('name','keywords','pymes Venezuela,pequeña empresa Venezuela,mediana empresa Venezuela,cómo crear pyme Venezuela,emprendimiento Venezuela,financiamiento pymes,administración pymes,SRL,CA,Caracas');
+    m('property','og:title','Provinet Empresas Pymes Blog | Todo sobre Empresas');
     m('property','og:type','website');
     m('property','og:url', SITE_URL);
     const s = document.createElement('script');
@@ -180,15 +178,15 @@ export default function RioProvincial() {
           <div style={{ flex:'1 1 0', padding: isMobile ? '44px 24px 36px' : '88px 0 80px' }}>
             <span style={{ display:'inline-flex', alignItems:'center', gap:6, background:'rgba(37,99,235,0.2)', border:'1px solid rgba(147,197,253,0.35)', color:'#93C5FD', fontSize:11, fontWeight:700, letterSpacing:1.5, textTransform:'uppercase', padding:'5px 14px', borderRadius:20, marginBottom:22 }}>
               <span style={{ width:6, height:6, borderRadius:'50%', background:'#93C5FD', display:'inline-block' }} />
-              Blog Educativo · Venezuela
+              Blog de Pymes · Venezuela
             </span>
             <h1 style={{ color:C.white, fontSize: isMobile ? 'clamp(30px,9vw,42px)' : 'clamp(32px,3.8vw,52px)', fontWeight:900, lineHeight:1.1, margin:'0 0 18px', letterSpacing:'-1.5px' }}>
               Todo sobre<br />
-              <span style={{ background:'linear-gradient(90deg,#60A5FA,#93C5FD)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Empresas</span>
-              <br />y Negocios
+              <span style={{ background:'linear-gradient(90deg,#60A5FA,#93C5FD)', WebkitBackgroundClip:'text', WebkitTextFillColor:'transparent', backgroundClip:'text' }}>Pymes</span>
+              <br />en Venezuela
             </h1>
             <p style={{ color:'#94A3B8', fontSize: isMobile ? 15 : 16, lineHeight:1.75, margin:'0 0 32px', maxWidth:400 }}>
-              Aprende qué son las empresas, cómo funcionan, cómo crearlas y gestionarlas — guías prácticas y gratuitas para emprendedores venezolanos.
+              Aprende qué son las Pymes, cómo crearlas, administrarlas y hacerlas crecer — guías prácticas y gratuitas para emprendedores venezolanos.
             </p>
             <div style={{ display:'flex', gap:12, flexWrap:'wrap' }}>
               <a href="#articulos" style={{ background:`linear-gradient(135deg,${C.blue},#1D4ED8)`, color:C.white, fontWeight:700, fontSize:15, padding:'13px 28px', borderRadius:8, textDecoration:'none', display:'inline-flex', alignItems:'center', gap:8, boxShadow:'0 6px 20px rgba(37,99,235,0.45)' }}>
@@ -214,7 +212,7 @@ export default function RioProvincial() {
               </div>
               {/* Badges flotantes */}
               {[
-                { top:48,  left:16,  icon:'⚖️', label:'Tipos de Empresa' },
+                { top:48,  left:16,  icon:'⚖️', label:'Tipos de Pyme' },
                 { top:44,  right:8,  icon:'💡', label:'Emprendimiento'   },
                 { bottom:100, left:4,  icon:'💰', label:'Finanzas'          },
                 { bottom:60, right:12, icon:'📈', label:'Crecimiento'       },
@@ -248,9 +246,9 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ display:'flex', alignItems:'center', gap:16, marginBottom:36, flexWrap:'wrap' }}>
             <div>
-              <p style={{ fontSize:11, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', margin:'0 0 4px' }}>Últimas publicaciones</p>
+              <p style={{ fontSize:11, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', margin:'0 0 4px' }}>Guías más leídas</p>
               <h2 style={{ fontSize: isMobile ? 22 : 'clamp(22px,3vw,32px)', fontWeight:900, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
-                Artículos Recientes
+                Artículos sobre Pymes
               </h2>
             </div>
             {!isMobile && <div style={{ flex:1, height:1, background:C.border, marginTop:18 }} />}
@@ -274,25 +272,25 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ display:'flex', alignItems: isMobile ? 'flex-start' : 'center', gap:20, marginBottom: isMobile ? 28 : 44, flexDirection: isMobile ? 'column' : 'row' }}>
             <div style={{ flex:1 }}>
-              <p style={{ color:C.blue, fontWeight:700, fontSize:11, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Conceptos clave</p>
+              <p style={{ color:C.blue, fontWeight:700, fontSize:11, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Claves para tu Pyme</p>
               <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, color:C.dark, margin:0, letterSpacing:'-0.5px' }}>
-                ¿Qué es una empresa y cómo funciona?
+                ¿Qué necesita saber toda Pyme venezolana?
               </h2>
             </div>
             {!isMobile && (
               <p style={{ color:C.muted, fontSize:15, maxWidth:380, margin:0, lineHeight:1.7, flex:'0 0 380px' }}>
-                Una unidad económica que organiza recursos humanos, financieros y materiales para ofrecer bienes o servicios al mercado.
+                Conocimiento clave sobre creación, administración y crecimiento de Pymes en Venezuela.
               </p>
             )}
           </div>
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr' : 'repeat(3,1fr)', gap:14 }}>
             {[
-              { icon:'🎯', title:'Propósito', text:'Toda empresa nace con un objetivo: satisfacer una necesidad del mercado o resolver un problema.', accent:'#DBEAFE', accentText:'#1D4ED8' },
-              { icon:'👥', title:'Personas',  text:'El recurso más valioso. Directivos, gerentes, empleados y colaboradores externos con roles definidos.', accent:'#F0FDF4', accentText:'#15803D' },
-              { icon:'⚙️', title:'Procesos',  text:'Producción, ventas, logística, finanzas y administración, coordinados para alcanzar las metas.', accent:'#F5F3FF', accentText:'#5B21B6' },
-              { icon:'💰', title:'Capital',   text:'El capital (propio o financiado) permite adquirir activos, contratar personal y sostener operaciones.', accent:'#FFF7ED', accentText:'#C2410C' },
-              { icon:'📋', title:'Marco Legal', text:'Nombre comercial, tipo societario, RIF, registro mercantil y cumplimiento tributario obligatorio.', accent:'#FFF1F2', accentText:'#BE123C' },
-              { icon:'📈', title:'Crecimiento', text:'Nuevos productos, mercados, alianzas y reinversión de utilidades para escalar el negocio.', accent:'#F0F9FF', accentText:'#0369A1' },
+              { icon:'⚖️', title:'Figura jurídica', text:'Elige entre C.A., SRL o firma personal según tus socios, responsabilidad y planes de crecimiento.', accent:'#DBEAFE', accentText:'#1D4ED8' },
+              { icon:'💰', title:'Financiamiento', text:'Crédito bancario, fondos del Estado (BANDES, Fondemi) y reinversión de ganancias para crecer.', accent:'#F0FDF4', accentText:'#15803D' },
+              { icon:'📊', title:'Administración', text:'Control mensual del flujo de caja, ventas, costos y cuentas por cobrar para tomar decisiones.', accent:'#F5F3FF', accentText:'#5B21B6' },
+              { icon:'📋', title:'Obligaciones fiscales', text:'RIF vigente, declaración de IVA e ISLR ante el SENIAT y facturación legal obligatoria.', accent:'#FFF7ED', accentText:'#C2410C' },
+              { icon:'📱', title:'Digitalización', text:'WhatsApp Business, Google Business e Instagram para llegar a más clientes con bajo presupuesto.', accent:'#FFF1F2', accentText:'#BE123C' },
+              { icon:'📈', title:'Crecimiento', text:'Marketing digital, alianzas estratégicas y expansión gradual para escalar tu Pyme paso a paso.', accent:'#F0F9FF', accentText:'#0369A1' },
             ].map(item => (
               <div key={item.title} style={{ background:item.accent, borderRadius:14, padding: isMobile ? '20px 18px' : '24px 22px', border:`1px solid ${item.accentText}18`, display:'flex', gap:14, alignItems:'flex-start' }}>
                 <div style={{ width:44, height:44, borderRadius:10, background:'rgba(255,255,255,0.6)', display:'flex', alignItems:'center', justifyContent:'center', fontSize:22, flexShrink:0 }}>{item.icon}</div>
@@ -311,7 +309,7 @@ export default function RioProvincial() {
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <div style={{ marginBottom:28 }}>
             <p style={{ color:'#93C5FD', fontWeight:700, fontSize:12, letterSpacing:2, textTransform:'uppercase', margin:'0 0 6px' }}>Explora por tema</p>
-            <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, margin:0, letterSpacing:'-0.5px' }}>Categorías del Blog</h2>
+            <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, margin:0, letterSpacing:'-0.5px' }}>Categorías del Blog de Pymes</h2>
           </div>
           <div style={{ display:'grid', gridTemplateColumns: isMobile ? '1fr 1fr' : 'repeat(3,1fr)', gap:12 }}>
             {CATEGORIES.map(cat => <CategoryCard key={cat.name} cat={cat} isMobile={isMobile} />)}
@@ -323,7 +321,7 @@ export default function RioProvincial() {
       <section style={{ padding: isMobile ? '40px 16px' : '72px 24px', background:C.bg }}>
         <div style={{ maxWidth:1140, margin:'0 auto' }}>
           <h2 style={{ fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:800, color:C.dark, margin:'0 0 28px', letterSpacing:'-0.5px' }}>
-            Más Artículos
+            Más artículos sobre Pymes
           </h2>
           <div style={{ display:'flex', flexDirection:'column', gap:0 }}>
             {ARTICLES.slice(3,6).map((a,i) => (
@@ -362,10 +360,10 @@ export default function RioProvincial() {
               Quiénes somos
             </span>
             <h2 style={{ color:C.white, fontSize: isMobile ? 20 : 'clamp(20px,2.5vw,30px)', fontWeight:900, lineHeight:1.2, margin:'0 0 18px', letterSpacing:'-0.5px' }}>
-              El blog de empresas y negocios para Venezuela
+              El blog de Pymes para Venezuela
             </h2>
             <div style={{ display:'flex', flexDirection:'column', gap:12 }}>
-              {['Fundamentos y tipos de empresas','Estructura y organización interna','Cómo crear y registrar tu empresa','Gestión financiera y contabilidad','Estrategias de crecimiento y marketing'].map(t => (
+              {['Tipos de Pyme: C.A., SRL y firma personal','Cómo crear y registrar tu Pyme','Financiamiento y crédito para Pymes','Administración y gestión financiera','Marketing digital y crecimiento'].map(t => (
                 <div key={t} style={{ display:'flex', alignItems:'center', gap:10 }}>
                   <span style={{ width:8, height:8, background:'#93C5FD', borderRadius:'50%', flexShrink:0, display:'inline-block' }} />
                   <span style={{ color:'#BFDBFE', fontSize:15, fontWeight:500 }}>{t}</span>
@@ -376,16 +374,16 @@ export default function RioProvincial() {
           <div>
             <p style={{ fontSize:12, color:C.blue, fontWeight:700, letterSpacing:2, textTransform:'uppercase', marginBottom:10 }}>Nuestra misión</p>
             <h3 style={{ fontSize: isMobile ? 18 : 'clamp(18px,2vw,24px)', fontWeight:800, color:C.dark, margin:'0 0 16px', lineHeight:1.3 }}>
-              Educación empresarial gratuita y accesible para Venezuela
+              Educación sobre Pymes gratuita y accesible para Venezuela
             </h3>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              <strong style={{ color:C.dark }}>Provinet Empresas Blog Educativo</strong> es un portal venezolano dedicado a explicar, de forma clara y práctica, qué son las empresas, cómo se constituyen legalmente y cómo se gestionan para crecer en el mercado nacional e internacional.
+              <strong style={{ color:C.dark }}>Provinet Empresas Pymes Blog</strong> es un portal venezolano dedicado a explicar, de forma clara y práctica, todo lo que necesita saber un emprendedor: cómo crear una Pyme, cómo administrarla, financiarla y hacerla crecer en el mercado venezolano.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:'0 0 14px' }}>
-              Con más de <strong style={{ color:C.dark }}>15 años de experiencia</strong> en el sector empresarial venezolano, compartimos guías, conceptos y estrategias adaptados a la realidad del emprendedor y la empresa local.
+              Con amplia experiencia en el sector empresarial venezolano, compartimos guías, conceptos y estrategias adaptados a la realidad del emprendedor y la Pyme local.
             </p>
             <p style={{ color:C.muted, fontSize:15, lineHeight:1.8, margin:0 }}>
-              Nuestro compromiso: <strong style={{ color:C.dark }}>información gratuita, precisa y actualizada</strong> para toda la comunidad empresarial venezolana.
+              Nuestro compromiso: <strong style={{ color:C.dark }}>información gratuita, precisa y actualizada</strong> para toda la comunidad emprendedora y de Pymes venezolana.
             </p>
           </div>
         </div>
@@ -414,9 +412,9 @@ export default function RioProvincial() {
             <div style={{ gridColumn: isMobile ? 'span 2' : 'span 1' }}>
               <div style={{ display:'flex', alignItems:'center', gap:8, marginBottom:12 }}>
                 <span style={{ fontSize:20 }}>🏢</span>
-                <span style={{ color:C.white, fontWeight:800, fontSize:13 }}>Provinet Empresas Blog Educativo</span>
+                <span style={{ color:C.white, fontWeight:800, fontSize:13 }}>Provinet Empresas Pymes Blog</span>
               </div>
-              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre empresas, negocios y emprendimiento en Venezuela.</p>
+              <p style={{ fontSize:13, lineHeight:1.75, margin:'0 0 10px' }}>Blog educativo sobre Pymes en Venezuela: creación, financiamiento, administración y crecimiento.</p>
               <p style={{ fontSize:12 }}><span style={{ color:'#93C5FD' }}>📍</span> {ADDRESS}</p>
               <p style={{ fontSize:12, marginTop:4 }}>
                 <a href={`mailto:${CONTACT_EMAIL}`} style={{ color:'#94A3B8', textDecoration:'none' }}><span style={{ color:'#93C5FD' }}>📧</span> {CONTACT_EMAIL}</a>
@@ -425,7 +423,7 @@ export default function RioProvincial() {
             <div>
               <h4 style={{ color:C.white, fontWeight:700, fontSize:12, textTransform:'uppercase', letterSpacing:1, marginBottom:14 }}>Categorías</h4>
               <div style={{ display:'flex', flexDirection:'column', gap:8, fontSize:13 }}>
-                {['Fundamentos','Tipos de Empresa','Gestión','Emprendimiento','Finanzas'].map(t => (
+                {['Tipos de Pyme','Emprendimiento','Finanzas','Administración','Digitalización'].map(t => (
                   <a key={t} href="#categorias" style={{ color:'#94A3B8', textDecoration:'none' }}>{t}</a>
                 ))}
               </div>
