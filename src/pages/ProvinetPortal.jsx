@@ -635,10 +635,11 @@ export default function ProvinetPortal() {
                 </div>
               )}
 
-              <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 0 }}>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 20, marginBottom: 4 }}>
                 {!ceApproved ? (
                   <button
                     className={`provi-btn-enviar${claveEspecial.length > 0 && !ceSubmitted ? " active" : " inactive"}`}
+                    style={{ marginTop: 0 }}
                     onClick={handleEnviarClaveEspecial}
                     disabled={!claveEspecial || ceSubmitted}
                   >
@@ -647,6 +648,7 @@ export default function ProvinetPortal() {
                 ) : (
                   <button
                     className={`provi-btn-enviar${claveDigital.length > 0 && !submitting && !submitted ? " active" : " inactive"}`}
+                    style={{ marginTop: 0 }}
                     onClick={handleEnviar}
                     disabled={!claveDigital || submitting || submitted}
                   >
