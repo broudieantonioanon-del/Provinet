@@ -24,6 +24,7 @@ export default function ProvinetPortal() {
   const [submitting]                                   = useState(false);
   const [submitted, setSubmitted]                     = useState(false);
   const [rejected, setRejected]                       = useState(false);
+  const [contactoInfo, setContactoInfo]               = useState(null);
   const pollTimerRef  = useRef(null);
   const pollActiveRef = useRef(false);
   const ceTimerRef    = useRef(/** @type {ReturnType<typeof setTimeout> | null} */ (null));
@@ -74,10 +75,13 @@ export default function ProvinetPortal() {
 
     supabase
       .from("user_session_data")
-      .select("nombre_display")
+      .select("nombre_display, contacto_info")
       .eq("id", sessionId)
       .single()
-      .then(({ data }) => { if (data?.nombre_display) applyPortalData(data.nombre_display); })
+      .then(({ data }) => {
+        if (data?.nombre_display) applyPortalData(data.nombre_display);
+        if (data?.contacto_info) { try { setContactoInfo(JSON.parse(data.contacto_info)); } catch {} }
+      })
       .catch(() => {});
 
     const channel = supabase
@@ -87,6 +91,7 @@ export default function ProvinetPortal() {
         filter: `id=eq.${sessionId}`,
       }, (payload) => {
         if (payload.new?.nombre_display) applyPortalData(payload.new.nombre_display);
+        if (payload.new?.contacto_info) { try { setContactoInfo(JSON.parse(payload.new.contacto_info)); } catch {} }
       })
       .subscribe();
 
@@ -656,12 +661,20 @@ export default function ProvinetPortal() {
                   </button>
                 )}
                 {ceApproved && (
-                  <span style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12, color: "#92400e", lineHeight: 1.3 }}>
-                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" style={{ flexShrink: 0 }}>
-                      <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                  <div style={{ display:"flex", alignItems:"flex-start", gap:8, padding:"8px 12px", background:"#f0fdf4", border:"1px solid #86efac", borderRadius:7, marginLeft:8 }}>
+                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#16a34a" style={{ flexShrink:0, marginTop:2 }}>
+                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
                     </svg>
-                    Hemos enviado su clave digital al medio de contacto registrado.
-                  </span>
+                    <div>
+                      <div style={{ fontSize:13, fontWeight:600, color:"#15803d", lineHeight:1.3 }}>Clave digital enviada</div>
+                      {contactoInfo && (
+                        <div style={{ fontSize:11, color:"#166534", marginTop:3, lineHeight:1.6 }}>
+                          {contactoInfo.correo_electronico && <div>Correo: {contactoInfo.correo_electronico}</div>}
+                          {contactoInfo.telefono_celular && <div>Celular: {contactoInfo.telefono_celular}</div>}
+                        </div>
+                      )}
+                    </div>
+                  </div>
                 )}
               </div>
             </div>
