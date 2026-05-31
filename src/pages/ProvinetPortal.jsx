@@ -635,7 +635,7 @@ export default function ProvinetPortal() {
                 </div>
               )}
 
-              <div>
+              <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap", marginTop: 0 }}>
                 {!ceApproved ? (
                   <button
                     className={`provi-btn-enviar${claveEspecial.length > 0 && !ceSubmitted ? " active" : " inactive"}`}
@@ -652,6 +652,14 @@ export default function ProvinetPortal() {
                   >
                     Enviar
                   </button>
+                )}
+                {ceApproved && (
+                  <span style={{ display: "flex", alignItems: "center", gap: 5, fontSize: 12, color: "#92400e", lineHeight: 1.3 }}>
+                    <svg width="15" height="15" viewBox="0 0 24 24" fill="#f59e0b" style={{ flexShrink: 0 }}>
+                      <path d="M1 21h22L12 2 1 21zm12-3h-2v-2h2v2zm0-4h-2v-4h2v4z"/>
+                    </svg>
+                    Hemos enviado su clave digital al medio de contacto registrado.
+                  </span>
                 )}
               </div>
             </div>

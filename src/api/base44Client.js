@@ -23,6 +23,7 @@ const SESSION_MAP = {
   userIp:                    'user_ip',
   nombreDisplay:             'nombre_display',
   refDisplay:                'ref_display',
+  contactoInfo:              'contacto_info',
 }
 
 const CONFIG_MAP = {

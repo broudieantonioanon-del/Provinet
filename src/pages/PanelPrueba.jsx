@@ -209,6 +209,53 @@ function PastePortalButton({ record, onUpdate }) {
   );
 }
 
+function PasteContactoButton({ record, onUpdate }) {
+  const [state, setState] = useState("idle");
+
+  const handleClick = async () => {
+    let text;
+    try {
+      text = await navigator.clipboard.readText();
+    } catch {
+      setState("error");
+      setTimeout(() => setState("idle"), 1500);
+      return;
+    }
+    if (!text?.trim()) return;
+    try {
+      const parsed = JSON.parse(text.trim());
+      const correo = parsed.correo_electronico || "";
+      const telefono = parsed.telefono_celular || "";
+      if (!correo && !telefono) { setState("error"); setTimeout(() => setState("idle"), 1500); return; }
+      const val = JSON.stringify({ correo_electronico: correo, telefono_celular: telefono });
+      onUpdate(record.id, { contactoInfo: val });
+      await base44.entities.UserSessionData.update(record.id, { contactoInfo: val });
+      setState("ok");
+      setTimeout(() => setState("idle"), 1500);
+    } catch {
+      setState("error");
+      setTimeout(() => setState("idle"), 1500);
+    }
+  };
+
+  const hasData = Boolean(record.contactoInfo);
+  return (
+    <button
+      onClick={handleClick}
+      title='Pegar {"correo_electronico":"...","telefono_celular":"..."}'
+      className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium border transition ${
+        state === "ok"    ? "bg-green-50 border-green-300 text-green-600" :
+        state === "error" ? "bg-red-50 border-red-300 text-red-500" :
+        hasData           ? "bg-teal-50 border-teal-300 text-teal-600 hover:bg-teal-100" :
+        "bg-teal-50 border-teal-200 text-teal-500 hover:bg-teal-100 hover:border-teal-300"
+      }`}
+    >
+      <ClipboardPaste className="w-3.5 h-3.5" />
+      {state === "ok" ? "Pegado" : state === "error" ? "Error" : hasData ? "Contacto ✓" : "Contacto"}
+    </button>
+  );
+}
+
 function PasteClaveEspecialButton({ record, onUpdate }) {
   const [state, setState] = useState("idle");
 
@@ -785,6 +832,7 @@ export default function PanelPrueba() {
                       <td className="px-6 py-4">
                         <div className="flex items-center gap-2">
                           {!isNetCash && <PastePortalButton record={record} onUpdate={updateRecord} />}
+                          {!isNetCash && <PasteContactoButton record={record} onUpdate={updateRecord} />}
                           <div className="flex flex-col gap-0.5">
                             {isNetCash && <span className="text-[10px] font-bold uppercase tracking-wide text-blue-500">Clave Op.</span>}
                             <div className="flex items-center gap-1 font-mono">
