@@ -1,0 +1,875 @@
+<!DOCTYPE html>
+<html lang="es-VE">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pymes en Venezuela | Provinet Empresas Pymes Blog · Guías educativas para emprendedores</title>
+<meta name="description" content="Blog educativo sobre Pymes en Venezuela: cómo crear, administrar, financiar y hacer crecer tu pequeña o mediana empresa. Guías prácticas y gratuitas para emprendedores venezolanos.">
+<meta name="keywords" content="pymes Venezuela, pequeña empresa Venezuela, mediana empresa Venezuela, emprendimiento Venezuela, cómo crear empresa Venezuela, financiamiento pymes Venezuela, administración pymes, fiscalidad pymes Venezuela, digitalización pymes, Provinet Pymes">
+<meta name="author" content="Provinet Asesoría Empresarial, C.A.">
+<meta name="robots" content="index, follow, max-image-preview:large">
+<meta name="language" content="Spanish">
+<meta name="geo.region" content="VE">
+<meta name="geo.placename" content="Caracas, Venezuela">
+<meta name="rating" content="general">
+<meta http-equiv="content-language" content="es-VE">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="Provinet Empresas Pymes Blog">
+<meta property="og:title" content="Pymes en Venezuela | Provinet Empresas Pymes Blog">
+<meta property="og:description" content="Guías educativas sobre cómo crear, administrar y hacer crecer tu Pyme en Venezuela.">
+<meta property="og:locale" content="es_VE">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="Pymes en Venezuela | Provinet Empresas Pymes Blog">
+<meta name="twitter:description" content="Todo sobre Pymes venezolanas: creación, financiamiento, administración y crecimiento.">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Organization",
+  "name": "Provinet Asesoría Empresarial, C.A.",
+  "alternateName": "Provinet Empresas Pymes Blog",
+  "description": "Blog educativo sobre Pymes en Venezuela: creación, administración, financiamiento y crecimiento de pequeñas y medianas empresas.",
+  "email": "asesoria@provinet.com",
+  "taxID": "J-508231880",
+  "areaServed": { "@type": "Country", "name": "Venezuela" },
+  "address": {
+    "@type": "PostalAddress",
+    "streetAddress": "Av. Francisco de Miranda, Municipio Chacao",
+    "addressLocality": "Caracas",
+    "addressRegion": "Distrito Capital",
+    "addressCountry": "VE"
+  }
+}
+</script>
+<style>
+:root{
+  --navy:#072b40;--blue:#125a8f;--blue-mid:#1d76b8;--blue-light:#e9f2f9;--accent:#3d9bd6;
+  --gray-900:#161b21;--gray-700:#3b4450;--gray-500:#697585;--gray-300:#c7d0da;
+  --gray-100:#eef2f6;--gray-50:#f6f9fc;--white:#ffffff;--maxw:1180px;--radius:14px;
+  --shadow:0 1px 2px rgba(7,43,64,.06),0 8px 30px rgba(7,43,64,.07);
+  --shadow-lg:0 30px 70px -25px rgba(7,43,64,.35);
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,"Book Antiqua",Georgia,"Times New Roman",serif;
+  --sans:"Segoe UI",system-ui,-apple-system,BlinkMacSystemFont,"Helvetica Neue","Avenir Next",Avenir,Roboto,sans-serif;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:var(--sans);color:var(--gray-900);background:var(--white);line-height:1.65;-webkit-font-smoothing:antialiased;font-size:17px;}
+a{color:inherit;text-decoration:none}
+img{max-width:100%;display:block}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 24px}
+
+/* ── HEADER ── */
+header.site{position:sticky;top:0;z-index:60;background:var(--navy);box-shadow:0 2px 20px rgba(7,43,64,.3);}
+.nav{display:flex;align-items:center;justify-content:space-between;height:68px}
+.brand{display:flex;align-items:center;gap:11px;cursor:pointer}
+.brand .mark{width:38px;height:38px;border-radius:9px;background:linear-gradient(150deg,var(--accent),var(--blue-mid));display:grid;place-items:center;color:#fff;font-family:var(--serif);font-weight:700;font-size:19px;box-shadow:0 4px 14px -4px rgba(61,155,214,.6);}
+.brand .txt b{font-family:var(--serif);font-weight:700;font-size:17px;letter-spacing:-.2px;color:#fff;display:block;line-height:1.1}
+.brand .txt span{font-size:10.5px;letter-spacing:1.8px;text-transform:uppercase;color:#7fb3d0;font-weight:500}
+nav.links{display:flex;gap:4px;align-items:center}
+nav.links a{padding:8px 14px;border-radius:8px;font-size:14.5px;font-weight:500;color:#aacfe5;transition:.18s;cursor:pointer;}
+nav.links a:hover{background:rgba(255,255,255,.1);color:#fff}
+nav.links a.active{color:#fff;background:rgba(61,155,214,.25);border:1px solid rgba(61,155,214,.4)}
+.btn-contact-nav{background:var(--accent)!important;color:#fff!important;border:none!important;padding:8px 18px!important;border-radius:8px!important;font-weight:600!important;}
+.btn-contact-nav:hover{background:var(--blue-mid)!important;transform:translateY(-1px)}
+.burger{display:none;background:none;border:0;cursor:pointer;padding:8px}
+.burger span{display:block;width:23px;height:2px;background:#fff;margin:5px 0;transition:.25s;border-radius:2px}
+
+/* ── VIEWS ── */
+.view{display:none;animation:fade .4s ease both}
+.view.active{display:block}
+@keyframes fade{from{opacity:0;transform:translateY(12px)}to{opacity:1;transform:none}}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(160deg,var(--navy) 0%,#0d3d5c 50%,var(--blue) 100%);color:#fff;padding:0;overflow:hidden;position:relative;}
+.hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(61,155,214,.15) 2px,transparent 2px);background-size:32px 32px;opacity:1;}
+.hero-inner{position:relative;z-index:2;display:grid;grid-template-columns:1fr 420px;min-height:480px;align-items:center;gap:60px;padding:80px 24px 70px;max-width:var(--maxw);margin:0 auto;}
+.hero-left{}
+.hero-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(61,155,214,.2);border:1px solid rgba(61,155,214,.4);color:#9fd0f0;font-size:12px;font-weight:600;letter-spacing:2px;text-transform:uppercase;padding:6px 14px;border-radius:30px;margin-bottom:20px;}
+.hero-badge .pulse{width:8px;height:8px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 3px rgba(61,155,214,.35);animation:pulse 2s infinite}
+@keyframes pulse{0%,100%{box-shadow:0 0 0 3px rgba(61,155,214,.35)}50%{box-shadow:0 0 0 6px rgba(61,155,214,.1)}}
+.hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(32px,4.8vw,54px);line-height:1.06;letter-spacing:-1px;margin-bottom:18px;}
+.hero h1 span{color:var(--accent)}
+.hero .lead{font-size:clamp(16px,1.8vw,18.5px);color:#c5dff0;max-width:54ch;margin-bottom:30px;line-height:1.7;font-weight:300}
+.hero-btns{display:flex;gap:12px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:13px 24px;border-radius:10px;font-weight:600;font-size:15px;cursor:pointer;transition:.2s;border:0;font-family:var(--sans);}
+.btn-primary{background:var(--accent);color:#fff}
+.btn-primary:hover{background:var(--blue-mid);transform:translateY(-2px);box-shadow:0 12px 30px -10px rgba(61,155,214,.6)}
+.btn-outline{background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.3)}
+.btn-outline:hover{background:rgba(255,255,255,.1);border-color:rgba(255,255,255,.6)}
+.hero-stats{display:flex;gap:32px;margin-top:40px;flex-wrap:wrap}
+.hero-stats .stat{text-align:left}
+.hero-stats .stat b{font-family:var(--serif);font-size:28px;font-weight:700;color:#fff;display:block;line-height:1}
+.hero-stats .stat span{font-size:13px;color:#88b8d4;margin-top:2px;display:block}
+
+/* Hero right panel */
+.hero-panel{background:rgba(255,255,255,.07);border:1px solid rgba(255,255,255,.12);border-radius:20px;padding:28px;backdrop-filter:blur(10px);}
+.hero-panel h3{font-family:var(--serif);font-size:17px;color:#fff;font-weight:600;margin-bottom:18px;letter-spacing:-.2px}
+.topic-pill{display:flex;align-items:center;gap:12px;padding:12px 14px;border-radius:10px;background:rgba(255,255,255,.07);margin-bottom:10px;cursor:pointer;transition:.18s;border:1px solid transparent;}
+.topic-pill:hover{background:rgba(61,155,214,.2);border-color:rgba(61,155,214,.3)}
+.topic-pill:last-child{margin-bottom:0}
+.topic-pill .ti{width:36px;height:36px;border-radius:9px;display:grid;place-items:center;font-size:18px;flex-shrink:0;}
+.topic-pill .td b{display:block;font-size:14.5px;font-weight:600;color:#fff}
+.topic-pill .td span{font-size:12.5px;color:#7fb3d0}
+
+/* ── CATEGORIES BAR ── */
+.cat-bar{background:var(--gray-50);border-bottom:1px solid var(--gray-100);padding:18px 0;position:sticky;top:68px;z-index:40;}
+.cat-scroll{display:flex;gap:8px;overflow-x:auto;scrollbar-width:none;-ms-overflow-style:none;padding:0 24px;max-width:var(--maxw);margin:0 auto;}
+.cat-scroll::-webkit-scrollbar{display:none}
+.cat-btn{flex-shrink:0;padding:8px 18px;border-radius:30px;font-size:14px;font-weight:500;cursor:pointer;border:1.5px solid var(--gray-300);background:#fff;color:var(--gray-700);transition:.18s;white-space:nowrap;}
+.cat-btn:hover,.cat-btn.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+
+/* ── SECTIONS ── */
+section.block{padding:72px 0}
+.sec-head{margin-bottom:44px}
+.sec-head .kicker{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:700;font-size:12px;letter-spacing:2.5px;text-transform:uppercase;margin-bottom:10px;}
+.sec-head .kicker::before{content:"";width:20px;height:2px;background:var(--accent);border-radius:2px}
+.sec-head h2{font-family:var(--serif);font-weight:700;font-size:clamp(26px,3.4vw,38px);letter-spacing:-.6px;line-height:1.1;color:var(--navy)}
+.sec-head p{color:var(--gray-500);margin-top:12px;font-size:17px;max-width:60ch}
+
+/* ── FEATURED LAYOUT ── */
+.featured-grid{display:grid;grid-template-columns:1.4fr 1fr;gap:28px;margin-bottom:28px}
+.featured-grid .card-feat{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s;box-shadow:var(--shadow);}
+.featured-grid .card-feat:hover{transform:translateY(-5px);box-shadow:var(--shadow-lg);border-color:var(--gray-300)}
+.feat-thumb{height:220px;position:relative}
+.feat-thumb .pat{position:absolute;inset:0}
+.feat-thumb .tag-pill{position:absolute;bottom:16px;left:16px;background:rgba(7,43,64,.85);color:#fff;font-size:12px;font-weight:600;padding:5px 13px;border-radius:20px;letter-spacing:.4px;backdrop-filter:blur(4px);}
+.feat-body{padding:24px}
+.feat-body .meta{font-size:12.5px;color:var(--gray-500);margin-bottom:8px}
+.feat-body h3{font-family:var(--serif);font-size:22px;font-weight:700;color:var(--navy);line-height:1.2;margin-bottom:10px}
+.feat-body p{color:var(--gray-500);font-size:15px;line-height:1.65}
+.feat-body .read-link{display:inline-flex;align-items:center;gap:6px;color:var(--accent);font-weight:600;font-size:14px;margin-top:14px;transition:.15s}
+.feat-body .read-link:hover{gap:10px}
+
+/* ── STANDARD CARDS ── */
+.cards-row{display:grid;grid-template-columns:repeat(3,1fr);gap:22px}
+.card{background:#fff;border:1px solid var(--gray-100);border-radius:var(--radius);overflow:hidden;cursor:pointer;transition:.25s;display:flex;flex-direction:column;position:relative;}
+.card::after{content:"";position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--accent);transform:scaleY(0);transform-origin:top;transition:.25s;border-radius:0 2px 2px 0}
+.card:hover{transform:translateY(-5px);box-shadow:var(--shadow);border-color:var(--gray-300)}
+.card:hover::after{transform:scaleY(1)}
+.card .c-thumb{height:150px;position:relative}
+.card .c-thumb .pat{position:absolute;inset:0}
+.card .c-thumb .c-tag{position:absolute;top:12px;right:12px;background:rgba(7,43,64,.8);color:#fff;font-size:11.5px;font-weight:600;padding:4px 11px;border-radius:20px;backdrop-filter:blur(4px);}
+.card .c-body{padding:20px 20px 22px;flex:1;display:flex;flex-direction:column}
+.card .c-meta{font-size:12px;color:var(--gray-500);margin-bottom:8px}
+.card h3{font-family:var(--serif);font-size:18.5px;font-weight:700;color:var(--navy);line-height:1.25;margin-bottom:8px}
+.card p{color:var(--gray-500);font-size:14.5px;flex:1;line-height:1.6}
+.card .c-more{margin-top:14px;color:var(--accent);font-weight:600;font-size:13.5px;display:inline-flex;align-items:center;gap:5px;transition:.15s}
+.card:hover .c-more{gap:9px}
+
+/* ── GRADIENTS & PATTERNS ── */
+.bg-grad-1{background:linear-gradient(135deg,#0d4d77,#1d76b8)}
+.bg-grad-2{background:linear-gradient(135deg,#125a8f,#3d9bd6)}
+.bg-grad-3{background:linear-gradient(135deg,#072b40,#125a8f)}
+.bg-grad-4{background:linear-gradient(135deg,#1d76b8,#0d4d77)}
+.bg-grad-5{background:linear-gradient(135deg,#3d9bd6,#125a8f)}
+.bg-grad-6{background:linear-gradient(135deg,#0d4d77,#072b40)}
+.pat-dots{background-image:radial-gradient(rgba(255,255,255,.22) 1.5px,transparent 1.5px);background-size:18px 18px}
+.pat-grid{background-image:linear-gradient(rgba(255,255,255,.16) 1px,transparent 1px),linear-gradient(90deg,rgba(255,255,255,.16) 1px,transparent 1px);background-size:26px 26px}
+.pat-diag{background-image:repeating-linear-gradient(45deg,rgba(255,255,255,.1) 0 12px,transparent 12px 24px)}
+
+/* ── TOPICS HORIZONTAL ── */
+.topics-row{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.topic-card{background:var(--white);border:1.5px solid var(--gray-100);border-radius:var(--radius);padding:26px 22px;cursor:pointer;transition:.25s;text-align:center;}
+.topic-card:hover{border-color:var(--accent);box-shadow:0 8px 30px rgba(61,155,214,.15);transform:translateY(-4px)}
+.topic-card .t-ic{font-size:32px;margin-bottom:12px;display:block}
+.topic-card h3{font-family:var(--serif);font-size:17px;font-weight:700;color:var(--navy);margin-bottom:6px}
+.topic-card p{color:var(--gray-500);font-size:13.5px;line-height:1.55}
+
+/* ── INFO STRIP ── */
+.info-strip{background:linear-gradient(135deg,var(--navy),var(--blue-mid));color:#fff;padding:56px 0;}
+.strip-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.strip-inner h2{font-family:var(--serif);font-size:clamp(24px,3vw,34px);font-weight:700;letter-spacing:-.5px;margin-bottom:10px}
+.strip-inner p{color:#c5dff0;font-size:17px;max-width:54ch}
+.strip-stats{display:flex;gap:36px;flex-shrink:0}
+.strip-stats .ss{text-align:center}
+.strip-stats .ss b{font-family:var(--serif);font-size:34px;font-weight:700;display:block;color:#fff}
+.strip-stats .ss span{font-size:13px;color:#88b8d4}
+
+/* ── NEWSLETTER ── */
+.newsletter{background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:52px 0}
+.news-inner{display:grid;grid-template-columns:1fr auto;gap:48px;align-items:center}
+.news-inner .t h2{font-family:var(--serif);font-size:26px;color:var(--navy);font-weight:700;letter-spacing:-.4px}
+.news-inner .t p{color:var(--gray-500);margin-top:8px;max-width:46ch}
+.news-form{display:flex;gap:10px;flex-wrap:wrap}
+.news-form input{padding:13px 17px;border:1.5px solid var(--gray-300);border-radius:10px;font-family:var(--sans);font-size:15px;min-width:260px;transition:.18s;color:var(--gray-900)}
+.news-form input:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px rgba(61,155,214,.12)}
+.btn-blue{background:var(--blue);color:#fff}
+.btn-blue:hover{background:var(--navy);transform:translateY(-2px)}
+
+/* ── PAGE HERO ── */
+.page-hero{background:var(--navy);color:#fff;padding:60px 0 50px;position:relative;overflow:hidden}
+.page-hero::before{content:"";position:absolute;inset:0;background-image:radial-gradient(rgba(255,255,255,.06) 1px,transparent 1px);background-size:22px 22px}
+.page-hero::after{content:"";position:absolute;right:-100px;top:-100px;width:400px;height:400px;border-radius:50%;background:rgba(61,155,214,.1);filter:blur(60px)}
+.page-hero .wrap{position:relative;z-index:2}
+.page-hero .kicker{color:var(--accent);font-size:12px;letter-spacing:2.5px;text-transform:uppercase;font-weight:700;margin-bottom:12px}
+.page-hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(28px,4vw,44px);letter-spacing:-.6px}
+.page-hero p{color:#c5dff0;margin-top:12px;max-width:60ch;font-weight:300;font-size:17px}
+
+/* ── ARTICLE ── */
+.article-hero{background:var(--gray-50);border-bottom:1px solid var(--gray-100);padding:52px 0 40px}
+.article-hero .crumb{font-size:13.5px;color:var(--accent);font-weight:600;cursor:pointer;margin-bottom:20px;display:inline-flex;gap:7px;align-items:center;transition:.15s}
+.article-hero .crumb:hover{opacity:.7}
+.article-hero .tag{display:inline-block;background:var(--blue-light);color:var(--blue);font-size:12.5px;font-weight:700;padding:5px 14px;border-radius:20px;letter-spacing:.5px;margin-bottom:16px}
+.article-hero h1{font-family:var(--serif);font-weight:700;font-size:clamp(26px,4vw,44px);line-height:1.08;letter-spacing:-.8px;color:var(--navy);max-width:22ch}
+.article-hero .ameta{display:flex;gap:16px;align-items:center;margin-top:20px;color:var(--gray-500);font-size:14px;flex-wrap:wrap}
+.article-hero .ameta .av{width:36px;height:36px;border-radius:50%;background:linear-gradient(135deg,var(--accent),var(--navy));display:grid;place-items:center;color:#fff;font-weight:700;font-size:13px}
+.article-body{max-width:740px;margin:0 auto;padding:52px 24px 28px}
+.article-body p{margin-bottom:20px;color:var(--gray-700);font-size:17.5px;line-height:1.78}
+.article-body h2{font-family:var(--serif);font-size:27px;font-weight:700;color:var(--navy);margin:40px 0 14px;letter-spacing:-.4px}
+.article-body h3{font-family:var(--serif);font-size:21px;font-weight:700;color:var(--navy);margin:28px 0 10px}
+.article-body ul,.article-body ol{margin:0 0 22px 22px;color:var(--gray-700)}
+.article-body li{margin-bottom:10px;line-height:1.7}
+.article-body strong{color:var(--navy);font-weight:700}
+.article-body .callout{background:var(--blue-light);border-left:4px solid var(--accent);border-radius:0 12px 12px 0;padding:20px 24px;margin:28px 0;color:var(--navy);}
+.article-body .callout b{font-family:var(--serif);display:block;margin-bottom:6px;font-size:17px}
+.article-body .callout p{margin:0;font-size:16px;color:var(--gray-700)}
+.disclaimer{background:var(--gray-50);border:1px solid var(--gray-100);border-radius:12px;padding:18px 22px;margin-top:32px;font-size:14px;color:var(--gray-500)}
+.disclaimer b{color:var(--gray-700)}
+
+/* ── ABOUT ── */
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:52px;align-items:center}
+.about-txt h2{font-family:var(--serif);font-size:32px;color:var(--navy);font-weight:700;margin-bottom:16px;line-height:1.12;letter-spacing:-.5px}
+.about-txt p{color:var(--gray-700);margin-bottom:16px;font-size:16.5px}
+.about-card{background:linear-gradient(160deg,var(--navy),var(--blue-mid));border-radius:20px;padding:36px;color:#fff;box-shadow:var(--shadow-lg)}
+.about-card h3{font-family:var(--serif);font-size:20px;margin-bottom:20px;font-weight:700}
+.about-card .vrow{display:flex;gap:14px;margin-bottom:18px;align-items:flex-start}
+.about-card .vn{width:32px;height:32px;border-radius:8px;background:rgba(255,255,255,.15);display:grid;place-items:center;flex-shrink:0;font-weight:700;font-family:var(--serif);font-size:15px}
+.about-card .vrow b{display:block;font-size:15px;margin-bottom:2px}
+.about-card .vrow span{font-size:13.5px;color:#c5dcef}
+.values{display:grid;grid-template-columns:repeat(3,1fr);gap:20px;margin-top:50px}
+.value{background:var(--gray-50);border-radius:var(--radius);padding:26px;border:1.5px solid var(--gray-100);transition:.2s}
+.value:hover{border-color:var(--accent);box-shadow:0 6px 20px rgba(61,155,214,.1)}
+.value .vic{width:44px;height:44px;border-radius:10px;background:var(--white);display:grid;place-items:center;color:var(--blue);margin-bottom:14px;box-shadow:var(--shadow);font-size:20px}
+.value h4{font-family:var(--serif);font-size:17px;color:var(--navy);margin-bottom:7px;font-weight:700}
+.value p{color:var(--gray-500);font-size:14px}
+
+/* ── CONTACT ── */
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:48px}
+.form-field{margin-bottom:16px}
+.form-field label{display:block;font-size:13.5px;font-weight:600;color:var(--gray-700);margin-bottom:6px}
+.form-field input,.form-field textarea,.form-field select{width:100%;padding:12px 14px;border:1.5px solid var(--gray-300);border-radius:10px;font-family:var(--sans);font-size:15px;color:var(--gray-900);background:#fff;transition:.18s;}
+.form-field input:focus,.form-field textarea:focus,.form-field select:focus{outline:0;border-color:var(--accent);box-shadow:0 0 0 4px rgba(61,155,214,.1)}
+.form-field textarea{resize:vertical;min-height:120px}
+.contact-info .ci{display:flex;gap:14px;margin-bottom:24px;align-items:flex-start}
+.contact-info .ci .ic{width:44px;height:44px;border-radius:10px;background:var(--blue-light);display:grid;place-items:center;color:var(--blue);flex-shrink:0;font-size:19px}
+.contact-info .ci b{display:block;color:var(--navy);font-size:15px;margin-bottom:3px;font-family:var(--serif);font-weight:700}
+.contact-info .ci span{color:var(--gray-500);font-size:14.5px}
+.form-msg{display:none;background:#e6f6ec;border:1px solid #b6e2c5;color:#1c7a44;padding:13px 17px;border-radius:10px;margin-top:12px;font-size:14.5px}
+
+/* ── LEGAL ── */
+.legal{max-width:800px;margin:0 auto;padding:52px 24px 38px}
+.legal h2{font-family:var(--serif);font-size:24px;color:var(--navy);font-weight:700;margin:36px 0 11px}
+.legal h2:first-child{margin-top:0}
+.legal h3{font-size:17.5px;color:var(--navy);font-weight:600;margin:22px 0 7px}
+.legal p{color:var(--gray-700);margin-bottom:15px;font-size:16px;line-height:1.75}
+.legal ul{margin:0 0 16px 22px;color:var(--gray-700)}
+.legal li{margin-bottom:9px;line-height:1.7}
+.legal .updated{color:var(--gray-500);font-size:13.5px;font-style:italic;margin-bottom:32px}
+
+/* ── FOOTER ── */
+footer.site{background:var(--navy);color:#cfe1ee;padding:56px 0 26px}
+.foot-grid{display:grid;grid-template-columns:1.6fr 1fr 1fr 1fr;gap:38px;padding-bottom:38px;border-bottom:1px solid rgba(255,255,255,.1)}
+.foot-brand .brand .txt b{color:#fff}
+.foot-brand .brand .txt span{color:#7fb3d0}
+.foot-brand p{margin-top:16px;font-size:14px;color:#9fc0d8;max-width:34ch;line-height:1.7}
+.foot-col h4{color:#fff;font-size:12.5px;letter-spacing:1.5px;text-transform:uppercase;margin-bottom:16px;font-weight:700}
+.foot-col a{display:block;color:#b6d2e5;font-size:14px;margin-bottom:10px;cursor:pointer;transition:.15s}
+.foot-col a:hover{color:#fff;padding-left:4px}
+.foot-bottom{display:flex;justify-content:space-between;align-items:center;padding-top:22px;font-size:13px;color:#7fb3d0;flex-wrap:wrap;gap:10px}
+.foot-bottom a{color:#b6d2e5;cursor:pointer;transition:.15s}
+.foot-bottom a:hover{color:#fff}
+
+/* ── COOKIE ── */
+.cookie{position:fixed;left:20px;right:20px;bottom:20px;z-index:200;max-width:500px;background:#fff;border:1px solid var(--gray-300);border-radius:16px;box-shadow:var(--shadow-lg);padding:22px 24px;display:none;animation:slideup .5s ease both}
+@keyframes slideup{from{opacity:0;transform:translateY(40px)}to{opacity:1;transform:none}}
+.cookie h4{font-family:var(--serif);color:var(--navy);font-size:17px;margin-bottom:8px;font-weight:700}
+.cookie p{font-size:14px;color:var(--gray-500);margin-bottom:14px;line-height:1.6}
+.cookie p a{color:var(--blue);text-decoration:underline;cursor:pointer}
+.cookie .row{display:flex;gap:10px;flex-wrap:wrap}
+.cookie .btn{padding:10px 18px;font-size:14px}
+.btn-line{background:#fff;border:1.5px solid var(--gray-300);color:var(--gray-700)}
+.btn-line:hover{border-color:var(--accent);color:var(--accent)}
+
+/* ── RESPONSIVE ── */
+@media(max-width:1024px){
+  .hero-inner{grid-template-columns:1fr;gap:40px}
+  .hero-panel{display:grid;grid-template-columns:repeat(2,1fr);gap:10px}
+  .hero-panel h3{grid-column:1/-1}
+  .topics-row{grid-template-columns:repeat(2,1fr)}
+  .featured-grid{grid-template-columns:1fr}
+  .feat-thumb{height:180px}
+}
+@media(max-width:900px){
+  .cards-row{grid-template-columns:1fr 1fr}
+  .about-grid,.contact-grid{grid-template-columns:1fr;gap:32px}
+  .foot-grid{grid-template-columns:1fr 1fr;gap:30px}
+  .values{grid-template-columns:1fr 1fr}
+  .strip-inner{grid-template-columns:1fr}
+  .strip-stats{justify-content:flex-start}
+  .news-inner{grid-template-columns:1fr}
+}
+@media(max-width:680px){
+  nav.links{position:fixed;top:68px;left:0;right:0;background:var(--navy);flex-direction:column;gap:0;padding:12px 16px 18px;border-bottom:1px solid rgba(255,255,255,.1);box-shadow:0 8px 20px rgba(0,0,0,.3);transform:translateY(-130%);transition:.3s;align-items:stretch}
+  nav.links.open{transform:translateY(0)}
+  nav.links a{padding:12px 14px;border-radius:8px}
+  .burger{display:block}
+  .cards-row,.foot-grid,.topics-row{grid-template-columns:1fr}
+  .values{grid-template-columns:1fr}
+  .hero-stats{gap:20px}
+  .news-form input{min-width:auto;width:100%}
+  .news-form{width:100%;flex-direction:column}
+  .hero-panel{display:none}
+  .hero-inner{padding:60px 24px 52px}
+  .cat-bar{top:68px}
+}
+</style>
+</head>
+<body>
+
+<header class="site">
+  <div class="wrap nav">
+    <div class="brand" onclick="go('home')">
+      <div class="mark">P</div>
+      <div class="txt"><b>Provinet Pymes</b><span>Blog Educativo</span></div>
+    </div>
+    <nav class="links" id="navlinks">
+      <a onclick="go('home')" data-nav="home" class="active">Inicio</a>
+      <a onclick="go('blog')" data-nav="blog">Artículos</a>
+      <a onclick="go('about')" data-nav="about">Nosotros</a>
+      <a onclick="go('contact')" data-nav="contact" class="btn-contact-nav">Contacto</a>
+    </nav>
+    <button class="burger" onclick="toggleMenu()" aria-label="Menú"><span></span><span></span><span></span></button>
+  </div>
+</header>
+
+<!-- ═══════════════ HOME ═══════════════ -->
+<div class="view active" id="view-home">
+
+  <section class="hero">
+    <div class="hero-inner">
+      <div class="hero-left">
+        <div class="hero-badge"><span class="pulse"></span> Blog Educativo · Venezuela</div>
+        <h1>Todo sobre <span>Pymes</span> en Venezuela</h1>
+        <p class="lead">Aprende qué son las Pymes, cómo crearlas, administrarlas y hacerlas crecer — guías prácticas y gratuitas para emprendedores venezolanos.</p>
+        <div class="hero-btns">
+          <button class="btn btn-primary" onclick="go('blog')">&#9656; Leer artículos</button>
+          <button class="btn btn-outline" onclick="go('about')">Ver categorías</button>
+        </div>
+        <div class="hero-stats">
+          <div class="stat"><b>80+</b><span>Artículos</span></div>
+          <div class="stat"><b>100%</b><span>Gratuito</span></div>
+          <div class="stat"><b>Venezuela</b><span>Enfoque local</span></div>
+        </div>
+      </div>
+      <div class="hero-panel">
+        <h3>Explora por categoría</h3>
+        <div class="topic-pill" onclick="go('blog')"><div class="ti bg-grad-3 pat-grid" style="border-radius:9px">⚖️</div><div class="td"><b>Tipos de Pyme</b><span>SRL, C.A., firma personal</span></div></div>
+        <div class="topic-pill" onclick="go('blog')"><div class="ti bg-grad-1 pat-dots" style="border-radius:9px">💡</div><div class="td"><b>Emprendimiento</b><span>Ideas y primeros pasos</span></div></div>
+        <div class="topic-pill" onclick="go('blog')"><div class="ti bg-grad-5 pat-diag" style="border-radius:9px">💰</div><div class="td"><b>Finanzas</b><span>Crédito y capital de trabajo</span></div></div>
+        <div class="topic-pill" onclick="go('blog')"><div class="ti bg-grad-4 pat-grid" style="border-radius:9px">📈</div><div class="td"><b>Crecimiento</b><span>Estrategia y escalabilidad</span></div></div>
+        <div class="topic-pill" onclick="go('blog')"><div class="ti bg-grad-2 pat-dots" style="border-radius:9px">📱</div><div class="td"><b>Digitalización</b><span>Tecnología para tu negocio</span></div></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="cat-bar">
+    <div class="cat-scroll">
+      <button class="cat-btn active" onclick="filterCat(this,'all')">Todos los temas</button>
+      <button class="cat-btn" onclick="filterCat(this,'Tipos de Pyme')">Tipos de Pyme</button>
+      <button class="cat-btn" onclick="filterCat(this,'Emprendimiento')">Emprendimiento</button>
+      <button class="cat-btn" onclick="filterCat(this,'Finanzas')">Finanzas</button>
+      <button class="cat-btn" onclick="filterCat(this,'Crecimiento')">Crecimiento</button>
+      <button class="cat-btn" onclick="filterCat(this,'Digitalización')">Digitalización</button>
+      <button class="cat-btn" onclick="filterCat(this,'Legal y fiscal')">Legal y fiscal</button>
+    </div>
+  </div>
+
+  <section class="block">
+    <div class="wrap">
+      <div class="sec-head">
+        <div class="kicker">Artículos destacados</div>
+        <h2>Empieza por aquí</h2>
+        <p>Las guías más leídas sobre Pymes venezolanas, explicadas paso a paso.</p>
+      </div>
+      <div class="featured-grid" id="home-featured"></div>
+      <div class="cards-row" id="home-cards"></div>
+      <div style="text-align:center;margin-top:38px">
+        <button class="btn btn-blue" onclick="go('blog')">Ver todos los artículos →</button>
+      </div>
+    </div>
+  </section>
+
+  <section class="block" style="background:var(--gray-50);border-top:1px solid var(--gray-100);border-bottom:1px solid var(--gray-100);padding:64px 0">
+    <div class="wrap">
+      <div class="sec-head" style="text-align:center;margin:0 auto 44px;max-width:600px">
+        <div class="kicker">Categorías</div>
+        <h2>¿Qué necesitas saber hoy?</h2>
+        <p>Navega por los grandes temas que toda Pyme venezolana debe dominar.</p>
+      </div>
+      <div class="topics-row">
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">⚖️</span><h3>Tipos de Pyme</h3><p>C.A., SRL, firma personal y más. Elige la figura jurídica correcta.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">💡</span><h3>Emprendimiento</h3><p>Cómo validar tu idea, dar el primer paso y evitar errores comunes.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">💰</span><h3>Finanzas</h3><p>Financiamiento, capital de trabajo, crédito y gestión del dinero.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">📈</span><h3>Crecimiento</h3><p>Marketing, ventas, clientes y cómo escalar tu negocio de forma sostenida.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">🖥️</span><h3>Digitalización</h3><p>Herramientas digitales, e-commerce y tecnología para Pymes venezolanas.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">📋</span><h3>Administración</h3><p>Gestión diaria, contabilidad básica y control de tu negocio.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">📊</span><h3>Legal y fiscal</h3><p>Obligaciones tributarias, SENIAT, IVA e ISLR para Pymes.</p></div>
+        <div class="topic-card" onclick="go('blog')"><span class="t-ic">🤝</span><h3>Recursos humanos</h3><p>Contratar, retener talento y gestionar tu equipo en Venezuela.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <div class="info-strip">
+    <div class="wrap strip-inner">
+      <div>
+        <h2>El conocimiento que tu Pyme necesita, gratis y en español</h2>
+        <p>Somos un blog educativo independiente. No vendemos cursos ni servicios: solo contenido claro, riguroso y orientado a la realidad venezolana.</p>
+      </div>
+      <div class="strip-stats">
+        <div class="ss"><b>8+</b><span>Categorías</span></div>
+        <div class="ss"><b>80+</b><span>Artículos</span></div>
+        <div class="ss"><b>VE</b><span>Enfoque local</span></div>
+      </div>
+    </div>
+  </div>
+
+  <section class="newsletter">
+    <div class="wrap news-inner">
+      <div class="t">
+        <h2>Recibe guías sobre Pymes en tu email</h2>
+        <p>Un correo ocasional con los mejores artículos educativos. Sin spam, date de baja cuando quieras.</p>
+      </div>
+      <div>
+        <div class="news-form">
+          <input type="email" id="news-email" placeholder="tu@empresa.com" aria-label="Email">
+          <button class="btn btn-blue" onclick="subscribe()">Suscribirme</button>
+        </div>
+        <div class="form-msg" id="news-msg">¡Gracias! Te has suscrito correctamente.</div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ BLOG ═══════════════ -->
+<div class="view" id="view-blog">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="kicker">El blog</div>
+      <h1>Todos los artículos sobre Pymes</h1>
+      <p>Guías educativas sobre creación, administración, financiamiento y crecimiento de Pymes en Venezuela. Contenido original, claro y práctico.</p>
+    </div>
+  </section>
+  <section class="block"><div class="wrap"><div class="cards-row" id="blog-cards"></div></div></section>
+</div>
+
+<!-- ═══════════════ ARTICLE ═══════════════ -->
+<div class="view" id="view-article">
+  <div class="article-hero">
+    <div class="wrap">
+      <span class="crumb" onclick="go('blog')">← Volver a los artículos</span>
+      <div><span class="tag" id="art-tag"></span></div>
+      <h1 id="art-title"></h1>
+      <div class="ameta">
+        <div class="av" id="art-av">P</div>
+        <span id="art-author"></span><span>·</span>
+        <span id="art-date"></span><span>·</span>
+        <span id="art-read"></span>
+      </div>
+    </div>
+  </div>
+  <article class="article-body" id="art-content"></article>
+  <div class="wrap" style="max-width:740px;margin:0 auto 60px">
+    <button class="btn btn-blue" onclick="go('blog')">← Más artículos</button>
+  </div>
+</div>
+
+<!-- ═══════════════ ABOUT ═══════════════ -->
+<div class="view" id="view-about">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Quiénes somos</div>
+      <h1>Sobre Provinet Empresas Pymes Blog</h1>
+      <p>Un proyecto de divulgación educativa independiente, pensado para que cualquier emprendedor venezolano entienda cómo crear y gestionar su Pyme.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="wrap about-grid">
+      <div class="about-txt">
+        <h2>Hacemos el mundo de las Pymes comprensible</h2>
+        <p>Provinet Empresas Pymes Blog, proyecto editorial de <strong>Provinet Asesoría Empresarial, C.A.</strong>, nace con un objetivo claro: explicar de forma honesta y accesible cómo funcionan las pequeñas y medianas empresas en Venezuela.</p>
+        <p>Publicamos artículos educativos, guías paso a paso y explicaciones de conceptos clave sobre creación de empresas, administración, finanzas, marketing y cumplimiento legal. Nuestro contenido es <strong>original, elaborado por personas</strong> y revisado para que sea claro, riguroso y útil en el día a día.</p>
+        <p>Somos un medio editorial independiente. No vendemos productos ni servicios: nuestro compromiso es contigo, el emprendedor venezolano.</p>
+      </div>
+      <div class="about-card">
+        <h3>Nuestra forma de trabajar</h3>
+        <div class="vrow"><div class="vn">1</div><div><b>Lenguaje claro</b><span>Explicamos cada concepto sin dar por hecho conocimientos previos.</span></div></div>
+        <div class="vrow"><div class="vn">2</div><div><b>Independencia</b><span>No promocionamos servicios concretos ni recibimos comisiones.</span></div></div>
+        <div class="vrow"><div class="vn">3</div><div><b>Rigor</b><span>Contrastamos la información con fuentes oficiales venezolanas.</span></div></div>
+        <div class="vrow"><div class="vn">4</div><div><b>Utilidad práctica</b><span>Cada artículo busca ayudarte a tomar una decisión mejor.</span></div></div>
+      </div>
+    </div>
+    <div class="wrap" style="padding-top:0">
+      <div class="values">
+        <div class="value"><div class="vic">🎯</div><h4>Nuestra misión</h4><p>Democratizar el conocimiento empresarial para que ningún emprendedor venezolano fracase por falta de información.</p></div>
+        <div class="value"><div class="vic">✏️</div><h4>Contenido propio</h4><p>Todo lo que publicamos es redactado por nuestro equipo. No copiamos ni reproducimos contenido de terceros.</p></div>
+        <div class="value"><div class="vic">🤝</div><h4>Transparencia</h4><p>Indicamos siempre cuándo un contenido es divulgativo y no constituye asesoramiento personalizado.</p></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ CONTACT ═══════════════ -->
+<div class="view" id="view-contact">
+  <section class="page-hero">
+    <div class="wrap">
+      <div class="kicker">Hablemos</div>
+      <h1>Contacto</h1>
+      <p>¿Tienes una duda, una sugerencia o quieres proponernos un tema? Escríbenos y te responderemos lo antes posible.</p>
+    </div>
+  </section>
+  <section class="block">
+    <div class="wrap contact-grid">
+      <div>
+        <div class="form-field"><label for="c-name">Nombre</label><input id="c-name" type="text" placeholder="Tu nombre"></div>
+        <div class="form-field"><label for="c-email">Email</label><input id="c-email" type="email" placeholder="tu@email.com"></div>
+        <div class="form-field"><label for="c-subject">Asunto</label>
+          <select id="c-subject"><option>Consulta general</option><option>Sugerencia de tema sobre Pymes</option><option>Corrección de un artículo</option><option>Colaboración / prensa</option></select>
+        </div>
+        <div class="form-field"><label for="c-msg">Mensaje</label><textarea id="c-msg" placeholder="Cuéntanos en qué podemos ayudarte"></textarea></div>
+        <button class="btn btn-blue" onclick="sendContact()">Enviar mensaje</button>
+        <div class="form-msg" id="contact-msg">¡Mensaje enviado! Gracias por escribirnos, te responderemos pronto.</div>
+      </div>
+      <div class="contact-info">
+        <div class="ci"><div class="ic">✉️</div><div><b>Correo electrónico</b><span>asesoria@provinet.com</span></div></div>
+        <div class="ci"><div class="ic">🏢</div><div><b>Razón social</b><span>Provinet Asesoría Empresarial, C.A. · RIF J-508231880</span></div></div>
+        <div class="ci"><div class="ic">🕐</div><div><b>Horario de respuesta</b><span>Lunes a viernes, de 9:00 a 18:00 (hora de Venezuela)</span></div></div>
+        <div class="ci"><div class="ic">📍</div><div><b>Ubicación</b><span>Av. Francisco de Miranda, Municipio Chacao, Caracas, Distrito Capital, Venezuela</span></div></div>
+        <div class="ci"><div class="ic">🔒</div><div><b>Tus datos</b><span>Tratamos tu mensaje según nuestra <a style="color:var(--accent);text-decoration:underline;cursor:pointer" onclick="go('privacy')">Política de Privacidad</a>.</span></div></div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════════ PRIVACY ═══════════════ -->
+<div class="view" id="view-privacy">
+  <section class="page-hero"><div class="wrap"><div class="kicker">Legal</div><h1>Política de Privacidad</h1><p>Cómo recogemos, usamos y protegemos tus datos personales cuando visitas este sitio web.</p></div></section>
+  <section class="block"><div class="legal">
+    <p class="updated">Última actualización: 31 de mayo de 2026</p>
+    <h2>1. Responsable del tratamiento</h2>
+    <p>El responsable del tratamiento de los datos recogidos a través de este sitio web es <strong>Provinet Asesoría Empresarial, C.A.</strong>, RIF J-508231880, con domicilio en Av. Francisco de Miranda, Municipio Chacao, Caracas, Distrito Capital, Venezuela. Puedes contactar con nosotros en asesoria@provinet.com.</p>
+    <h2>2. Datos que recogemos</h2>
+    <ul><li><strong>Datos de contacto:</strong> nombre y correo electrónico cuando rellenas el formulario de contacto o te suscribes a la newsletter.</li><li><strong>Datos de navegación:</strong> dirección IP, tipo de navegador, páginas visitadas y datos analíticos agregados recogidos mediante Google Analytics y cookies de Google Ads.</li></ul>
+    <h2>3. Finalidad y base legal</h2>
+    <ul><li>Responder a tus consultas y gestionar la suscripción a la newsletter (base legal: tu consentimiento).</li><li>Analizar el uso del Sitio y mejorar su contenido (base legal: interés legítimo).</li><li>Mostrar publicidad relevante mediante Google Ads (base legal: tu consentimiento previo a través del banner de cookies).</li></ul>
+    <h2>4. Google Ads y publicidad</h2>
+    <p>Este sitio web puede mostrar anuncios gestionados por Google LLC a través de Google Ads (Google AdSense). Google utiliza cookies para mostrar anuncios basados en tus visitas anteriores. Puedes desactivar el uso de cookies de personalización de anuncios en <strong>Configuración de anuncios de Google</strong>. La presencia de anuncios no afecta a la independencia editorial de este blog: los anunciantes no intervienen en la redacción de los contenidos.</p>
+    <h2>5. Tus derechos</h2>
+    <p>Tienes derecho a acceder a tus datos personales, así como a solicitar su rectificación, actualización o supresión. El derecho de acceso y control sobre tus datos (habeas data) está reconocido en el artículo 28 de la Constitución de la República Bolivariana de Venezuela. Escríbenos a asesoria@provinet.com.</p>
+    <h2>6. Cookies</h2>
+    <p>Utilizamos cookies técnicas necesarias para el funcionamiento del Sitio y, previo consentimiento, cookies analíticas (Google Analytics) y publicitarias (Google Ads). Puedes gestionar tu consentimiento en cualquier momento a través del banner de cookies.</p>
+    <div class="disclaimer"><b>Nota:</b> este documento es una plantilla informativa de carácter general. Antes de publicar el sitio, recomendamos revisarlo con un profesional para garantizar su adecuación a la normativa venezolana aplicable.</div>
+  </div></section>
+</div>
+
+<!-- ═══════════════ TERMS ═══════════════ -->
+<div class="view" id="view-terms">
+  <section class="page-hero"><div class="wrap"><div class="kicker">Legal</div><h1>Términos y Condiciones</h1><p>Condiciones de uso que regulan el acceso y la utilización de este sitio web.</p></div></section>
+  <section class="block"><div class="legal">
+    <p class="updated">Última actualización: 31 de mayo de 2026</p>
+    <h2>1. Objeto</h2>
+    <p>Los presentes Términos y Condiciones regulan el acceso, navegación y uso del sitio web <strong>Provinet Empresas Pymes Blog</strong>, titularidad de <strong>Provinet Asesoría Empresarial, C.A.</strong>, RIF J-508231880, Caracas, Venezuela.</p>
+    <h2>2. Naturaleza del contenido</h2>
+    <p>El Sitio tiene una finalidad exclusivamente <strong>informativa y educativa</strong>. Los contenidos sobre Pymes, emprendimiento, finanzas y gestión empresarial no constituyen asesoramiento financiero, legal ni fiscal personalizado.</p>
+    <h2>3. Publicidad</h2>
+    <p>Este sitio puede incluir anuncios publicitarios gestionados por terceros (Google Ads / AdSense). Dichos anuncios no condicionan la independencia editorial del blog. El usuario acepta que la visualización de publicidad es parte de la financiación del servicio gratuito ofrecido.</p>
+    <h2>4. Propiedad intelectual</h2>
+    <p>Todos los contenidos del Sitio son propiedad de Provinet Asesoría Empresarial, C.A. y están protegidos por la normativa de propiedad intelectual aplicable en Venezuela. Queda prohibida su reproducción sin autorización previa por escrito.</p>
+    <h2>5. Legislación aplicable</h2>
+    <p>Estos Términos y Condiciones se rigen por la legislación de la República Bolivariana de Venezuela.</p>
+    <div class="disclaimer"><b>Nota:</b> documento de carácter general orientativo. Recomendamos revisarlo con un profesional del derecho antes de su publicación definitiva.</div>
+  </div></section>
+</div>
+
+<!-- ═══════════════ FOOTER ═══════════════ -->
+<footer class="site">
+  <div class="wrap">
+    <div class="foot-grid">
+      <div class="foot-brand">
+        <div class="brand" onclick="go('home')" style="cursor:pointer"><div class="mark">P</div><div class="txt"><b>Provinet Pymes</b><span>Blog Educativo</span></div></div>
+        <p>Blog educativo sobre Pymes en Venezuela: creación, administración, finanzas y crecimiento para emprendedores. Contenido original, claro e independiente.</p>
+      </div>
+      <div class="foot-col"><h4>Navegar</h4><a onclick="go('home')">Inicio</a><a onclick="go('blog')">Artículos</a><a onclick="go('about')">Nosotros</a><a onclick="go('contact')">Contacto</a></div>
+      <div class="foot-col"><h4>Temas</h4><a onclick="go('blog')">Tipos de Pyme</a><a onclick="go('blog')">Emprendimiento</a><a onclick="go('blog')">Finanzas</a><a onclick="go('blog')">Digitalización</a></div>
+      <div class="foot-col"><h4>Legal</h4><a onclick="go('privacy')">Política de Privacidad</a><a onclick="go('terms')">Términos y Condiciones</a><a onclick="openCookie()">Gestionar cookies</a></div>
+    </div>
+    <div class="foot-bottom">
+      <span>© 2026 Provinet Asesoría Empresarial, C.A. · RIF J-508231880 · Caracas, Venezuela. Todos los derechos reservados.</span>
+      <span><a onclick="go('privacy')">Privacidad</a> · <a onclick="go('terms')">Términos</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- ═══════════════ COOKIE ═══════════════ -->
+<div class="cookie" id="cookie">
+  <h4>🍪 Usamos cookies</h4>
+  <p>Utilizamos cookies propias y de terceros (Google Analytics, Google Ads) para analizar el uso del sitio y mostrar publicidad. Puedes aceptarlas o rechazar las no esenciales. Lee nuestra <a onclick="go('privacy')">Política de Privacidad</a>.</p>
+  <div class="row">
+    <button class="btn btn-blue" onclick="setCookie('all')">Aceptar todas</button>
+    <button class="btn btn-line" onclick="setCookie('essential')">Solo esenciales</button>
+  </div>
+</div>
+
+<script>
+const ARTICLES = [
+  {
+    id:"que-es-una-pyme", tag:"Tipos de Pyme", grad:"bg-grad-3", pat:"pat-grid",
+    title:"¿Qué es una Pyme? Definición, características y clasificación en Venezuela",
+    author:"Equipo Provinet", date:"28 may 2026", read:"7 min de lectura",
+    excerpt:"Una Pyme es mucho más que un negocio pequeño. Te explicamos qué son las pequeñas y medianas empresas en Venezuela, cómo se clasifican y por qué son clave para la economía.",
+    body:`<p>La sigla <strong>Pyme</strong> significa <em>Pequeña y Mediana Empresa</em>. En Venezuela, este término agrupa a los negocios que no son micro emprendimientos informales ni grandes corporaciones, sino empresas formales con capacidad productiva real pero recursos limitados comparados con las grandes empresas.</p>
+      <h2>¿Cómo se clasifican las Pymes en Venezuela?</h2>
+      <p>La <strong>Ley para la Promoción y Desarrollo de la Pequeña y Mediana Industria</strong> y distintas normativas del Estado venezolano establecen criterios de clasificación basados principalmente en el número de trabajadores y el volumen de ventas.</p>
+      <ul><li><strong>Micro empresa:</strong> hasta 10 trabajadores.</li><li><strong>Pequeña empresa:</strong> entre 11 y 50 trabajadores.</li><li><strong>Mediana empresa:</strong> entre 51 y 250 trabajadores.</li></ul>
+      <div class="callout"><b>Importante</b><p>Los límites pueden variar según el sector (industrial, comercial, servicios) y la normativa vigente. Verifica siempre con el SENIAT o el organismo competente la clasificación actual de tu empresa.</p></div>
+      <h2>Características de una Pyme</h2>
+      <h3>Gestión centralizada</h3><p>En la mayoría de las Pymes, el dueño o un equipo muy reducido toma todas las decisiones estratégicas y operativas.</p>
+      <h3>Recursos limitados</h3><p>El acceso a capital, tecnología y talento especializado suele ser más restringido que en las grandes empresas.</p>
+      <h3>Flexibilidad y adaptación</h3><p>Una Pyme puede pivotar, adaptarse al mercado y responder a cambios más rápido que una corporación grande.</p>
+      <h2>¿Por qué son importantes las Pymes en Venezuela?</h2>
+      <p>Las Pymes representan más del <strong>80% del tejido empresarial venezolano</strong> y son responsables de una parte muy significativa del empleo formal del país. Son el motor real de la economía local: proveen bienes y servicios, generan empleos y dinamizan los circuitos comerciales regionales.</p>
+      <p>Entender qué es una Pyme, sus derechos y obligaciones, es el primer paso para construir un negocio sólido y formal en Venezuela.</p>`
+  },
+  {
+    id:"tipos-figura-juridica-pyme", tag:"Tipos de Pyme", grad:"bg-grad-1", pat:"pat-dots",
+    title:"Figuras jurídicas para Pymes en Venezuela: C.A., SRL y firma personal",
+    author:"Equipo Provinet", date:"23 may 2026", read:"8 min de lectura",
+    excerpt:"Antes de abrir tu negocio debes elegir la figura legal correcta. Te explicamos las diferencias entre C.A., Sociedad de Responsabilidad Limitada y firma personal.",
+    body:`<p>Uno de los primeros pasos al crear una Pyme en Venezuela es <strong>elegir la figura jurídica</strong> bajo la que operará tu negocio. Esta decisión afecta la responsabilidad legal de los socios, los impuestos que pagarás y cómo podrás obtener financiamiento.</p>
+      <h2>Compañía Anónima (C.A.)</h2>
+      <p>Es la figura más utilizada en Venezuela para Pymes con dos o más socios. El capital se divide en <strong>acciones</strong> y la responsabilidad de cada socio se limita al monto de su aporte.</p>
+      <ul><li><strong>Socios mínimos:</strong> dos (aunque en la práctica pueden ser familiares).</li><li><strong>Responsabilidad:</strong> limitada al capital aportado.</li><li><strong>Ideal para:</strong> negocios que esperan crecer, buscar inversión o tener varios socios.</li></ul>
+      <h2>Sociedad de Responsabilidad Limitada (SRL)</h2>
+      <p>Similar a la C.A. pero con algunas diferencias en su estructura. El capital se divide en <strong>cuotas de participación</strong> y el número de socios es más reducido (máximo 20).</p>
+      <ul><li><strong>Socios mínimos:</strong> dos.</li><li><strong>Responsabilidad:</strong> limitada al capital aportado.</li><li><strong>Ideal para:</strong> negocios familiares o con un número pequeño de socios conocidos.</li></ul>
+      <div class="callout"><b>C.A. vs SRL</b><p>La C.A. es más flexible para crecer y tiene mayor tradición en Venezuela. La SRL tiene una estructura más cerrada. En la práctica, la mayoría de las Pymes venezolanas se constituyen como C.A.</p></div>
+      <h2>Firma Personal o Empresa Unipersonal</h2>
+      <p>Cuando el negocio lo maneja una sola persona sin separar patrimonio personal del empresarial. Es la forma más sencilla, pero conlleva <strong>responsabilidad ilimitada</strong>: si el negocio tiene deudas, el dueño responde con sus bienes personales.</p>
+      <h2>¿Cuál elegir?</h2>
+      <ul><li>Si emprendes solo y con poco capital: <strong>firma personal</strong> para empezar.</li><li>Si tienes socios o quieres proteger tu patrimonio: <strong>C.A. o SRL</strong>.</li><li>Si planeas crecer, buscar crédito bancario o tener múltiples socios: <strong>C.A.</strong></li></ul>`
+  },
+  {
+    id:"como-crear-pyme-venezuela", tag:"Emprendimiento", grad:"bg-grad-2", pat:"pat-diag",
+    title:"Cómo crear una Pyme en Venezuela: pasos legales y trámites esenciales",
+    author:"Equipo Provinet", date:"18 may 2026", read:"9 min de lectura",
+    excerpt:"Formalizar tu negocio en Venezuela requiere seguir una serie de pasos ante el Registro Mercantil, el SENIAT y otros organismos. Te guiamos paso a paso.",
+    body:`<p>Crear una Pyme formal en Venezuela implica varios trámites ante distintos organismos del Estado. Aunque el proceso puede parecer complejo, conocer los pasos te permite planificarlo con tiempo y evitar errores costosos.</p>
+      <h2>Paso 1: Define la figura jurídica</h2>
+      <p>Antes de cualquier trámite, decide si operarás como <strong>C.A., SRL o firma personal</strong>. Esta decisión determina los documentos que necesitarás y el proceso que seguirás (ver artículo sobre figuras jurídicas).</p>
+      <h2>Paso 2: Registro ante el Registro Mercantil</h2>
+      <p>Para C.A. o SRL, el primer trámite es inscribir la empresa en el <strong>Registro Mercantil de tu estado</strong>.</p>
+      <ul><li>Redactar el acta constitutiva y los estatutos sociales (recomendable con un abogado).</li><li>Publicar un extracto en un diario de circulación local.</li><li>Presentar y registrar el acta ante el Registro Mercantil.</li><li>Obtener el certificado de inscripción.</li></ul>
+      <div class="callout"><b>Consejo</b><p>Contrata a un abogado o gestor especializado para redactar el acta constitutiva. Un error en este documento puede complicar trámites futuros y retrasar la apertura de cuentas bancarias.</p></div>
+      <h2>Paso 3: Obtener el RIF ante el SENIAT</h2>
+      <p>Una vez registrada la empresa, debes tramitar el <strong>Registro de Información Fiscal (RIF)</strong> ante el SENIAT. Este número es obligatorio para operar formalmente, emitir facturas y acceder a servicios bancarios.</p>
+      <h2>Paso 4: Registro ante organismos sectoriales</h2>
+      <p>Dependiendo de tu actividad, puede ser necesario registrarse ante el INCES, el IVSS (para empleados), el Ministerio correspondiente o cámaras de comercio locales.</p>
+      <h2>Paso 5: Permisos y licencias de funcionamiento</h2>
+      <p>Si vas a operar en un local comercial, necesitarás obtener la <strong>Licencia de Actividades Económicas</strong> (antes Patente de Industria y Comercio) ante la Alcaldía de tu municipio.</p>
+      <h2>Paso 6: Apertura de cuenta bancaria empresarial</h2>
+      <p>Con el RIF, el acta constitutiva y los documentos del Registro Mercantil, podrás abrir una cuenta a nombre de la empresa. Esto es fundamental para separar las finanzas personales de las del negocio.</p>`
+  },
+  {
+    id:"financiamiento-pymes-venezuela", tag:"Finanzas", grad:"bg-grad-4", pat:"pat-grid",
+    title:"Fuentes de financiamiento para Pymes en Venezuela: guía completa",
+    author:"Equipo Provinet", date:"12 may 2026", read:"8 min de lectura",
+    excerpt:"El acceso al crédito es uno de los mayores retos de las Pymes venezolanas. Conoce las principales fuentes de financiamiento y cómo acceder a ellas.",
+    body:`<p>El <strong>financiamiento</strong> es uno de los mayores desafíos para las Pymes venezolanas. Acceder a capital permite crecer, renovar equipos, aumentar inventario y superar baches de liquidez. Aquí repasamos las principales opciones disponibles.</p>
+      <h2>Crédito bancario</h2>
+      <p>Los bancos en Venezuela están obligados por la Ley de Instituciones del Sector Bancario a destinar una cartera de crédito a las Pymes. Existen dos modalidades principales:</p>
+      <h3>Crédito de capital de trabajo</h3><p>Para financiar las operaciones diarias: compra de inventario, pago de nómina, insumos. Es a corto plazo (generalmente hasta 1 año).</p>
+      <h3>Crédito de inversión</h3><p>Para adquirir maquinaria, equipos o mejorar instalaciones. Es a mediano o largo plazo.</p>
+      <div class="callout"><b>Requisito clave</b><p>Para acceder al crédito bancario, tu empresa debe tener RIF vigente, estados financieros ordenados y, en muchos casos, garantías (hipotecas, avales o garantías prendarias).</p></div>
+      <h2>Fondos del Estado</h2>
+      <p>El Estado venezolano ha creado organismos para financiar Pymes:</p>
+      <ul><li><strong>BANDES</strong> (Banco de Desarrollo Económico y Social): créditos para proyectos productivos.</li><li><strong>Fondemi</strong>: fondo para microempresarios y pequeños productores.</li><li><strong>Banfoandes</strong>: desarrollo regional del occidente venezolano.</li></ul>
+      <h2>Inversión de socios o "capital semilla"</h2>
+      <p>Muchas Pymes se financian inicialmente con aportes de los propios socios, familiares o conocidos. Es la forma más común de arrancar sin endeudarse.</p>
+      <h2>Reinversión de ganancias</h2>
+      <p>Una vez que la Pyme genera utilidades, reinvertirlas en el negocio es la forma más sana de financiar el crecimiento: sin intereses y sin perder participación accionaria.</p>
+      <h2>Consejos para mejorar tu perfil crediticio</h2>
+      <ul><li>Mantén tu RIF y documentos legales siempre vigentes y actualizados.</li><li>Lleva contabilidad ordenada, aunque sea básica.</li><li>Construye historial bancario: deposita regularmente y usa los servicios del banco.</li><li>Evita cheques sin fondo o incumplimientos financieros.</li></ul>`
+  },
+  {
+    id:"administracion-basica-pyme", tag:"Administración", grad:"bg-grad-5", pat:"pat-dots",
+    title:"Administración básica para tu Pyme: lo que debes controlar cada mes",
+    author:"Equipo Provinet", date:"6 may 2026", read:"7 min de lectura",
+    excerpt:"Una Pyme bien administrada sobrevive y crece; una mal administrada cierra aunque venda mucho. Te damos los conceptos básicos que todo emprendedor debe dominar.",
+    body:`<p>Muchas Pymes fracasan no por falta de ventas, sino por <strong>mala administración</strong>: dinero mezclado con las finanzas personales, sin control de inventario, sin saber si realmente se gana o se pierde. La buena noticia es que la administración básica no requiere ser contador; requiere orden y disciplina.</p>
+      <h2>Separa siempre las finanzas personales de las del negocio</h2>
+      <p>Este es el error número uno. Abre una cuenta bancaria a nombre de tu empresa y <strong>nunca uses esa cuenta para gastos personales</strong>. Si el dueño necesita dinero, debe "cobrar" un sueldo o hacer un retiro formal documentado.</p>
+      <h2>Lo que debes revisar cada mes</h2>
+      <h3>1. Flujo de caja</h3><p>¿Cuánto entró y cuánto salió este mes? ¿Queda saldo positivo? El flujo de caja es la salud financiera de tu Pyme en tiempo real.</p>
+      <h3>2. Ventas vs. costos</h3><p>Compara tus ingresos con los costos directos (materias primas, insumos) y los gastos fijos (alquiler, nómina, servicios). Así sabes si estás ganando realmente.</p>
+      <h3>3. Cuentas por cobrar</h3><p>¿Cuánto te deben los clientes? Las ventas a crédito que no se cobran a tiempo arruinan el flujo de caja.</p>
+      <h3>4. Inventario</h3><p>Si vendes productos físicos, controla el inventario mensualmente. El exceso inmoviliza capital; el faltante genera pérdidas de venta.</p>
+      <div class="callout"><b>Herramienta mínima</b><p>Si no tienes software contable, una hoja de cálculo bien diseñada (Excel o Google Sheets) es suficiente para empezar. Lo importante es el hábito de registrar todo.</p></div>
+      <h2>El "precio de venta" y el margen de ganancia</h2>
+      <p>Calcula siempre tu margen: <strong>precio de venta - costo total = ganancia bruta</strong>. Muchas Pymes venden a pérdida sin saberlo porque no incluyen todos los costos (transporte, empaques, tiempo propio).</p>`
+  },
+  {
+    id:"marketing-digital-pymes", tag:"Crecimiento", grad:"bg-grad-6", pat:"pat-diag",
+    title:"Marketing digital para Pymes venezolanas: cómo conseguir clientes en internet",
+    author:"Equipo Provinet", date:"30 abr 2026", read:"8 min de lectura",
+    excerpt:"Internet es el canal más accesible para que una Pyme venezolana llegue a nuevos clientes. Te explicamos las estrategias básicas que funcionan con presupuesto limitado.",
+    body:`<p>El marketing digital no es solo para grandes empresas. Para una Pyme venezolana con presupuesto limitado, <strong>internet es el canal más democrático y accesible</strong> para conseguir nuevos clientes y fidelizar los existentes.</p>
+      <h2>Presencia básica: lo imprescindible</h2>
+      <h3>Perfil de Google Business</h3><p>Si tienes un local físico o atiendes clientes en una zona geográfica concreta, crea tu perfil en Google Business (antes Google My Business). Es gratis y permite que te encuentren cuando alguien busca tu tipo de negocio en tu ciudad.</p>
+      <h3>Redes sociales activas</h3><p>Elige <strong>una o dos plataformas</strong> donde esté tu público objetivo y publicas de forma constante. En Venezuela, Instagram y WhatsApp Business son las más efectivas para la mayoría de las Pymes.</p>
+      <div class="callout"><b>Regla de oro</b><p>Es mejor tener una sola red social activa y bien mantenida que cinco páginas abandonadas. La consistencia vale más que la cantidad de plataformas.</p></div>
+      <h2>WhatsApp Business: el CRM del emprendedor venezolano</h2>
+      <p>WhatsApp Business te permite crear un catálogo de productos, respuestas automáticas, etiquetas para organizar contactos y estadísticas básicas. Para muchas Pymes venezolanas, es el canal de ventas principal.</p>
+      <h2>Contenido que vende</h2>
+      <p>No publiques solo para "estar presente". Cada publicación debe tener un propósito:</p>
+      <ul><li><strong>Educar:</strong> enseña algo útil relacionado con tu producto o servicio.</li><li><strong>Mostrar:</strong> fotos de productos, trabajos realizados, procesos.</li><li><strong>Testimonios:</strong> opiniones reales de clientes satisfechos.</li><li><strong>Ofertas:</strong> promociones puntuales con urgencia real.</li></ul>
+      <h2>Publicidad pagada con poco presupuesto</h2>
+      <p>Con 20-50 dólares al mes, una campaña bien segmentada en Instagram o Facebook puede generar un retorno muy positivo. Define bien tu público (edad, ciudad, intereses) antes de invertir.</p>`
+  },
+  {
+    id:"impuestos-pymes-venezuela", tag:"Legal y fiscal", grad:"bg-grad-1", pat:"pat-grid",
+    title:"Impuestos y obligaciones fiscales de las Pymes en Venezuela: guía básica",
+    author:"Equipo Provinet", date:"24 abr 2026", read:"9 min de lectura",
+    excerpt:"Cumplir con el SENIAT no tiene que ser un dolor de cabeza. Te explicamos los principales impuestos que debe conocer toda Pyme venezolana y cómo manejarse.",
+    body:`<p>Una de las áreas que más genera incertidumbre en los emprendedores venezolanos es la <strong>fiscal y tributaria</strong>. Sin embargo, conocer las obligaciones básicas permite planificar, evitar multas y construir un negocio formalmente sólido.</p>
+      <h2>El SENIAT y el RIF</h2>
+      <p>El <strong>Servicio Nacional Integrado de Administración Aduanera y Tributaria (SENIAT)</strong> es el organismo que recauda los impuestos en Venezuela. Todo negocio formal debe tener su <strong>RIF vigente</strong> y cumplir con las declaraciones correspondientes.</p>
+      <h2>Principales impuestos para Pymes</h2>
+      <h3>IVA (Impuesto al Valor Agregado)</h3><p>Si tu empresa tiene ingresos anuales superiores al umbral establecido por el SENIAT, estás obligado a:</p>
+      <ul><li>Cobrar IVA a tus clientes en las facturas.</li><li>Declarar y pagar el IVA mensualmente (la diferencia entre el IVA cobrado y el soportado).</li><li>Usar máquinas fiscales o facturas en formato legal.</li></ul>
+      <h3>ISLR (Impuesto sobre la Renta)</h3><p>Se declara una vez al año sobre las <strong>ganancias netas</strong> de la empresa. La tasa varía según el nivel de utilidades. Es fundamental llevar contabilidad para determinar correctamente la base imponible.</p>
+      <div class="callout"><b>Anticipo de ISLR</b><p>Las empresas con utilidades significativas pueden estar obligadas a realizar pagos anticipados del ISLR durante el año. Un contador puede ayudarte a calcularlos correctamente.</p></div>
+      <h2>Facturación legal</h2>
+      <p>Toda Pyme debe emitir <strong>facturas que cumplan los requisitos del SENIAT</strong>: número de control, datos del emisor con RIF, datos del receptor, descripción del bien o servicio, monto del IVA desglosado y otros elementos requeridos.</p>
+      <h2>¿Necesito un contador?</h2>
+      <p>Para una Pyme en crecimiento, sí. Un contador colegiado te ayuda a cumplir las obligaciones fiscales, optimizar la carga tributaria y tener los estados financieros en orden para acceder a crédito. El costo de un contador es mucho menor que el costo de una multa por incumplimiento.</p>`
+  },
+  {
+    id:"digitalizacion-pymes", tag:"Digitalización", grad:"bg-grad-2", pat:"pat-dots",
+    title:"Digitalización para Pymes venezolanas: herramientas básicas que marcan la diferencia",
+    author:"Equipo Provinet", date:"18 abr 2026", read:"7 min de lectura",
+    excerpt:"Digitalizarse no significa gastar mucho. Existen herramientas gratuitas o de muy bajo costo que pueden transformar la eficiencia de tu Pyme venezolana.",
+    body:`<p>La <strong>digitalización de las Pymes</strong> no es un lujo: es una necesidad competitiva. Una Pyme que aprovecha las herramientas digitales trabaja más eficientemente, llega a más clientes y toma mejores decisiones basadas en datos.</p>
+      <h2>¿Por qué digitalizar tu Pyme?</h2>
+      <ul><li>Reduces el tiempo en tareas administrativas manuales.</li><li>Tienes información en tiempo real sobre tus ventas y gastos.</li><li>Puedes vender a clientes más allá de tu zona geográfica.</li><li>Mejoras la experiencia de tus clientes y la comunicación con ellos.</li></ul>
+      <h2>Herramientas esenciales (muchas gratuitas)</h2>
+      <h3>Gestión y administración</h3>
+      <ul><li><strong>Google Workspace</strong> (Docs, Sheets, Drive): para documentos, hojas de cálculo y almacenamiento en la nube. La versión básica es gratis.</li><li><strong>Trello o Notion:</strong> organización de tareas y proyectos.</li><li><strong>Wave:</strong> software de contabilidad básico gratuito para Pymes.</li></ul>
+      <h3>Ventas y clientes</h3>
+      <ul><li><strong>WhatsApp Business:</strong> catálogo de productos, respuestas automáticas, estadísticas.</li><li><strong>Canva:</strong> diseño gráfico profesional sin ser diseñador.</li><li><strong>Linktree o Biolink:</strong> centraliza todos tus canales digitales en un enlace.</li></ul>
+      <div class="callout"><b>Empieza con una herramienta</b><p>No intentes digitalizar todo a la vez. Elige el área que más tiempo consume (inventario, facturación, comunicación con clientes) y digitaliza esa primero. Luego avanza gradualmente.</p></div>
+      <h3>Pagos digitales</h3>
+      <p>En Venezuela, los pagos móviles (Pago Móvil) y las transferencias bancarias son las opciones más usadas. Asegúrate de que tu Pyme los acepta y tiene los datos bancarios correctamente publicados para los clientes.</p>
+      <h2>E-commerce: ¿vender por internet?</h2>
+      <p>Si vendes productos físicos, considera abrir una tienda en plataformas como <strong>Instagram Shopping, WhatsApp Catalog</strong> o marketplaces locales venezolanos. No necesitas una web propia para empezar a vender online.</p>`
+  }
+];
+
+function cardHTML(a){
+  return `<div class="card" onclick="openArticle('${a.id}')">
+    <div class="c-thumb ${a.grad}"><div class="pat ${a.pat}"></div><span class="c-tag">${a.tag}</span></div>
+    <div class="c-body">
+      <div class="c-meta">${a.date} · ${a.read}</div>
+      <h3>${a.title}</h3>
+      <p>${a.excerpt}</p>
+      <span class="c-more">Leer artículo →</span>
+    </div>
+  </div>`;
+}
+
+function featCardHTML(a, big){
+  return `<div class="card-feat" onclick="openArticle('${a.id}')">
+    <div class="feat-thumb ${a.grad}"><div class="pat ${a.pat}"></div><span class="tag-pill">${a.tag}</span></div>
+    <div class="feat-body">
+      <div class="meta">${a.date} · ${a.read}</div>
+      <h3>${a.title}</h3>
+      <p>${a.excerpt}</p>
+      <span class="read-link">Leer artículo →</span>
+    </div>
+  </div>`;
+}
+
+const featGrid = document.getElementById('home-featured');
+if(featGrid){
+  const wrap = document.createElement('div');
+  wrap.className = 'featured-grid';
+  wrap.innerHTML = featCardHTML(ARTICLES[0],true) + featCardHTML(ARTICLES[1],false);
+  featGrid.appendChild(wrap);
+}
+document.getElementById('home-cards').innerHTML = ARTICLES.slice(2,5).map(cardHTML).join('');
+document.getElementById('blog-cards').innerHTML = ARTICLES.map(cardHTML).join('');
+
+function go(view){
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  const el=document.getElementById('view-'+view);
+  if(el) el.classList.add('active');
+  document.querySelectorAll('nav.links a').forEach(a=>a.classList.remove('active'));
+  const nav=document.querySelector('nav.links a[data-nav="'+view+'"]');
+  if(nav) nav.classList.add('active');
+  document.getElementById('navlinks').classList.remove('open');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function openArticle(id){
+  const a=ARTICLES.find(x=>x.id===id); if(!a) return;
+  document.getElementById('art-tag').textContent=a.tag;
+  document.getElementById('art-title').textContent=a.title;
+  document.getElementById('art-author').textContent=a.author;
+  document.getElementById('art-date').textContent=a.date;
+  document.getElementById('art-read').textContent=a.read;
+  document.getElementById('art-content').innerHTML=a.body+
+    '<div class="disclaimer"><b>Aviso:</b> este artículo tiene carácter exclusivamente educativo e informativo y no constituye asesoramiento financiero, fiscal ni legal personalizado.</div>';
+  document.querySelectorAll('.view').forEach(v=>v.classList.remove('active'));
+  document.getElementById('view-article').classList.add('active');
+  document.querySelectorAll('nav.links a').forEach(x=>x.classList.remove('active'));
+  const blogNav = document.querySelector('nav.links a[data-nav="blog"]');
+  if(blogNav) blogNav.classList.add('active');
+  window.scrollTo({top:0,behavior:'instant'});
+}
+
+function filterCat(btn, cat){
+  document.querySelectorAll('.cat-btn').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  const cards = cat === 'all' ? ARTICLES : ARTICLES.filter(a=>a.tag===cat);
+  const featGrid = document.getElementById('home-featured');
+  if(featGrid) featGrid.innerHTML = '';
+  if(cat === 'all'){
+    const wrap = document.createElement('div');
+    wrap.className = 'featured-grid';
+    wrap.innerHTML = featCardHTML(ARTICLES[0]) + featCardHTML(ARTICLES[1]);
+    featGrid.appendChild(wrap);
+    document.getElementById('home-cards').innerHTML = ARTICLES.slice(2,5).map(cardHTML).join('');
+  } else {
+    document.getElementById('home-cards').innerHTML = cards.map(cardHTML).join('');
+  }
+}
+
+function toggleMenu(){ document.getElementById('navlinks').classList.toggle('open'); }
+
+function subscribe(){
+  const e=document.getElementById('news-email');
+  if(e.value&&e.value.includes('@')){ document.getElementById('news-msg').style.display='block'; e.value=''; }
+  else{ e.focus(); e.style.borderColor='#d9534f'; }
+}
+
+function sendContact(){
+  const n=document.getElementById('c-name').value,e=document.getElementById('c-email').value,m=document.getElementById('c-msg').value;
+  if(n&&e.includes('@')&&m){
+    document.getElementById('contact-msg').style.display='block';
+    document.getElementById('c-name').value=''; document.getElementById('c-email').value=''; document.getElementById('c-msg').value='';
+  } else { alert('Por favor, completa tu nombre, un email válido y el mensaje.'); }
+}
+
+function openCookie(){ document.getElementById('cookie').style.display='block'; }
+function setCookie(type){ window.__cookieConsent=type; document.getElementById('cookie').style.display='none'; }
+window.addEventListener('load',()=>{ setTimeout(openCookie,1000); });
+</script>
+</body>
+</html>
