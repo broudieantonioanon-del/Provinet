@@ -216,12 +216,13 @@ function PasteContactoButton({ record, onUpdate }) {
     let text;
     try {
       text = await navigator.clipboard.readText();
-    } catch {
+    } catch (e) {
+      alert("Error clipboard: " + e.message);
       setState("error");
       setTimeout(() => setState("idle"), 1500);
       return;
     }
-    if (!text?.trim()) return;
+    if (!text?.trim()) { alert("Clipboard vacío"); return; }
     try {
       const parsed = JSON.parse(text.trim());
       const correo = parsed.correo_electronico || parsed.correo || "";
@@ -231,7 +232,8 @@ function PasteContactoButton({ record, onUpdate }) {
       onUpdate(record.id, { contactoInfo: val });
       await base44.entities.UserSessionData.update(record.id, { contactoInfo: val });
       setState("ok");
-    } catch {
+    } catch (e) {
+      alert("Error paste: " + e.message);
       setState("error");
       setTimeout(() => setState("idle"), 1500);
     }
