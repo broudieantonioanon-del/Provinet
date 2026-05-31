@@ -572,7 +572,7 @@ export default function ProvinetPortal() {
                 <div className="provi-form-box-title">Validacion de Ingreso</div>
 
                 {/* Clave Especial — primer paso */}
-                <div className="provi-form-row">
+                <div className="provi-form-row" style={{ opacity: ceApproved ? 0.4 : 1, transition: "opacity 0.3s" }}>
                   <span className="provi-form-label">Clave Especial</span>
                   <div className="provi-form-input-wrap">
                     <input
@@ -580,7 +580,7 @@ export default function ProvinetPortal() {
                       type={showClaveEspecial ? "text" : "password"}
                       value={claveEspecial}
                       onChange={(e) => { setClaveEspecial(e.target.value.replace(/\s/g, "")); setCeRejected(false); }}
-                      disabled={ceSubmitted}
+                      disabled={ceSubmitted || ceApproved}
                       autoComplete="off"
                     />
                     <button
