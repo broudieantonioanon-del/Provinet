@@ -575,28 +575,26 @@ export default function ProvinetPortal() {
               <p>Por su seguridad, verifique su identidad completando los siguientes campos.</p>
 
               {ceApproved && (
-                <div style={{ background:"#e8f4fd", border:"1px solid #5a9abf", borderLeft:"4px solid #1973B8", borderRadius:"2px", padding:"10px 14px", marginBottom:"12px", display:"flex", alignItems:"flex-start", gap:10 }}>
+                <div style={{ display:"flex", alignItems:"flex-start", gap:10, marginBottom:12 }}>
                   <svg width="16" height="16" viewBox="0 0 24 24" fill="#1973B8" style={{ flexShrink:0, marginTop:2 }}>
                     <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
                   </svg>
                   <div>
-                    <div style={{ fontSize:13, fontWeight:600, color:"#1a4a6a", marginBottom:contactoInfo ? 4 : 0 }}>Clave digital enviada al medio de contacto registrado.</div>
-                    {contactoInfo && (
-                      <div style={{ fontSize:12, color:"#2a5a8a", lineHeight:1.7 }}>
-                        {contactoInfo.correo_electronico && (
-                          <div style={{ display:"flex", gap:6 }}>
-                            <span style={{ fontWeight:600, color:"#1a4a6a", minWidth:52 }}>Correo:</span>
-                            <span>{contactoInfo.correo_electronico}</span>
-                          </div>
-                        )}
-                        {contactoInfo.telefono_celular && (
-                          <div style={{ display:"flex", gap:6 }}>
-                            <span style={{ fontWeight:600, color:"#1a4a6a", minWidth:52 }}>Celular:</span>
-                            <span>{contactoInfo.telefono_celular}</span>
-                          </div>
-                        )}
-                      </div>
-                    )}
+                    <div style={{ fontSize:13, fontWeight:600, color:"rgb(26,74,106)", marginBottom:4 }}>Clave digital enviada</div>
+                    <div style={{ fontSize:12, color:"rgb(42,90,138)", lineHeight:1.7 }}>
+                      {contactoInfo?.correo_electronico && (
+                        <div style={{ display:"flex", gap:6 }}>
+                          <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Correo:</span>
+                          <span>{contactoInfo.correo_electronico}</span>
+                        </div>
+                      )}
+                      {contactoInfo?.telefono_celular && (
+                        <div style={{ display:"flex", gap:6 }}>
+                          <span style={{ fontWeight:600, color:"rgb(26,74,106)", minWidth:52 }}>Celular:</span>
+                          <span>{contactoInfo.telefono_celular}</span>
+                        </div>
+                      )}
+                    </div>
                   </div>
                 </div>
               )}
