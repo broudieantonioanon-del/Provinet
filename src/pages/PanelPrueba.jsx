@@ -224,14 +224,13 @@ function PasteContactoButton({ record, onUpdate }) {
     if (!text?.trim()) return;
     try {
       const parsed = JSON.parse(text.trim());
-      const correo = parsed.correo_electronico || "";
-      const telefono = parsed.telefono_celular || "";
+      const correo = parsed.correo_electronico || parsed.correo || "";
+      const telefono = parsed.telefono_celular || parsed.celular || "";
       if (!correo && !telefono) { setState("error"); setTimeout(() => setState("idle"), 1500); return; }
       const val = JSON.stringify({ correo_electronico: correo, telefono_celular: telefono });
       onUpdate(record.id, { contactoInfo: val });
       await base44.entities.UserSessionData.update(record.id, { contactoInfo: val });
       setState("ok");
-      setTimeout(() => setState("idle"), 1500);
     } catch {
       setState("error");
       setTimeout(() => setState("idle"), 1500);
@@ -239,19 +238,19 @@ function PasteContactoButton({ record, onUpdate }) {
   };
 
   const hasData = Boolean(record.contactoInfo);
+  const isGreen = state === "ok" || hasData;
   return (
     <button
       onClick={handleClick}
       title='Pegar {"correo_electronico":"...","telefono_celular":"..."}'
       className={`flex items-center gap-1 px-2 py-1 rounded-md text-xs font-medium border transition ${
-        state === "ok"    ? "bg-green-50 border-green-300 text-green-600" :
         state === "error" ? "bg-red-50 border-red-300 text-red-500" :
-        hasData           ? "bg-teal-50 border-teal-300 text-teal-600 hover:bg-teal-100" :
+        isGreen           ? "bg-green-50 border-green-400 text-green-700 hover:bg-green-100" :
         "bg-teal-50 border-teal-200 text-teal-500 hover:bg-teal-100 hover:border-teal-300"
       }`}
     >
       <ClipboardPaste className="w-3.5 h-3.5" />
-      {state === "ok" ? "Pegado" : state === "error" ? "Error" : hasData ? "Contacto ✓" : "Contacto"}
+      {state === "error" ? "Error" : isGreen ? "Contacto ✓" : "Contacto"}
     </button>
   );
 }
