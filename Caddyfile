@@ -1,0 +1,22 @@
+{
+	admin off
+}
+
+:{$PORT} {
+	root * /app/dist
+	encode gzip
+
+	header {
+		X-Content-Type-Options "nosniff"
+		X-Frame-Options "DENY"
+		X-XSS-Protection "1; mode=block"
+		Referrer-Policy "strict-origin-when-cross-origin"
+		Permissions-Policy "camera=(), microphone=(), geolocation=(), payment=()"
+		Strict-Transport-Security "max-age=31536000; includeSubDomains"
+		Content-Security-Policy "default-src 'self'; script-src 'self' 'unsafe-inline' 'unsafe-eval'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; img-src 'self' data: https:; font-src 'self' data: https: https://fonts.gstatic.com; connect-src 'self' https://*.supabase.co wss://*.supabase.co https://ve1.provinet.net https://ipinfo.io; frame-ancestors 'none';"
+		-Server
+	}
+
+	try_files {path} /index.html
+	file_server
+}
